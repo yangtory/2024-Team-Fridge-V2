@@ -1,0 +1,29 @@
+doctype html
+html(lang="ko")
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta( name='viewport', content='width=device-width, initial-scale=1')
+    title= title
+    link(rel='stylesheet', href='/css/main.css')
+    link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.15.2/css/all.css", integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu", crossorigin="anonymous")
+    script(src="/js/main.js")
+
+  body
+    header.setting
+      a(href='/setting')
+        i.fa.fa-cog 
+          
+    block content
+    nav.control
+      ul 
+        li
+          a(href='/calendar')
+            i.fa.fa-calendar.check
+        li.home
+          a(href='/')
+            i.fa.fa-home
+        li
+          a(href='/alarm')
+            i.fa.fa-bell 
+    
