@@ -3,8 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   btn.addEventListener("click", (e) => {
     const target = e.target;
-    if (target.innerHTML === "BUTTON") {
-      alert(target.innerHTML);
+    const value = target.value;
+    if (value === "장바구니") {
+      alert();
     }
   });
 });

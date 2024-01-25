@@ -59,7 +59,7 @@ div.btn_box {
   justify-content: center;
 }
 
-div.btn_box button {
+div.btn_box a {
   font-size: 1.2rem;
   text-decoration: none;
   color: #4e4e4e;
@@ -69,14 +69,15 @@ div.btn_box button {
   padding: 1em 2em;
   margin: 1rem;
   box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  background-color: #fff;
 }
 
-button:active {
+div.btn_box a:active {
   box-shadow: #422800 2px 2px 0 0;
   transform: translate(1px, 1px);
 }
 
-button:hover {
+div.btn_box a:hover {
   background-color: #fff;
 }
 
