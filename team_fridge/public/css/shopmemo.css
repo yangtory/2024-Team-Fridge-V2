@@ -1,0 +1,193 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
+}
+html {
+  height: 100vh;
+}
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  list-style: none;
+}
+
+div.body {
+  height: 100%;
+  background-color: #e7e5e5;
+  border-radius: 15px;
+
+  color: #4e4e4e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  section.box {
+    width: 90%;
+    height: 90%;
+    background-color: #f4f4f4;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    /* border: 1px solid red; */
+    p {
+      margin: 10px;
+      /* border: 1px solid red; */
+      height: 25px;
+    }
+    section.input {
+      display: flex;
+      justify-content: center;
+      div {
+        /* border: 1px solid red; */
+        margin: 10px;
+      }
+
+      div.name {
+        width: 50%;
+      }
+      div.amount {
+        width: 20%;
+        display: inline-block;
+        white-space: nowrap;
+
+        button {
+          border: none;
+          padding: 0 4px;
+          border-radius: 50%;
+          background-color: #a7cba2;
+          color: #f4f4f4;
+          &:hover {
+            background-color: #858585;
+          }
+        }
+      }
+    }
+  }
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  /* visibility: hidden; */
+  margin: 0;
+}
+
+div.body input {
+  font-size: 15px;
+  width: 100%;
+  background-color: inherit;
+  border: none;
+  border-bottom: 1px solid #4e4e4e;
+  padding: 3px;
+}
+
+div.body input.amount {
+  width: 50%;
+}
+
+section.stiky button,
+button.addmemo {
+  font-size: 15px;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #a7cba2;
+  color: #f4f4f4;
+}
+
+section.stiky {
+  margin-top: auto;
+  bottom: 0;
+  padding: 10px;
+  /* border: 1px solid red; */
+
+  button {
+    margin: 10px;
+  }
+  button.delete:hover {
+    background-color: red;
+  }
+}
+
+section.stiky button:hover,
+button:hover {
+  background-color: #858585;
+}
+
+section.list {
+  width: 70%;
+  /* flex: 1; */
+  border-radius: 15px;
+  margin-top: 20px;
+  background-color: #ffffff22;
+  overflow: auto;
+  border: 1px solid red;
+
+  ul {
+    list-style: none;
+  }
+  li {
+    cursor: pointer;
+    font-size: 1rem;
+    border-bottom: 1px solid #85858545;
+
+    /* 브라우저 호환성을 위한 설정 */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    padding: 0.4rem;
+
+    transition: 1s;
+
+    display: flex;
+  }
+  li:hover {
+    background-color: #dddddd50;
+    border-radius: 15px;
+  }
+
+  li.complete {
+    background-color: #ccc;
+    border-radius: 15px;
+  }
+
+  li.complete span.todo {
+    text-decoration: line-through;
+    color: #ddd;
+  }
+  /* li tag 에 컴플리트 클래스가 없으면 스팬.컴플리트에 속성 적용하기 */
+  li:not(.complete) span.complete {
+    visibility: hidden;
+  }
+}
+
+span.complete {
+  padding: 5px;
+  margin: 0 5px;
+  color: red;
+}
+
+span.todo {
+  flex: 1;
+}
+span.close {
+  border-radius: 5px;
+  font-size: 1.2rem;
+  padding: 0 5px;
+}
+span.close:hover {
+  color: red;
+}
