@@ -1,0 +1,5 @@
+fridge 라우터에 요 문장좀 추가부탁드려요
+
+router.get("/shopmemo", (req, res) => {
+  return res.render("fridge/shopmemo");
+});
