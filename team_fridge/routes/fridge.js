@@ -10,4 +10,8 @@ router.get("/add_fridge", (req, res) => {
   return res.render("fridge/add_fridge");
 });
 
+router.get("/shopmemo", (req, res) => {
+  return res.render("fridge/shopmemo");
+});
+
 export default router;
