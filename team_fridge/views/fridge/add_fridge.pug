@@ -1,3 +1,19 @@
 extends ../layout_home
 
 block content
+    link(rel="stylesheet", href="/css/fridge/add_fridge.css")
+    div.body
+        section    
+            form.add 
+                h1 냉장고 추가
+                div.photo
+                    label.photo(for="choosefile") 사진등록
+                    input.add.photo(id="choosefile" type="file" accept="image/*")
+                div.select
+                    select(id="tem" name="select_fridge")
+                        option(value="freeze") 냉동
+                        option(value="cold") 냉장   
+                        option(value="outside") 실외  
+
+
+
