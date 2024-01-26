@@ -6,4 +6,18 @@ router.get("/", (req, res) => {
   return res.render("alarm/alarm");
 });
 
+// router.get("/:foodName/detail", async (req, res) => {
+//   const foodName = req.params.foodName;
+//   try {
+//     const row = await fridge.findByPk(foodName);
+//     return res.render("alarm/detail", { food: row });
+//   } catch (error) {
+//     return res.json(error);
+//   }
+// });
+router.get("/detail", (req, res) => {
+  return res.render("alarm/detail");
+  return res.send("디테일화면입니다");
+});
+
 export default router;

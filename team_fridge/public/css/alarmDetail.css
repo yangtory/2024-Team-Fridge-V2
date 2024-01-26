@@ -130,33 +130,29 @@ div.body section {
     margin: 10px;
   }
 }
-table.foodTable {
-  border-collapse: collapse;
+div.name {
+  width: 70%;
+  margin: 0px auto;
+  padding: 15px;
+  border-bottom: 1px solid #858585;
+}
+div.detail {
+  padding: 16px;
+  font-size: 1.2rem;
+  margin: 12px auto;
   width: 80%;
-  margin: 10pt auto;
+  strong {
+    padding: 20px;
+    font-weight: 900;
+  }
+  span {
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    padding: 12px;
+  }
 }
-
-th,
-td {
-  border-right: 2px solid #85c58a;
-  border-bottom: 2px solid #85c58a;
-  padding: 12px 16px;
-  text-align: center;
-}
-th {
-  border-top: 2px solid #85c58a;
-  background-color: #eee;
-}
-
-tr {
-  background-color: #eee;
-}
-tr:hover {
-  cursor: pointer;
-  background-color: #ddd;
-}
-
-th:nth-last-of-type(1),
-td:nth-last-of-type(1) {
-  border-right: 0;
+div.divBox {
+  width: 80%;
+  height: 80%;
+  margin: auto;
+  background-color: #f4f4f4;
 }
