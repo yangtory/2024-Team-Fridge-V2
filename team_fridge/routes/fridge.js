@@ -14,4 +14,8 @@ router.get("/shopmemo", (req, res) => {
   return res.render("fridge/shopmemo");
 });
 
+router.post("/frilist", (req, res) => {
+  return res.render("fridge/list_fridge");
+});
+
 export default router;

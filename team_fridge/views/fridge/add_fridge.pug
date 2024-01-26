@@ -4,16 +4,23 @@ block content
     link(rel="stylesheet", href="/css/fridge/add_fridge.css")
     div.body
         section    
-            form.add 
+            form.add(method="POST")
                 h1 냉장고 추가
-                div.photo
-                    label.photo(for="choosefile") 사진등록
-                    input.add.photo(id="choosefile" type="file" accept="image/*")
+                div.add
+                    div.photo
+                        label.photo(for="selectfile") 사진등록
+                            input.add.photo(id="selectfile" type="file" accept="image/*")
                 div.select
-                    select(id="tem" name="select_fridge")
-                        option(value="freeze") 냉동
-                        option(value="cold") 냉장   
-                        option(value="outside") 실외  
+                    input(type="button" name="fresh" value="냉장")
+                    input(type="button" name="cold" value="냉동")
+                    input(type="button" name="out" value="실외")
+                div.input
+                    input(name="fr_name" placeholder="냉장고 이름을 입력하세요")
+                    input(name="fr_memo" placeholder="메모를 입력하세요")
+                div.btn
+                    input(type="submit" value="추가")
+
+
 
 
 

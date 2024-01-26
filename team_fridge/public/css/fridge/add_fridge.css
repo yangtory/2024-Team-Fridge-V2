@@ -31,12 +31,10 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
 }
 form {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
   height: 90%;
   width: 80%;
 }
@@ -44,18 +42,18 @@ form {
 h1 {
   text-align: center;
   font-size: 2rem;
-  margin: 15px;
+  margin: 3px 8px;
 }
 
 div.photo {
-  background-color: #e7e5e5;
+  background-color: white;
   border-radius: 15px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #4e4e4e;
-  border: 1pxx solid black;
+  padding: 9rem;
 }
 
 label.photo {
@@ -67,12 +65,64 @@ label.photo {
   cursor: pointer;
 }
 
-input.add {
+input.add.photo {
   display: none;
 }
 
-select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
+div.select {
+  width: 100%;
+  text-align: center;
+  margin: 8px auto;
+  background-color: white;
+  border-radius: 15px;
+
+  input {
+    padding: 0.5rem 2rem;
+    margin: 8px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    background-color: white;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #4e4e4e;
+    transition: 0.3s;
+
+    &:hover {
+      border-bottom: 2px solid #858585;
+    }
+
+    &:focus {
+      border-bottom: 2px solid #858585;
+    }
+  }
+}
+
+div.input input {
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  margin: 8px 0;
+  border: none;
+  border-radius: 10px;
+}
+
+div.btn {
+  text-align: center;
+  height: 100%;
+
+  input {
+    font-size: 1rem;
+    text-decoration: none;
+    color: #4e4e4e;
+    cursor: pointer;
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 1em 2em;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    background-color: #fff;
+    &:active {
+      box-shadow: #422800 2px 2px 0 0;
+      transform: translate(1px, 1px);
+    }
+  }
 }
