@@ -1,0 +1,68 @@
+extends ../layout_home
+
+
+
+block content
+    link(rel="stylesheet", href="/css/calendar.css")
+    script(src="/js/calendar.js")
+    div.container
+        section
+            div.date
+                p.prev &#60;
+                p#year(data-year  ,name= "year") 
+                p#month(data-month , name = "month") 
+                p.next &#62;
+            div.weekend
+                div sun
+                div mon
+                div tus
+                div wen
+                div thi
+                div fri
+                div sat
+            div.days
+                div.day
+                    div 
+                    div 1
+                    div 2
+                    div 3
+                    div 4
+                    div 5
+                    div 6
+                div.day
+                    div 7
+                    div 8
+                    div 9
+                    div 10
+                    div 11
+                    div 12
+                    div 13
+                div.day
+                    div 14
+                    div 15
+                    div 16
+                    div 17
+                    div 18
+                    div 19
+                    div 20
+                div.day
+                    div 21
+                    div 22
+                    div 23
+                    div 24
+                    div 25
+                    div 26
+                    div 27
+                div.day
+                    div 28
+                    div 29
+                    div 30
+                    div 31
+                    div 
+                    div 
+                    div 
+            div.list
+                ul
+                    li 1
+                    li 2
+                    li 3
