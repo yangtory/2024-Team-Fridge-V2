@@ -84,6 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // alert(next_date);
     if (month.innerHTML === "13") {
       month.innerHTML = 1;
+      year.innerHTML++;
     }
   });
 
