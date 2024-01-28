@@ -130,6 +130,7 @@ div.body section {
     margin: 10px;
   }
 }
+
 div.name {
   width: 70%;
   margin: 0px auto;
@@ -137,22 +138,52 @@ div.name {
   border-bottom: 1px solid #858585;
 }
 div.detail {
+  display: flex;
+  justify-content: center;
   padding: 16px;
   font-size: 1.2rem;
-  margin: 12px auto;
-  width: 80%;
+  margin: 6px auto;
+  width: 70%;
+  white-space: nowrap;
   strong {
-    padding: 20px;
+    background-color: #a7cba2;
+    text-align: center;
+    flex: 1;
+    margin-right: 20px;
+    /* border-right 색 변경좀.. */
+    border-right: 1px solid rgb(150, 150, 150);
+    padding: 12px;
     font-weight: 900;
   }
   span {
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    flex: 4;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
     padding: 12px;
   }
 }
 div.divBox {
   width: 80%;
-  height: 80%;
+  height: 90%;
   margin: auto;
   background-color: #f4f4f4;
+}
+div.btnBox {
+  display: flex;
+  justify-content: center;
+  button {
+    margin: 12px 16px;
+    padding: 10px 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+  }
+  button.update {
+    background-color: #a7cba2;
+  }
+  button.delete {
+    background-color: rgb(201, 112, 112);
+  }
+  button.list {
+    background-color: #568ffa;
+  }
 }

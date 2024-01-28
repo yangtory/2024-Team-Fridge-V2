@@ -152,8 +152,10 @@ tr {
   background-color: #eee;
 }
 tr:hover {
-  cursor: pointer;
   background-color: #ddd;
+}
+td {
+  cursor: pointer;
 }
 
 th:nth-last-of-type(1),
