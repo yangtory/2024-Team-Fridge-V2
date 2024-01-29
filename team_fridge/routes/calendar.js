@@ -1,4 +1,4 @@
-import express from "express";
+import express, { json } from "express";
 
 const router = express.Router();
 
@@ -7,9 +7,9 @@ router.get("/", (req, res) => {
 });
 
 router.get(`/:day/detail`, (req, res) => {
-  const param = req.params.day;
+  const row = req.params.day;
 
-  return res.render("./calendar/detail.pug", [param]);
+  return res.render("./calendar/detail.pug", { row: [row] });
 });
 
 export default router;
