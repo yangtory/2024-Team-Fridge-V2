@@ -15,8 +15,40 @@ div.container {
     height: 100%;
     flex: 1;
     flex-wrap: wrap;
+    overflow: scroll;
+
     /* display: flex;
     flex-direction: column; */
+    .box {
+      margin-top: 2rem;
+      text-align: center;
+      position: relative;
+
+      .when {
+        position: sticky;
+        top: 0;
+        color: white;
+        font-size: large;
+      }
+      .list {
+        div {
+          padding: 1rem;
+          border-bottom: 1px solid transparent;
+          p {
+            color: #4e4e4e;
+            display: inline-block;
+            border-right: 1px solid white;
+
+            padding: 1rem;
+            width: 25%;
+          }
+          &:hover p {
+            cursor: pointer;
+            color: white;
+          }
+        }
+      }
+    }
   }
 }
 

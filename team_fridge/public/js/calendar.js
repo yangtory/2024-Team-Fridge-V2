@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
   days.addEventListener("click", (e) => {
     const target = e.target;
     if (target.innerText) {
-      document.location.href = `/calendar/:${[year.innerHTML, month.innerText, target.innerHTML]}/detail`;
+      document.location.href = `/calendar/${[year.innerHTML, month.innerText, target.innerHTML]}/detail`;
     }
   });
 });
