@@ -17,7 +17,10 @@ router.get("/", (req, res) => {
 // });
 router.get("/detail", (req, res) => {
   return res.render("alarm/detail");
-  return res.send("디테일화면입니다");
+});
+
+router.get("/fridge_list", (req, res) => {
+  return res.render("alarm/fridge_list");
 });
 
 export default router;

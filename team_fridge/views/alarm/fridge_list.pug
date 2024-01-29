@@ -1,0 +1,26 @@
+extends ../layout_home
+
+block content
+    link(rel="stylesheet", href="/css/fridge_list.css")
+
+    div.body 
+        section 
+            div.btn_myRef 
+                button.myRef ??냉장고
+            div.btn_group 
+                button 전체
+                button 실외
+                button 냉장
+                button 냉동
+            
+            div.food
+                ul 
+                    div.li
+                        li 음식이름 :  
+                        span food.name
+                    div.li
+                        li 수량 : 
+                        span food.count
+                    div.li
+                        li 구매일자 : 
+                        span food.buy
