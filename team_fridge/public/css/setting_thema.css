@@ -1,0 +1,91 @@
+/* 컬러서클 */
+:root[color-theme="light"] {
+  --background1: #e7e5e5;
+  --background2: #f4f4f4;
+  --background3: #a7cda2;
+  --boxColor: #4e4e4e;
+  --boxColor2: #4e4e4e;
+  --boxColor3: #858585;
+}
+
+:root[color-theme="dark"] {
+  --background1: #363535;
+  --background2: #474646;
+  --background3: #97b992;
+  --boxColor: #bdb8b8;
+  --boxColor2: #a09e9e;
+  --boxColor3: #7e7b7b;
+}
+/* 설정창 */
+div.main {
+  background: var(--background1);
+}
+
+li {
+  color: var(--boxColor);
+  border-bottom: var(--boxColor);
+}
+
+div.body li {
+  border-bottom: 1px solid var(--boxColor2);
+}
+
+section,
+div.control {
+  background: var(--background2);
+}
+
+div.main header i,
+div.control li {
+  color: var(--boxColor2);
+}
+
+div li.add {
+  color: var(--background3);
+}
+
+.themed {
+  display: block;
+  width: 10em;
+  height: 10em;
+  background: var(--boxColor);
+  color: var(--background);
+}
+
+/* 설정 버튼 */
+.switch_label,
+.switch_label:hover {
+  background: var(--background2);
+  border: 2px solid var(--background3);
+}
+
+.onf_btn {
+  background: var(--background3);
+}
+#switch2:checked + .switch_label,
+#switch2:checked + .switch_label:hover,
+#switch1:checked + .switch_label,
+#switch1:checked + .switch_label:hover {
+  background: var(--background3);
+}
+#switch2:checked + .switch_label .onf_btn,
+#switch1:checked + .switch_label .onf_btn {
+  background: var(--background2);
+}
+
+/* 로그인 창 */
+.login_body h2 {
+  color: var(--boxColor);
+}
+
+article.login_body button {
+  background: var(--background3);
+}
+
+article.login_body input {
+  border: 2px solid var(--boxColor3);
+}
+
+article.login_body input:focus {
+  border: 2px solid var(--boxColor2);
+}
