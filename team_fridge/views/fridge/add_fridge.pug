@@ -10,19 +10,20 @@ block content
                 div.add
                     div.photo
                         label.photo(for="selectfile") 사진등록
-                            input.add.photo(id="selectfile" name="photo" value=`${FRI.fr_photo}` type="file" accept="image/*")
+                            input.add.photo(id="selectfile" name="f_photo" type="file" accept="image/*")
                 div.select
                     div.add.error
-                    input#fresh(type="button" name="fresh" value=`${FRI.fr_fresh}`)
-                    input#cold(type="button" name="cold" value=`${FRI.fr_cold}`)
-                    input#out(type="button" name="out" value=`${FRI.fr_out}`)
+                    label#fresh(for="selecttem" value="fresh") 냉장
+                    label#cold(for="selecttem" value="cold") 냉동
+                    label#out(for="selecttem" value="out") 실외
+                        input.add.select(id="selecttem" name="f_div")
                 div.input
                     div.add.error
-                    input#f_name(name="f_name" value=`${FRI.fr_name}` placeholder="냉장고 이름을 입력하세요")
+                    input#f_name(name="f_name" placeholder="냉장고 이름을 입력하세요")
                     input#f_memo(name="f_memo" placeholder="메모를 입력하세요")
                 div.btn
                     div.add.error
-                    input#f_btn(type="submit" value="추가")
+                    input#f_btn(type="submit")
 
 
 

@@ -9,21 +9,24 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const f_photo = document.querySelector("#selectfile");
-  const f_fresh = document.querySelector("#fresh");
-  const f_cold = document.querySelector("#cold");
-  const f_out = document.querySelector("#out");
   const f_name = document.querySelector("#f_name");
   const f_memo = document.querySelector("#f_memo");
   const form = document.querySelector("form.add");
   const f_btn = document.querySelector("#f_btn");
   const error_divs = document.querySelectorAll("div.add.error");
-  const select = document.querySelector("div.select");
+  const select_box = document.querySelector("div.select");
 
-  select.addEventListener("click", (e) => {
-    const target = e.target;
-    const value = target.value;
-    if (value === "냉장") {
-      alert("클릭");
+  select_box.addEventListener("click", (e) => {
+    const target = e.target.innerText;
+    const select_input = document.querySelector("#selecttem");
+    if (target === "냉장") {
+      select_input.value = "fresh";
+    }
+    if (target === "냉동") {
+      select_input.value = "cold";
+    }
+    if (target === "실외") {
+      select_input.value = "out";
     }
   });
 

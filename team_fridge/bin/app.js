@@ -19,7 +19,7 @@ import logger from "morgan";
 // import router modules
 import indexRouter from "../routes/index.js";
 import usersRouter from "../routes/users.js";
-import fidgeRouter from "../routes/fridge.js";
+import fridgeRouter from "../routes/fridge.js";
 import calendarRouter from "../routes/calendar.js";
 import alarmRouter from "../routes/alarm.js";
 import settingRouter from "../routes/setting.js";
@@ -47,7 +47,7 @@ app.use(express.static(path.join("public")));
 // router link enable, link connection
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.use("/fridge", fidgeRouter);
+app.use("/fridge", fridgeRouter);
 app.use("/calendar", calendarRouter);
 app.use("/alarm", alarmRouter);
 app.use("/setting", settingRouter);
