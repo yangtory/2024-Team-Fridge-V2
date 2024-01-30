@@ -1,16 +1,19 @@
 import express from "express";
-import DB from "../setting_config/mysql.js";
+import DB from "../config/mysql.js";
 
 const router = express.Router();
 
-let dbConn = null;
-
-DB.init().then((connection) => {
-  dbConn = connection;
-});
+const dbConn = DB.init();
 
 router.get("/", (req, res) => {
-  res.render("setting/setting");
+  const sql = " SELECT * FROM tbl_user ";
+  dbConn.query(sql, (err, result) => {
+    if (err) {
+      return res.json(err);
+    } else {
+      return res.render("setting/setting", { userId: result });
+    }
+  });
 });
 
 router.get("/login", (req, res) => {
@@ -22,20 +25,19 @@ router.get("/join", (req, res) => {
 });
 
 router.post("/join", (req, res) => {
-  const sql = " INSERT INTO tbl_user SET ? ";
-  const params = {
-    username: req.body.username,
-    userid: req.body.userid,
-    password: req.body.password,
-  };
-  dbConn
-    .query(sql, params)
-    .then((_) => {
+  const username = req.body.username;
+  const userid = req.body.userid;
+  const password = req.body.password;
+
+  const params = [username, userid, password];
+  const sql = " INSERT INTO tbl_user(ps_name, ps_id, ps_pw) " + " VALUES( ?,?,? ) ";
+  dbConn.query(sql, params, (err, result) => {
+    if (err) {
+      return res.json(err);
+    } else {
       return res.redirect("/setting/login");
-    })
-    .catch((err) => {
-      return res.render(err);
-    });
+    }
+  });
 });
 
 export default router;
