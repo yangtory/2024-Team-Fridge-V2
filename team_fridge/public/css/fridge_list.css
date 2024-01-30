@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  height: 95%;
+}
+
+li {
+  list-style: none;
+}
+
+div.body {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+}
+div.body section {
+  width: 90%;
+  height: 90%;
+  margin: 40px auto;
+  background-color: #a7cba2;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+div li,
+div span {
+  font-size: 1.5rem;
+  color: #4e4e4e;
+}
+div.body h2 {
+  text-align: center;
+}
+
+div.btn_myRef {
+  /* border: 1px solid blue; */
+  text-align: center;
+}
+div button.myRef {
+  /* border: 1px solid red; */
+  width: 95%;
+  font-size: 12px;
+}
+div.btn_group {
+  text-align: center;
+}
+button {
+  width: 20%;
+
+  font-size: 15px;
+  text-decoration: none;
+  color: #4e4e4e;
+  cursor: pointer;
+  border: 2px solid;
+  border-radius: 10px;
+  padding: 0.8rem;
+  margin: 0.3rem;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+}
+button:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(1px, 1px);
+}
+div.food {
+  border: 1px solid black;
+  display: flex;
+  padding: 20px;
+  margin: 30px auto;
+  width: 80%;
+  justify-content: center;
+
+  background-color: #e7e5e5;
+  &:hover {
+    background-color: #aaa;
+    cursor: pointer;
+  }
+  ul {
+    width: 80%;
+  }
+
+  li {
+    font-size: 1.5rem;
+    color: #4e4e4e;
+  }
+}
+div.li {
+  padding: 6px;
+  display: flex;
+
+  li {
+    text-align: right;
+    flex: 1;
+    margin-right: 8px;
+    /* border: 1px solid gray; */
+  }
+  span {
+    /* border: 1px solid red; */
+    flex: 1;
+  }
+}
+
+section btn.add {
+  display: flex;
+  justify-content: center;
+}

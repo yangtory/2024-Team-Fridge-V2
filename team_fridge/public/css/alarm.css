@@ -1,0 +1,164 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  height: 95%;
+}
+
+li {
+  list-style: none;
+}
+
+div.main {
+  background-color: #e7e5e5;
+  border-radius: 15px;
+  height: 100%;
+}
+
+div.main header {
+  display: flex;
+  justify-content: end;
+}
+
+div.main header i {
+  font-size: 1.2rem;
+  margin: 10px 15px;
+  color: #4e4e4e;
+  cursor: pointer;
+}
+
+div.main header i:hover {
+  color: #b6b3b3;
+}
+
+div.main section li {
+  color: white;
+  padding: 30px;
+  margin: 20px;
+  border-bottom: 1px solid #858585;
+
+  cursor: pointer;
+  display: flex;
+  transition: 0.8s;
+}
+div.main section li:hover {
+  color: #4e4e4e;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
+span.date {
+  flex: 1;
+}
+div.body {
+  height: 90%;
+  color: #4e4e4e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.main div.line li {
+  flex: 1;
+  padding: 15px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+div.main span.close {
+  color: #4e4e4e;
+}
+div.main span.close:hover {
+  color: white;
+}
+
+div.control {
+  font-size: 30px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  height: 10%;
+}
+
+div.control ul {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+div li.home {
+  font-size: 55px;
+  margin-bottom: 4rem;
+  color: #a7cba2;
+}
+
+div li {
+  font-size: 1.5rem;
+  color: #4e4e4e;
+}
+
+div li:hover {
+  color: #858585;
+}
+
+div.body section {
+  width: 90%;
+  height: 90%;
+  margin: 40px auto;
+  background-color: #a7cba2;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  h2 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 10px;
+  }
+}
+table.foodTable {
+  border-collapse: collapse;
+  width: 80%;
+  margin: 10pt auto;
+}
+
+th,
+td {
+  border-right: 2px solid #85c58a;
+  border-bottom: 2px solid #85c58a;
+  padding: 12px 16px;
+  text-align: center;
+}
+th {
+  border-top: 2px solid #85c58a;
+  background-color: #eee;
+}
+
+tr {
+  background-color: #eee;
+}
+tr:hover {
+  background-color: #ddd;
+}
+td {
+  cursor: pointer;
+}
+
+th:nth-last-of-type(1),
+td:nth-last-of-type(1) {
+  border-right: 0;
+}

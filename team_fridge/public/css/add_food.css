@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
+}
+html {
+  height: 100vh;
+}
+body {
+  height: 95%;
+}
+
+div.body {
+  height: 90%;
+  color: #4e4e4e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section {
+  background-color: #a7cba2;
+  width: 90%;
+  height: 90%;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  width: 80%;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 3px 8px;
+}
+
+div.photo {
+  background-color: white;
+  border-radius: 15px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4e4e4e;
+  padding: 9rem;
+}
+
+label.photo {
+  font-size: 1rem;
+  color: #858585;
+  padding: 12px;
+  border: 2px solid #858585;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+input.add.photo {
+  display: none;
+}
+
+div.select {
+  width: 100%;
+  text-align: center;
+  margin: 8px auto;
+  background-color: white;
+  border-radius: 15px;
+
+  input {
+    padding: 0.5rem 2rem;
+    margin: 8px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    background-color: white;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #4e4e4e;
+    transition: 0.3s;
+
+    &:hover {
+      border-bottom: 2px solid #858585;
+    }
+
+    &:focus {
+      border-bottom: 2px solid #858585;
+    }
+  }
+}
+
+div.input input {
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  margin: 8px 0;
+  border: none;
+  border-radius: 10px;
+}
+
+div.btn {
+  text-align: center;
+  height: 100%;
+
+  input {
+    font-size: 1rem;
+    text-decoration: none;
+    color: #4e4e4e;
+    cursor: pointer;
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 1em 2em;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    background-color: #fff;
+    &:active {
+      box-shadow: #422800 2px 2px 0 0;
+      transform: translate(1px, 1px);
+    }
+  }
+}
