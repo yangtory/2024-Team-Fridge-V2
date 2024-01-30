@@ -1,0 +1,14 @@
+extends ../layout_home
+block content
+    link(rel="stylesheet", href="/css/setting.css")
+    link(rel="stylesheet", href="/css/setting_login.css")
+    div.main
+      div.body
+        section.main
+          article.login_body
+            h2 회원가입
+            form(method="post")
+              input(name="username" placeholder="닉네임")
+              input(name="userid" placeholder="아이디")
+              input(id="password" name="password" placeholder="비밀번호" type="password")
+              button.btn_login(type="submit") 회원가입
