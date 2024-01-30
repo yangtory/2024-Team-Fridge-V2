@@ -84,9 +84,14 @@ div.food {
   justify-content: center;
 
   background-color: #e7e5e5;
+  &:hover {
+    background-color: #aaa;
+    cursor: pointer;
+  }
   ul {
     width: 80%;
   }
+
   li {
     font-size: 1.5rem;
     color: #4e4e4e;
@@ -106,4 +111,9 @@ div.li {
     /* border: 1px solid red; */
     flex: 1;
   }
+}
+
+section btn.add {
+  display: flex;
+  justify-content: center;
 }
