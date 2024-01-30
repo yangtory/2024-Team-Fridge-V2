@@ -89,10 +89,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // day 부분을 눌렀을때 디테일 화면으로 전환
-  days.addEventListener("click", (e) => {
+  days.addEventListener("click", async (e) => {
     const target = e.target;
+    let url = `/calendar/${[year.innerHTML + "-" + month.innerHTML + "-" + target.innerHTML]}/detail`;
+
+    if (`${[month.innerHTML.length]}` === "1") {
+      url = `/calendar/${[year.innerHTML + "-0" + month.innerHTML + "-" + target.innerHTML]}/detail`;
+    }
+    if (`${[target.innerHTML.length]}` === "1") {
+      url = `/calendar/${[year.innerHTML + "-0" + month.innerHTML + "-0" + target.innerHTML]}/detail`;
+    }
     if (target.innerText) {
-      document.location.href = `/calendar/${[year.innerHTML, month.innerText, target.innerHTML]}/detail`;
+      //  document.location.href = `/calendar/${[year.innerHTML + "-" + month.innerHTML + "-" + target.innerHTML]}/detail`;
+      document.location.href = url;
     }
   });
 });
