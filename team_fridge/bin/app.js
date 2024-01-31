@@ -55,6 +55,11 @@ app.use(
     },
   })
 );
+app.use("/users", usersRouter);
+app.use("/fridge", fridgeRouter);
+app.use("/calendar", calendarRouter);
+app.use("/alarm", alarmRouter);
+app.use("/setting", settingRouter);
 
 app.use((req, res, next) => {
   res.locals = req.session;
@@ -62,11 +67,6 @@ app.use((req, res, next) => {
 });
 // router link enable, link connection
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
-app.use("/fridge", fridgeRouter);
-app.use("/calendar", calendarRouter);
-app.use("/alarm", alarmRouter);
-app.use("/setting", settingRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
