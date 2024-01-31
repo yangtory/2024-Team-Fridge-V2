@@ -1,1 +1,47 @@
-승희 push 테스트
+extends ../layout_home
+
+block content
+      link(rel="stylesheet", href="/css/alarm.css")
+      script(src="/js/alarm.js")
+      div.body
+            section 
+                  div 
+                        h2 임박 품목을 확인하세요
+                  table.foodTable 
+                        thead 
+                              tr 
+                                    th 음식
+                                    th 유통기한
+                                    
+                        tbody 
+                              tr 
+                                    td 음식1
+                                    td 음식1 유통기한
+                              tr 
+                                    td 음식2
+                                    td 음식2 유통기한
+                              tr 
+                                    td 음식3
+                                    td 음식3 유통기한
+                              tr 
+                                    td 음식4
+                                    td 음식4 유통기한
+                              
+                              //- db연결했을경우 사용할 코드
+                              //- each food in foods
+                              //-       tr(data-foodName = `${food.name}`) 
+                              //-             td= food.name
+                              //-             td= food.date
+                              //-       tr 
+                              //-             td= food.name
+                              //-             td= food.date
+                              //-       tr 
+                              //-             td= food.name
+                              //-             td= food.date
+                              //-       tr 
+                              //-             td= food.name
+                              //-             td= food.date                           
+            
+
+            
+      

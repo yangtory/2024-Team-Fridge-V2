@@ -1,0 +1,26 @@
+extends ../layout_home
+
+block content
+    link(rel="stylesheet", href="/css/fridge/add_fridge.css")
+    div.body
+        section    
+            form.add(method="POST")
+                h1 음식 추가
+                div.add
+                    
+                div.select
+                    input(type="button" name="fresh" value="냉장")
+                    input(type="button" name="cold" value="냉동")
+                    input(type="button" name="out" value="실외")
+                div.input
+                    input(name="food" placeholder="음식 이름을 입력하세요")
+                    input(name="count" placeholder="수량을 입력하세요")
+                    input(name="date" placeholder="유통기한을 입력하세요")
+                    input(name="memo" placeholder="메모를 입력하세요")
+                div.btn
+                    input(type="submit" value="추가")
+
+
+
+
+
