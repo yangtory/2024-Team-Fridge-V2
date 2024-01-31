@@ -3,13 +3,13 @@ extends ../layout_home
 block content
     link(rel="stylesheet", href="/css/fridge/list_fridge.css")
     div.body
-        section.folder
-            ul
-                li 
         section.list 
             //- each item in FR
             ul 
-                li    
-                    div.list.photo 
-                    p.list.div 냉장
-                    p.list.name 정연냉장고
+                li
+                    a(href="/fridge_detail")     
+                        div.list.photo 
+                        span.list.div 냉장
+                        span.list.name 정연냉장고
+                div.list.btn
+                    a(href="/add_fridge") 냉장고추가 

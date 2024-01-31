@@ -16,9 +16,9 @@ router.get("/shopmemo", (req, res) => {
   return res.render("fridge/shopmemo");
 });
 
-// router.post("/add_fridge", (req, res) => {
-//   return res.render("fridge/list_fridge");
-// });
+router.get("/list_fridge", (req, res) => {
+  return res.render("fridge/list_fridge");
+});
 
 router.post("/add_fridge", (req, res) => {
   const f_photo = req.body.f_photo;
@@ -34,7 +34,7 @@ router.post("/add_fridge", (req, res) => {
     if (err) {
       return res.json(err);
     } else {
-      return res.render("fridge/list_fridge", { FR: result });
+      return res.redirect("/fridge/list_fridge");
     }
   });
 });
@@ -49,5 +49,9 @@ router.post("/add_fridge", (req, res) => {
 //     }
 //   });
 // });
+
+router.get("/fridge_detail", (req, res) => {
+  return res.render("alarm/fridge_detail");
+});
 
 export default router;

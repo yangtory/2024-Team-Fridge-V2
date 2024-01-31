@@ -79,11 +79,8 @@ div.select {
 
   label {
     cursor: pointer;
-    padding: 10px;
-  }
-
-  input {
-    display: none;
+    padding: 10px 3rem;
+    transition: 0.7s;
 
     &:hover {
       border-bottom: 2px solid #858585;
@@ -92,6 +89,10 @@ div.select {
     &:focus {
       border-bottom: 2px solid #858585;
     }
+  }
+
+  input {
+    display: none;
   }
 }
 

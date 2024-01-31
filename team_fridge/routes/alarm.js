@@ -23,9 +23,9 @@ router.get("/fridge_list", (req, res) => {
   return res.render("alarm/fridge_list");
 });
 
-router.get("/fridge_detail", (req, res) => {
-  return res.render("alarm/fridge_detail");
-});
+// router.get("/fridge_detail", (req, res) => {
+//   return res.render("alarm/fridge_detail");
+// });
 
 router.get("/add_food", (req, res) => {
   return res.render("alarm/add_food");

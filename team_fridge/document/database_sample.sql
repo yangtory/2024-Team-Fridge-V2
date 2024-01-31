@@ -1,11 +1,11 @@
 USE fridgeDB;
-DROP  TABLE tbl_food;
+DROP  TABLE tbl_fridge;
 CREATE TABLE tbl_fridge(
 f_num	INT		PRIMARY KEY  AUTO_INCREMENT,
 f_pnum	VARCHAR(12)		,
 f_snum	VARCHAR(125)	,
 f_name 	VARCHAR(10)	NOT NULL,
-f_div	VARCHAR(4)		,
+f_div	VARCHAR(10)		,
 f_memo	VARCHAR(125)		,
 f_photo	VARCHAR(255)		
 );
@@ -51,6 +51,7 @@ s_name	VARCHAR(125)	NOT NULL	,
 s_quan	INT	NOT NULL	
 );
 SHOW TABLES;
+SELECT * FROM tbl_fridge;
 
 -- ALTER TABLE tbl_fridge
 -- ADD CONSTRAINT FK_PCODE
