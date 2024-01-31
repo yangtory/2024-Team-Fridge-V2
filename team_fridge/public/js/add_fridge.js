@@ -1,13 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-<<<<<<< HEAD
-  const btn_add = document.querySelector("btn.add");
-  const food_detail = document.querySelector("div.food");
-  btn_add.addEventListener("click", () => {
-    document.location.href = "add_food";
-  });
-  food_detail.addEventListener("click", () => {
-    document.location.href = "fridge_detail";
-  });
+  // const btn_add = document.querySelector("btn.add");
+  // const food_detail = document.querySelector("div.food");
+  // btn_add.addEventListener("click", () => {
+  //   document.location.href = "add_food";
+  // });
+  // food_detail.addEventListener("click", () => {
+  //   document.location.href = "fridge_detail";
+  // });
 
   //   const btn_update = document.querySelector("button.update");
   //   const btn_delete = document.querySelector("button.delete");
@@ -24,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
   //   btn_list.addEventListener("click", () => {
   //     document.location.href = "/alarm/fridge_list";
   //   });
-=======
   F_INDEX = {
     F_PHOTO: 0,
     F_FRESH: 1,
@@ -65,5 +63,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     form.submit();
   });
->>>>>>> 6411976dd82cbfc2b96f8a9fe64614855afcc0c1
 });
