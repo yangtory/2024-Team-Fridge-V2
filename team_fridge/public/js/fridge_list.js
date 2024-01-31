@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.location.href = "add_food";
   });
   food_detail.addEventListener("click", () => {
-    document.location.href = "fridge_detail";
+    document.location.href = "/fridge/fridge_detail";
   });
 
   const btn_update = document.querySelector("button.update");

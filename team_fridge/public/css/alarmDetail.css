@@ -22,47 +22,6 @@ li {
   list-style: none;
 }
 
-div.main {
-  background-color: #e7e5e5;
-  border-radius: 15px;
-  height: 100%;
-}
-
-div.main header {
-  display: flex;
-  justify-content: end;
-}
-
-div.main header i {
-  font-size: 1.2rem;
-  margin: 10px 15px;
-  color: #4e4e4e;
-  cursor: pointer;
-}
-
-div.main header i:hover {
-  color: #b6b3b3;
-}
-
-div.main section li {
-  color: white;
-  padding: 30px;
-  margin: 20px;
-  border-bottom: 1px solid #858585;
-
-  cursor: pointer;
-  display: flex;
-  transition: 0.8s;
-}
-div.main section li:hover {
-  color: #4e4e4e;
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
-}
-
-span.date {
-  flex: 1;
-}
 div.body {
   height: 90%;
   color: #4e4e4e;

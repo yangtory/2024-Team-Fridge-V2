@@ -50,8 +50,11 @@ router.post("/add_fridge", (req, res) => {
 //   });
 // });
 
-router.get("/fridge_detail", (req, res) => {
-  return res.render("alarm/fridge_detail");
+router.get("/fridge_list", (req, res) => {
+  return res.render("fridge/fridge_list");
 });
 
+router.get("/fridge_detail", (req, res) => {
+  return res.render("fridge/fridge_detail");
+});
 export default router;
