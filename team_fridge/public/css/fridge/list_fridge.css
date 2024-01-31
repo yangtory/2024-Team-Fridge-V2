@@ -18,7 +18,6 @@ li {
 }
 
 div.body {
-  border: 1px solid black;
   height: 90%;
   color: #4e4e4e;
   display: flex;
@@ -37,6 +36,11 @@ section.list {
   border-radius: 15px;
   display: flex;
   flex-direction: column;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 section.list li {

@@ -4,12 +4,12 @@ block content
     link(rel="stylesheet", href="/css/fridge/list_fridge.css")
     div.body
         section.list 
-            //- each item in FR
             ul 
-                li
-                    a(href="fridge_list/")     
-                        div.list.photo 
-                        span.list.div 냉장
-                        span.list.name 정연냉장고
+                each item in FR
+                    li
+                        a(href="fridge_list/")     
+                            div.list.photo= item.f_photo
+                            span.list.div= item.f_div
+                            span.list.name= item.f_name
                 div.list.btn
                     a(href="add_fridge/") 냉장고추가 

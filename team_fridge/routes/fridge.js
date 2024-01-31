@@ -17,7 +17,14 @@ router.get("/shopmemo", (req, res) => {
 });
 
 router.get("/list_fridge", (req, res) => {
-  return res.render("fridge/list_fridge");
+  const sql = " SELECT * FROM tbl_fridge ";
+  dbConn.query(sql, (err, result) => {
+    if (err) {
+      return res.json();
+    } else {
+      return res.render("fridge/list_fridge", { FR: result });
+    }
+  });
 });
 
 router.post("/add_fridge", (req, res) => {
@@ -39,13 +46,13 @@ router.post("/add_fridge", (req, res) => {
   });
 });
 
-// router.get("/list_firdge", (req, res) => {
+// router.get("/add_fridge", (req, res) => {
 //   const sql = " SELECT * FROM tbl_fridge";
 //   dbCreate.query(sql, (err, result) => {
 //     if (err) {
 //       return res.json();
 //     } else {
-//       return res.json();
+//       return res.render("fridge/list_fridge");
 //     }
 //   });
 // });
