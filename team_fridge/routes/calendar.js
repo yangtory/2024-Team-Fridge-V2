@@ -3,7 +3,7 @@ import DB from "../config/mysql.js";
 const router = express.Router();
 const dbConn = DB.init();
 router.get("/", (req, res) => {
-  const sql = " SELECT * FROM tbl_item ";
+  const sql = " SELECT * FROM tbl_food ";
   dbConn.query(sql, (err, result) => {
     if (err) {
       return res.json(err);
@@ -18,7 +18,7 @@ router.get("/", (req, res) => {
 router.get(`/:day/detail`, (req, res) => {
   const row = req.params.day;
   const params = [row];
-  const sql = " SELECT * FROM tbl_item WHERE i_date = ? ";
+  const sql = " SELECT * FROM tbl_food WHERE p_date = ? ";
   dbConn.query(sql, params, (err, result) => {
     if (err) {
       return res.json(err);
