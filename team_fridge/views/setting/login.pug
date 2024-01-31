@@ -9,8 +9,8 @@ block content
         section.main
           article.login_body
             h2 로그인
-            form.login(method="post")
-              input.userid(name="userid" placeholder="아이디")
-              input.password(id="password" name="password" placeholder="비밀번호" type="password")
+            form(method="post")
+              input(name="userid" placeholder="아이디")
+              input(id="password" name="password" placeholder="비밀번호" type="password")
               button.btn_login(type="button") 로그인
               button.btn_join(type="button") 회원가입
