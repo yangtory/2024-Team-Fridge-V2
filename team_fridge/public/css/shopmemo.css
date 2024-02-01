@@ -17,29 +17,117 @@ body {
   flex-direction: column;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  /* visibility: hidden; */
+  margin: 0;
+}
+
+div.body{
+  background-color: #e7e5e5;
+  border-radius: 15px;
+
+  color: #4e4e4e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+  overflow: hidden;
+}
+
 table.cartlist {
   margin: 20px auto;
   white-space: nowrap;
   border-collapse: collapse;
-  border-top: 3px solid #bbb;
-  border-bottom: 3px solid #bbb;
+  border-radius: 20px;
+  
+  /*border: 1px solid red;*/
 }
-
 td {
-  border-bottom: 1px solid #bbb;
   padding: 12px 16px;
   text-align: center;
 }
-
+tr{
+  border: 1px solid red;
+  margin: 3px 0;
+background-color: #f4f4f4;
+}
 tr:hover {
   cursor: pointer;
-  background-color: #f5f5f5;
+  background-color: #e7e5e5;
 }
 
-td:nth-last-of-type(1) {
-  border-right: none;
+section.box{
+  width: 90%;
+  height: 90%;
+  background-color: #f4f4f4;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
 }
 
-div.book {
-  text-align: right;
+div{
+  text-align: center;
+ /*border: 1px solid red;*/
+  margin: 10px;
+  .box{
+    display: flex;
+      justify-content: center;
+  }
+
+
+  .amount{
+    display: flex;
+    text-align: right;
+    
+  }
+}
+
+div.name {
+  width: 50%;
+}
+div.amount {
+  width: 20%;
+  display: flex;
+  /* display: inline-block; */
+  white-space: nowrap;
+
+  div {
+    border: none;
+    padding: 0 4px;
+    border-radius: 50%;
+    background-color: #a7cba2;
+    color: #f4f4f4;
+    &:hover {
+      background-color: #858585;
+    }
+  }}
+  div.body input.amount {
+    width: 50%;
+  }
+
+
+  div.btn_box {
+    margin-top: auto;
+    bottom: 0;
+    padding: 10px;
+    /* border: 1px solid red; */
+  
+    button {
+      margin: 10px;
+    }
+    button.delete:hover {
+      background-color: red;
+    }
+  }
+
+  .cartlist{
+    width: 70%;
+    max-height: 300px; /* 적절한 높이 설정 */
+    overflow: auto; /* 수직 스크롤 설정 */
 }

@@ -9,26 +9,31 @@ block content
             form.listInput(method="POST") 
                 div.box 
                     div.name
-                        input.name(id="t_name",placeholder="살것")
+                        input.name(name="t_name",placeholder="살것")
                     div.amount
                         div.plus +
-                        input.amount(type="number", min="1", placeholder="수량")
+                        input.amount(name="t_quan",type="number", min="1", placeholder="수량")
                         div.minus -
-            button.addmemo
-                a(href="/fridge/shopmemo") 추가
+                button(type="button").addmemo 추가
             //- 장바구니 리스트
-            table.cartlist 
-                if templist && templist.length > 0  
-                    each item,index in templist 
-                        tr 
-                            td= item.t_name 
-                            td= item.t_quan
-                else
-                    tr
-                        td(colspan='2') 장보기 목록을 추가해주세요!
+            table.cartlist
+                tbody 
+                    if templist && templist.length > 0  
+                        each item in templist 
+                            tr 
+                                td= " ✓ "
+                                td= item.t_name 
+                                td= " - "
+                                td= item.t_quan
+                                td= "개 "
+                                td= " X "
+                    else
+                        tr
+                            td(colspan='5') 장보기 목록을 추가해주세요!
                 
             div.btn_box
-                button.delete 전체삭제
+                button.delete
+                    a(href="/shopmemo/deleteAll")  전체삭제
                 button.save 저장
        
 

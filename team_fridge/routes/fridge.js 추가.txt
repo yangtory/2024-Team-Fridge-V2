@@ -1,20 +1,46 @@
 
 // route/fridge.js 파일에 해당 내용 추가부탁드립니다.
+router.get("/shopmemo", (req, res) => {
+  return res.render("fridge/shopmemo");
+});
+
+이부분 없애주시고 거기에 밑의 코드 입력부탁드려요
 //-----------
 
 
-router.post("/shopmemo", (req, res) => {
-  const todo1 = req.body.todo1;
-  const todo2 = req.body.todo2;
-
-  const params = [todo1, todo2];
-  const sql = "INSERT INTO tbl_shopping (s_name, s_quan) VALUES (?, ?)";
-
-  connection.query(sql, params, (err, result) => {
+router.get("/shopmemo", (req, res) => {
+  const sql = " SELECT * FROM tbl_templist";
+  dbConn.query(sql, (err, result) => {
     if (err) {
-      return res.json(err);
+      return res.json();
+    } else {
+      return res.render("fridge/shopmemo", { templist: result });
+    }
+  });
+});
+router.post("/shopmemo", (req, res) => {
+
+  const t_name = req.body.t_name;
+  const t_quan = req.body.t_quan;
+  const params = [t_name, t_quan];
+  const sql = "INSERT INTO tbl_templist (t_name, t_quan) VALUES (?, ?)";
+  dbConn.query(sql, params, (err, result) => {
+    if (err) {
+      return console.error(err);
+    } else{
+      return res.redirect("/fridge/shopmemo");
     }
   });
 });
 
+router.get("/shopmemo/deleteAll",(req, res) => {
+   const sql = " TRUNCATE tbl_templist";
+ dbConn.query(sql, (err, result) => {
+    if (err) {
+      return res.json();
+    } else {
+      return res.redirect("/fridge/shopmemo");
+    }
+  });
+});
 //--------------
