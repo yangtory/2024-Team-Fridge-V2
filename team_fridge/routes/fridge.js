@@ -74,6 +74,7 @@ router.get("/:p_num/fridge_detail", (req, res) => {
 });
 
 router.get("/add_food", (req, res) => {
-  return res.render("fridge/add_food");
+  return res.render("/fridge/add_food");
 });
+
 export default router;
