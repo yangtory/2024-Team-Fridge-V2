@@ -61,3 +61,8 @@ article.login_body button.btn_logout:hover {
   border: 2px solid #97bb92;
   background-color: #97bb92;
 }
+.join_body {
+  display: flex;
+  flex-direction: column;
+  width: inherit;
+}
