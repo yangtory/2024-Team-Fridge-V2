@@ -40,8 +40,20 @@ router.get("/add_food", (req, res) => {
   return res.render("alarm/add_food");
 });
 
-// router.post("/fridge_list/add_food", (req, res) => {
-//   return res.redirect("alarm/add_food");
-// });
+router.get("/:p_num/delete", (req, res) => {
+  const p_num = req.params.p_num;
+  const sql = " DELETE FROM tbl_food WHERE p_num = ? ";
+  dbConn.query(sql, [p_num], (err, result) => {
+    if (err) {
+      return res.json(err);
+    } else {
+      return res.redirect("/alarm");
+    }
+  });
+});
+
+router.get("/:p_num/update", (req, res) => {
+  return res.render("alarm/update");
+});
 
 export default router;

@@ -23,9 +23,9 @@ block content
                 strong 수량
                 span=item.p_quan
                       
-              div.btnBox
-                button.update 수정
-                button.delete 삭제
+              div.btnBox(data-p_num= `${item.p_num}`)
+                button.update(data-p_num= `${item.p_num}`) 수정
+                button.delete(data-p_num= `${item.p_num}`) 삭제
                 button.list 목록으로
 
 

@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   btn_delete.addEventListener("click", () => {
     if (confirm("음식정보를 삭제할까요?")) {
-      document.location.href = "/fridge_list/delete";
+      document.location.href = "/fridge/fridge_list";
     }
   });
   btn_list.addEventListener("click", () => {
