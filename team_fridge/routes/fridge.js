@@ -15,6 +15,30 @@ router.get("/add_fridge", (req, res) => {
 router.get("/shopmemo", (req, res) => {
   return res.render("fridge/shopmemo");
 });
+//-----------
+router.get("/shopmemo", (req, res) => {
+  const sql = "SELECT * FROM tbl_templist";
+  dbConn.query(sql, (err, result) => {
+    if (err) {
+      return res.json(err);
+    } else {
+      return res.render("fridge/shopmemo", { templist: result });
+    }
+  });
+});
+router.post("/shopmemo", (req, res) => {
+  const { todo1, todo2 } = req.body; // 요청 본문에서 todo1과 todo2 추출
+
+  const sql = "INSERT INTO tbl_shopping (s_name, s_quan) VALUES (?, ?)";
+
+  connection.query(sql, [todo1, todo2], (err, result) => {
+    if (err) {
+      return console.error(err);
+    }
+  });
+});
+
+//--------------
 
 router.get("/list_fridge", (req, res) => {
   const sql = " SELECT * FROM tbl_fridge ";

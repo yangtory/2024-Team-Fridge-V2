@@ -103,22 +103,17 @@ document.addEventListener("DOMContentLoaded", () => {
       const liTag = target.closest("LI");
       liTag?.classList.toggle("complete");
 
-      //li tag 내용추출
-      const todoContent = liTag.textContent.trim();
-
-      alert("서버에 저장중...");
-      // 데이터 전송
-      fetch("/saveToDatabase", {
-        // 서버의 해당 경로로 요청을 보냅니다.
-        method: "POST", // POST 방식으로 데이터를 전송합니다.
+      fetch("/fridge/shopmemo", {
+        // 서버의 해당 경로로 요청
+        method: "POST", // POST 방식으로 데이터를 전송
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ content: todoContent }), // JSON 형태로 데이터를 전송합니다.
+        body: JSON.stringify({ todo1, todo2 }), // JSON 형태로 데이터를 전송
       })
         .then((res) => {
           if (!res.ok) {
-            throw new Error("Failed to save data to the database.");
+            throw new Error("Error.response was not ok");
           }
           return res.json();
         })
