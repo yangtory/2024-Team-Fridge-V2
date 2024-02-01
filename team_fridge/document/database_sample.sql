@@ -3,7 +3,7 @@ DROP  TABLE tbl_fridge;
 CREATE TABLE tbl_fridge(
 f_num	INT		PRIMARY KEY  AUTO_INCREMENT,
 f_pnum	VARCHAR(12)		,
-f_snum	VARCHAR(125)	,
+f_snum	INT 	,
 f_name 	VARCHAR(10)	NOT NULL,
 f_div	VARCHAR(10)		,
 f_memo	VARCHAR(125)		,
@@ -45,11 +45,17 @@ INSERT INTO tbl_food
 (p_num , p_name , p_exdate, p_quan, p_date)
 VALUE ('0007','토마토','2024-10-01','50','2024-01-30');
 
-CREATE TABLE tbl_shopping
-(s_num	VARCHAR(125)		PRIMARY KEY,
-s_name	VARCHAR(125)	NOT NULL	,
-s_quan	INT	NOT NULL	
+CREATE TABLE tbl_shopping (
+    s_num INT AUTO_INCREMENT PRIMARY KEY,
+    s_name VARCHAR(125) NOT NULL,
+    s_quan INT NOT NULL
 );
+
+-- 외래키 설정
+ALTER TABLE tbl_fridge
+ADD CONSTRAINT FK_SCODE
+FOREIGN KEY (f_snum)
+REFERENCES tbl_shopping(s_num);
 SHOW TABLES;
 SELECT * FROM tbl_fridge;
 
@@ -57,4 +63,12 @@ SELECT * FROM tbl_fridge;
 -- ADD CONSTRAINT FK_PCODE
 -- FOREIGN KEY (f_pnum)
 -- REFERENCES tbl_food(p_num);
+
+CREATE TABLE tbl_user(
+    ps_name VARCHAR(35) NOT NULL,
+    ps_id VARCHAR(35) PRIMARY KEY,
+    ps_pw VARCHAR(35) NOT NULL
+);
+
+INSERT INTO tbl_user(ps_name, ps_id, ps_pw) VALUES('운영자', 'fridge', 'fridge');
 
