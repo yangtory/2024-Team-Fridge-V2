@@ -20,6 +20,8 @@ router.get("/login", (req, res) => {
   res.render("setting/login");
 });
 
+router.post("/login", (req, res) => {});
+
 router.get("/join", (req, res) => {
   res.render("setting/join");
 });
@@ -38,6 +40,11 @@ router.post("/join", (req, res) => {
       return res.redirect("/setting/login");
     }
   });
+});
+
+router.get("/logout", (req, res) => {
+  req.session.destroy();
+  return res.redirect("/");
 });
 
 export default router;
