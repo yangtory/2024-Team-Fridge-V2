@@ -31,6 +31,11 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 form {
   display: flex;
@@ -63,6 +68,7 @@ label.photo {
   border: 2px solid #858585;
   border-radius: 15px;
   cursor: pointer;
+  text-wrap: nowrap;
 }
 
 input.add.photo {
@@ -71,22 +77,29 @@ input.add.photo {
 
 div.select {
   width: 100%;
-  text-align: center;
-  margin: 8px auto;
-  padding: 15px;
+  margin: 5px auto;
+  padding: 10px;
   background-color: white;
   border-radius: 15px;
+  text-wrap: nowrap;
+  display: flex;
+  justify-content: space-around;
 
   label {
+    padding: 5px 20px;
     cursor: pointer;
-    padding: 10px 3rem;
     transition: 0.7s;
+    border-bottom: 2px solid transparent;
 
     &:hover {
       border-bottom: 2px solid #858585;
     }
 
-    &:focus {
+    &:before {
+      border-bottom: 2px solid transparent;
+    }
+
+    &:after {
       border-bottom: 2px solid #858585;
     }
   }
@@ -110,7 +123,7 @@ div.btn {
   height: 100%;
 
   input {
-    font-size: 1rem;
+    font-size: 0.8rem;
     text-decoration: none;
     color: #4e4e4e;
     cursor: pointer;

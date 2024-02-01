@@ -12,6 +12,7 @@ import createError from "http-errors";
 import path from "path";
 import helmet from "helmet";
 import session from "express-session";
+import mysql from "mysql2/promise"; /** */
 
 // 3rd party lib modules
 import cookieParser from "cookie-parser";
@@ -55,6 +56,34 @@ app.use(
     },
   })
 );
+
+// MySQL 연결 정보 //** */
+const pool = mysql.createPool({
+  host: "localhost",
+  port: "3306",
+  user: "root",
+  password: "!Biz8080",
+  database: "fridgedb",
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
+});
+// 클라이언트로부터의 POST 요청을 처리하는 라우트
+app.post("/saveToDatabase", async (req, res) => {
+  try {
+    const { content } = req.body; // 클라이언트가 보낸 데이터
+
+    // 데이터베이스에 데이터 삽입 쿼리 실행
+    const [rows, fields] = await pool.query("INSERT INTO tbl_shopping (s_name) VALUES (?)", [content]);
+
+    // 쿼리 실행 결과를 클라이언트로 응답
+    res.status(200).json({ success: true, message: "Data inserted successfully." });
+  } catch (error) {
+    console.error("Error inserting data:", error);
+    res.status(500).json({ success: false, message: "Failed to insert data." });
+  }
+});
+
 app.use("/users", usersRouter);
 app.use("/fridge", fridgeRouter);
 app.use("/calendar", calendarRouter);
