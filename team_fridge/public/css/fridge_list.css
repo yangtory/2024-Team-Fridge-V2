@@ -75,11 +75,18 @@ button:active {
   box-shadow: #422800 2px 2px 0 0;
   transform: translate(1px, 1px);
 }
+section {
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
 div.food {
   border: 1px solid black;
   display: flex;
+  flex-direction: column;
   padding: 20px;
-  margin: 30px auto;
+  margin: 8px auto;
   width: 80%;
   justify-content: center;
 
@@ -100,6 +107,8 @@ div.food {
 div.li {
   padding: 6px;
   display: flex;
+
+  flex-direction: column;
 
   li {
     text-align: right;
