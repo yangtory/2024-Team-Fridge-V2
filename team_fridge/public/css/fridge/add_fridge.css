@@ -86,7 +86,11 @@ div.select {
       border-bottom: 2px solid #858585;
     }
 
-    &:focus {
+    &:before {
+      border-bottom: 2px solid transparent;
+    }
+
+    &:after {
       border-bottom: 2px solid #858585;
     }
   }

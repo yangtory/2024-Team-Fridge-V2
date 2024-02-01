@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
     F_MEMO: 5,
   };
 
-  const f_photo = document.querySelector("#selectfile");
   const f_name = document.querySelector("#f_name");
   const f_memo = document.querySelector("#f_memo");
   const form = document.querySelector("form.add");
@@ -20,13 +19,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const target = e.target.innerText;
     const select_input = document.querySelector("#selecttem");
     if (target === "냉장") {
-      select_input.value = "fresh";
+      select_input.value = "냉장고";
     }
     if (target === "냉동") {
-      select_input.value = "cold";
+      select_input.value = "냉동고";
     }
     if (target === "실외") {
-      select_input.value = "out";
+      select_input.value = "실외";
     }
   });
 
@@ -37,6 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
       f_name.select();
       return false;
     }
+    // let f_photo = document.querySelector("#selectfile");
+
     form.submit();
   });
 });

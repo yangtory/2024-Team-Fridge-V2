@@ -93,12 +93,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const target = e.target;
     let url = `/calendar/${[year.innerHTML + "-" + month.innerHTML + "-" + target.innerHTML]}/detail`;
 
-    if (`${[month.innerHTML.length]}` === "1") {
+    if (`${[month.innerHTML.length]}` === "2" && `${[target.innerHTML.length]}` === "1") {
+      url = `/calendar/${[year.innerHTML + "-" + month.innerHTML + "-0" + target.innerHTML]}/detail`;
+    } else if (`${[month.innerHTML.length]}` === "1" && `${[target.innerHTML.length]}` === "1") {
+      url = `/calendar/${[year.innerHTML + "-0" + month.innerHTML + "-0" + target.innerHTML]}/detail`;
+    } else if (`${[month.innerHTML.length]}` === "1" && `${[target.innerHTML.length]}` === "2") {
       url = `/calendar/${[year.innerHTML + "-0" + month.innerHTML + "-" + target.innerHTML]}/detail`;
     }
-    if (`${[target.innerHTML.length]}` === "1") {
-      url = `/calendar/${[year.innerHTML + "-0" + month.innerHTML + "-0" + target.innerHTML]}/detail`;
-    }
+
     if (target.innerText) {
       //  document.location.href = `/calendar/${[year.innerHTML + "-" + month.innerHTML + "-" + target.innerHTML]}/detail`;
       document.location.href = url;
