@@ -4,32 +4,29 @@ block content
       link(rel="stylesheet", href="/css/alarmDetail.css")
       script(src="/js/detail.js")
       div.body
-            section 
-                div.divBox
-                  div.name
-                    h2.line 음식이름
-                
-                  div.detail
-                    strong 식품설명
-                    span 식품이름 food.name
-                  div.detail
-                    strong 등록날짜
-                    span 등록날짜적기 food.inputDate
-                  div.detail
-                    strong 유통 기한
-                    span 유통 기한 food.date
-                  div.detail
-                    strong 저장방법
-                    span 실내실외상온 food.save
-                  div.detail
-                    strong 수량
-                    span 식품개수 food.count
-                    
-                  div.btnBox
-                  
-                    button.update 수정
-                    button.delete 삭제
-                    button.list 목록으로
+        section 
+          each item in result   
+            div.divBox(data-p_num= `${item.p_num}`)
+              div.detail
+                strong 식품설명
+                span=item.p_name
+              div.detail
+                strong 등록날짜
+                span=item.p_date
+              div.detail
+                strong 유통 기한
+                span=item.p_exdate
+              div.detail
+                strong 저장방법
+                span
+              div.detail
+                strong 수량
+                span=item.p_quan
+                      
+              div.btnBox
+                button.update 수정
+                button.delete 삭제
+                button.list 목록으로
 
 
 
