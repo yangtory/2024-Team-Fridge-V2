@@ -24,15 +24,14 @@ router.get("/", (req, res) => {
 //   }
 // });
 router.get("/:p_num/detail", (req, res) => {
-  const f_num = req.params.p_num;
+  const p_num = req.params.p_num;
   const sql = " SELECT * FROM tbl_food WHERE p_num = ? ";
-  const params = [f_num];
+  const params = [p_num];
   dbConn.query(sql, params, (err, result) => {
     if (err) {
       return res.json(err);
     } else {
-      // return res.json(result);
-      return res.render("alarm/detail", { result: result[0] });
+      return res.render("alarm/detail", { result: result });
     }
   });
 });

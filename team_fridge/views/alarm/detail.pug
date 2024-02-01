@@ -5,11 +5,8 @@ block content
       script(src="/js/detail.js")
       div.body
         section 
-          each item,index in result
+          each item in result   
             div.divBox(data-p_num= `${item.p_num}`)
-              div.name
-                h2.line=item.p_name
-                  
               div.detail
                 strong 식품설명
                 span=item.p_name
@@ -21,7 +18,7 @@ block content
                 span=item.p_exdate
               div.detail
                 strong 저장방법
-                span 실내실외상온 food.save
+                span
               div.detail
                 strong 수량
                 span=item.p_quan

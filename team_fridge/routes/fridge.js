@@ -51,10 +51,31 @@ router.post("/add_fridge", (req, res) => {
 // });
 
 router.get("/fridge_list", (req, res) => {
-  return res.render("fridge/fridge_list");
+  const sql = " SELECT * FROM tbl_food ";
+
+  dbConn.query(sql, (err, result) => {
+    if (err) {
+      return res.json(err);
+    } else {
+      // return res.json(result[0]);
+      return res.render("fridge/fridge_list", { food: result });
+    }
+  });
 });
 
-router.get("/fridge_detail", (req, res) => {
-  return res.render("fridge/fridge_detail");
+router.get("/:p_num/fridge_detail", (req, res) => {
+  const p_num = req.params.p_num;
+  const params = [p_num];
+  const sql = " SELECT * FROM tbl_food WHERE p_num = ? ";
+
+  dbConn.query(sql, params, (err, result) => {
+    if (err) {
+      return res.json(err);
+    } else {
+      // return res.json(result);
+      return res.render("fridge/fridge_detail", { FOOD: result });
+    }
+  });
+  // return res.render("fridge/fridge_detail");
 });
 export default router;
