@@ -99,9 +99,37 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         return false;
       }
-
+      // 장바구니 목록 체크표시
       const liTag = target.closest("LI");
       liTag?.classList.toggle("complete");
+
+      //li tag 내용추출
+      const todoContent = liTag.textContent.trim();
+
+      alert("서버에 저장중...");
+      // 데이터 전송
+      fetch("/saveToDatabase", {
+        // 서버의 해당 경로로 요청을 보냅니다.
+        method: "POST", // POST 방식으로 데이터를 전송합니다.
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ content: todoContent }), // JSON 형태로 데이터를 전송합니다.
+      })
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Failed to save data to the database.");
+          }
+          return res.json();
+        })
+        .then((data) => {
+          console.log(data);
+          // 서버로부터의 응답 처리
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          // 에러 처리
+        });
     } //end if
   }); //ul click event end
 
@@ -120,6 +148,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     if (target.className === "save") {
       alert("저장되었습니다.");
+    }
+  });
+
+  //클릭한 li에서 완료되면 데이터로
+  ulContent.addEventListener("click", (event) => {
+    const target = event.target;
+    if (target.tagName === "SPAN" && target.className === "complete") {
+      const liTag = target.closest("LI");
+      liTag?.classList.toggle("complete");
+
+      // li 태그의 내용 추출
+      const todoContent = liTag.textContent.trim();
+
+      // 데이터 전송
+      fetch("/saveToList", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ content: todoContent }),
+      })
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Failed to save data to the database.");
+          }
+          return res.json();
+        })
+        .then((data) => {
+          console.log(data);
+          // 서버로부터의 응답 처리
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          // 에러 처리
+        });
     }
   });
 });
