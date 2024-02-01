@@ -36,10 +36,6 @@ router.get("/:p_num/detail", (req, res) => {
   });
 });
 
-router.get("/add_food", (req, res) => {
-  return res.render("alarm/add_food");
-});
-
 router.get("/:p_num/delete", (req, res) => {
   const p_num = req.params.p_num;
   const sql = " DELETE FROM tbl_food WHERE p_num = ? ";

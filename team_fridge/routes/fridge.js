@@ -91,9 +91,12 @@ router.get("/:p_num/delete", (req, res) => {
     if (err) {
       return res.json(err);
     } else {
-      return res.redirect("fridge/fridge_list");
+      return res.redirect("/fridge/fridge_list");
     }
   });
 });
 
+router.get("/add_food", (req, res) => {
+  return res.render("fridge/add_food");
+});
 export default router;
