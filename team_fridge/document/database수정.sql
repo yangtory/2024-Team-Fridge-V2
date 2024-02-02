@@ -60,7 +60,7 @@ FOREIGN KEY (f_snum)
 REFERENCES tbl_shopping(s_num);
 
 SHOW TABLES;
-SELECT * FROM tbl_fridge;
+SELECT * FROM tbl_food;
 
 ALTER TABLE tbl_fridge
 ADD CONSTRAINT FK_PCODE
@@ -80,3 +80,4 @@ CREATE TABLE tbl_templist(
 
 INSERT INTO tbl_user(ps_name, ps_id, ps_pw) VALUES('운영자', 'fridge', 'fridge');
 
+SELECT f_pnum,
