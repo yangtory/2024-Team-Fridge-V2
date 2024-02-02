@@ -38,6 +38,7 @@ section {
   }
 }
 form {
+  /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
   height: 90%;
@@ -86,22 +87,12 @@ div.select {
   justify-content: space-around;
 
   label {
-    padding: 5px 20px;
+    /* border: 1px solid black; */
+    padding: 5px 30px;
     cursor: pointer;
-    transition: 0.7s;
-    border-bottom: 2px solid transparent;
-
-    &:hover {
-      border-bottom: 2px solid #858585;
-    }
-
-    &:before {
-      border-bottom: 2px solid transparent;
-    }
-
-    &:after {
-      border-bottom: 2px solid #858585;
-    }
+    transition: 0.3s;
+    /* background-color: transparent; */
+    border-radius: 10px;
   }
 
   input {

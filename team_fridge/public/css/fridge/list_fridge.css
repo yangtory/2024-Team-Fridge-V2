@@ -22,7 +22,7 @@ div.body {
   color: #4e4e4e;
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  /* margin: 10px; */
   align-items: center;
   justify-content: center;
   white-space: nowrap;
@@ -61,7 +61,13 @@ section.list li {
   }
 }
 
+div.btn {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
 div.btn a {
+  width: 20%;
   font-size: 12px;
   text-decoration: none;
   color: #4e4e4e;
@@ -69,7 +75,7 @@ div.btn a {
   border: 2px solid;
   border-radius: 10px;
   padding: 1em 1em;
-  margin: 10px 0;
+  margin: 10px;
   box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
   background-color: white;
 }
@@ -83,8 +89,4 @@ div.photo {
   justify-content: center;
   background-color: #858585;
   border-radius: 15px;
-}
-
-div.btn {
-  text-align: center;
 }

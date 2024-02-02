@@ -50,7 +50,7 @@ router.get("/:p_num/delete", (req, res) => {
 
 router.get("/:p_num/update", (req, res) => {
   const p_num = req.params.p_num;
-  const sql = " SELECT * FROM tbl_fridge WHERE p_num = ? ";
+  const sql = " SELECT * FROM tbl_food WHERE p_num = ? ";
   dbConn.query(sql, [p_num], (err, result) => {
     if (err) {
       return res.json(err);
@@ -65,12 +65,12 @@ router.post("/:p_num/update", (req, res) => {
   const p_date = req.body.p_date;
   const p_quan = req.body.p_quan;
   const params = [p_exdate, p_date, p_quan, p_num];
-  const sql = " UPDATE tbl_fridge SET p_exdate = ? , p_date = ? , p_quan = ? WHERE p_num = ? ";
+  const sql = " UPDATE tbl_food SET p_exdate = ? , p_date = ? , p_quan = ? WHERE p_num = ? ";
   dbConn.query(sql, params, (err, result) => {
     if (err) {
       return res.json(err);
     } else {
-      return res.render(`alarm/${p_num}/detail`);
+      return res.redirect(`/alarm/${p_num}/detail`);
     }
   });
 });
