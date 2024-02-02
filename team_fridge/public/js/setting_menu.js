@@ -7,8 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const menu_text = target.textContent;
       if (menu_text === "로그인") {
         document.location.href = "/setting/login";
+      } else if (menu_text === "로그아웃") {
+        document.location.href = "/setting";
       }
     }
+
     if (tagName === "BUTTON") {
       const menu_text = target.textContent;
       if (menu_text === "로그인") {
@@ -17,4 +20,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+  // const set_alam = document.querySelector("label.switch_label");
+  // var alam = "on";
+
+  // set_alam.addEventListener("click", (e) => {
+  //   if (alam === "on") {
+  //     alert("알람 on");
+  //     alam = "off";
+  //   } else if (alam === "off") {
+  //     alert("알람 off");
+  //   }
+  // });
 });

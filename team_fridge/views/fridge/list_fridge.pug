@@ -2,15 +2,16 @@ extends ../layout_home
 
 block content
     link(rel="stylesheet", href="/css/fridge/list_fridge.css")
+    script(src="/js/list_fridge.js")
     div.body
         section.list 
             div.list.btn
-                a(href="add_fridge/") 냉장고추가
+                a 냉장고추가
                 a(href="#") 냉장고삭제 
-            ul 
+            div.list.fridge
                 each item in FR
-                    li
-                        a(href="fridge_list/")     
+                    ul(data-num = `${item.f_num}`)
+                        li
                             div.list.photo= item.f_photo
                             span.list.div= item.f_div
                             span.list.name= item.f_name

@@ -16,6 +16,9 @@ div.container {
     flex: 1;
     flex-wrap: wrap;
     overflow: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     /* display: flex;
     flex-direction: column; */

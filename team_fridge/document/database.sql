@@ -1,10 +1,10 @@
 DROP DATABASE fridgeDB;
 CREATE DATABASE fridgeDB;
 USE fridgeDB;
-DROP  TABLE tbl_fridge;
+DROP  TABLE tbl_user;
 CREATE TABLE tbl_fridge(
 f_num	INT		PRIMARY KEY  AUTO_INCREMENT,
-f_pnum	VARCHAR(12)		,
+f_pnum	INT		,
 f_snum	INT 	,
 f_name 	VARCHAR(10)	NOT NULL,
 f_div	VARCHAR(10)		,
@@ -12,7 +12,7 @@ f_memo	VARCHAR(125)		,
 f_photo	VARCHAR(255)		
 );
 CREATE TABLE tbl_food(
-p_num	VARCHAR(12)		PRIMARY KEY,
+p_num	INT		PRIMARY KEY  AUTO_INCREMENT,
 p_name	VARCHAR(125)	NOT NULL,
 p_exdate	VARCHAR(12)	NOT NULL	,
 p_quan	INT	NOT NULL	,
@@ -61,22 +61,23 @@ REFERENCES tbl_shopping(s_num);
 SHOW TABLES;
 SELECT * FROM tbl_fridge;
 
--- ALTER TABLE tbl_fridge
--- ADD CONSTRAINT FK_PCODE
--- FOREIGN KEY (f_pnum)
--- REFERENCES tbl_food(p_num);
-
-CREATE TABLE tbl_user(
-    ps_name VARCHAR(35) NOT NULL,
-    ps_id VARCHAR(35) PRIMARY KEY,
-    ps_pw VARCHAR(35) NOT NULL
-);
+ALTER TABLE tbl_fridge
+ADD CONSTRAINT FK_PCODE
+FOREIGN KEY (f_pnum)
+REFERENCES tbl_food(p_num);
 
 CREATE TABLE tbl_templist(
-    t_quan INT AUTO_INCREMENT PRIMARY KEY,
+    t_num INT AUTO_INCREMENT PRIMARY KEY,
 	t_name VARCHAR(125) NOT NULL,
     t_quan INT NOT NULL
 );
 
-INSERT INTO tbl_user(ps_name, ps_id, ps_pw) VALUES('운영자', 'fridge', 'fridge');
-
+CREATE TABLE tbl_user(
+    ps_name VARCHAR(35) NOT NULL,
+    ps_id VARCHAR(35) PRIMARY KEY,
+    ps_pw VARCHAR(35) NOT NULL,
+    -- ps_role 추가
+    ps_role VARCHAR(5)
+);
+-- ps_role 추가
+INSERT INTO tbl_user(ps_name, ps_id, ps_pw , ps_role) VALUES('운영자', 'fridge', 'fridge','USER');

@@ -89,4 +89,5 @@ div.photo {
   justify-content: center;
   background-color: #858585;
   border-radius: 15px;
+  cursor: pointer;
 }
