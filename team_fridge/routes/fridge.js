@@ -67,11 +67,11 @@ router.post("/add_fridge", (req, res) => {
   const params = [f_photo, f_div, f_name, f_memo];
 
   const sql = "INSERT INTO tbl_fridge(f_photo, f_div, f_name, f_memo) " + " VALUES (?,?,?,?) ";
-  console.log(params);
   dbConn.query(sql, params, (err, result) => {
     if (err) {
       return res.json(err);
     } else {
+      console.log(params);
       return res.redirect("/fridge/list_fridge");
     }
   });
@@ -129,5 +129,23 @@ router.get("/:p_num/delete", (req, res) => {
 
 router.get("/add_food", (req, res) => {
   return res.render("fridge/add_food");
+});
+
+router.post("/add_food", (req, res) => {
+  // const f_div = req.body.f_div;
+  const p_name = req.body.p_name;
+  const p_quan = req.body.p_quan;
+  const p_exdate = req.body.p_exdate;
+  const p_date = req.body.p_date;
+  const sql = " INSERT INTO tbl_food(p_name,p_quan,p_exdate,p_date) " + " VALUES (?,?,?,?) ";
+  const params = [p_name, p_quan, p_exdate, p_date];
+
+  dbConn.query(sql, params, (err, result) => {
+    if (err) {
+      return res.json(err);
+    } else {
+      return res.redirect("/fridge/fridge_list");
+    }
+  });
 });
 export default router;
