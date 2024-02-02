@@ -61,25 +61,28 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   //===============
   const table = document.querySelector("table.cartlist");
-  const td_delete = document.querySelector("td.delete");
-  td_delete.addEventListener("click", (e) => {
-    alert("클릭함");
+  // const td_delete = document.querySelector("td.delete");
+  table.addEventListener("click", (e) => {
     const target = e.target;
-    if (target.tagName === "TD") {
+    if (target.className === "delete") {
+      if (confirm("정말 이 메모를 삭제할까요?")) {
+        const paTR = target.closest("TR");
+        const tds = paTR.querySelectorAll("TD");
+        const t_num = tds[1].innerText;
+        location.replace(`shopmemo/${t_num}/delete`);
+      }
+    } else {
+      return false;
+    }
+  });
+  // const td_add = document.querySelector("td.buy");
+  table.addEventListener("click", (e) => {
+    const target = e.target;
+    if (target.className === "buy") {
       const paTR = target.closest("TR");
       const tds = paTR.querySelectorAll("TD");
       const t_num = tds[1].innerText;
-      location.replace(`shopmemo/${t_num}/delete`);
+      location.replace(`shopmemo/${t_num}/add`);
     }
   });
-  // table.addEventListener("click", (e) => {
-  //   alert("클릭함");
-  //   const target = e.target;
-  //   if (target.tagName === "TD") {
-  //     const paTR = target.closest("TR");
-  //     const tds = paTR.querySelectorAll("TD");
-  //     const t_num = tds[1].innerText;
-  //     location.replace(`shopmemo/${t_num}/delete`);
-  //   }
-  // });
 });
