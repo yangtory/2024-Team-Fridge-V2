@@ -40,6 +40,15 @@ div.body {
 
   height: 100vh;
   overflow: hidden;
+
+  input {
+    font-size: 15px;
+    width: 100%;
+    background-color: inherit;
+    border: none;
+    border-bottom: 1px solid #4e4e4e;
+    padding: 3px;
+  }
 }
 
 table.cartlist {
@@ -55,9 +64,10 @@ td {
   text-align: center;
 }
 tr {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin: 3px 0;
   background-color: #f4f4f4;
+  border-bottom: 1px solid #85858545;
 }
 tr:hover {
   cursor: pointer;
@@ -75,6 +85,7 @@ section.box {
   justify-content: flex-start;
 }
 
+button,
 div {
   text-align: center;
   /*border: 1px solid red;*/
@@ -92,9 +103,13 @@ div {
 
 div.name {
   width: 50%;
+  input {
+    height: 2rem;
+  }
 }
 div.amount {
-  width: 20%;
+  height: 2rem;
+  width: 30%;
   display: flex;
   /* display: inline-block; */
   white-space: nowrap;
@@ -121,10 +136,23 @@ div.btn_box {
   /* border: 1px solid red; */
 
   button {
+    cursor: pointer;
     margin: 10px;
+    background-color: #a7cba2;
+    border: none;
+
+    font-size: 15px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #f4f4f4;
+  }
+  button.save:hover {
+    background-color: #858585;
+    border: none;
   }
   button.delete:hover {
     background-color: red;
+    border: none;
   }
 }
 
@@ -132,4 +160,16 @@ div.btn_box {
   width: 70%;
   max-height: 300px; /* 적절한 높이 설정 */
   overflow: auto; /* 수직 스크롤 설정 */
+}
+button.addmemo {
+  cursor: pointer;
+  font-size: 15px;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #a7cba2;
+  color: #f4f4f4;
+  &:hover {
+    background-color: #858585;
+  }
 }
