@@ -1,7 +1,7 @@
 DROP DATABASE fridgeDB;
 CREATE DATABASE fridgeDB;
 USE fridgeDB;
-DROP  TABLE tbl_fridge;
+DROP  TABLE tbl_user;
 CREATE TABLE tbl_fridge(
 f_num	INT		PRIMARY KEY  AUTO_INCREMENT,
 f_pnum	INT		,
@@ -66,17 +66,18 @@ ADD CONSTRAINT FK_PCODE
 FOREIGN KEY (f_pnum)
 REFERENCES tbl_food(p_num);
 
-CREATE TABLE tbl_user(
-    ps_name VARCHAR(35) NOT NULL,
-    ps_id VARCHAR(35) PRIMARY KEY,
-    ps_pw VARCHAR(35) NOT NULL
-);
-
 CREATE TABLE tbl_templist(
     t_num INT AUTO_INCREMENT PRIMARY KEY,
 	t_name VARCHAR(125) NOT NULL,
     t_quan INT NOT NULL
 );
 
-INSERT INTO tbl_user(ps_name, ps_id, ps_pw) VALUES('운영자', 'fridge', 'fridge');
-
+CREATE TABLE tbl_user(
+    ps_name VARCHAR(35) NOT NULL,
+    ps_id VARCHAR(35) PRIMARY KEY,
+    ps_pw VARCHAR(35) NOT NULL,
+    -- ps_role 추가
+    ps_role VARCHAR(5)
+);
+-- ps_role 추가
+INSERT INTO tbl_user(ps_name, ps_id, ps_pw , ps_role) VALUES('운영자', 'fridge', 'fridge','USER');
