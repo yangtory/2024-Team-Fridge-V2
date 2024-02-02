@@ -30,49 +30,6 @@ div.body {
   justify-content: center;
 }
 
-div.main div.line li {
-  flex: 1;
-  padding: 15px;
-  font-size: 1.5rem;
-  text-align: center;
-}
-
-div.main span.close {
-  color: #4e4e4e;
-}
-div.main span.close:hover {
-  color: white;
-}
-
-div.control {
-  font-size: 30px;
-  background-color: #f4f4f4;
-  border-radius: 10px;
-  height: 10%;
-}
-
-div.control ul {
-  height: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-div li.home {
-  font-size: 55px;
-  margin-bottom: 4rem;
-  color: #a7cba2;
-}
-
-div li {
-  font-size: 1.5rem;
-  color: #4e4e4e;
-}
-
-div li:hover {
-  color: #858585;
-}
-
 div.body section {
   width: 90%;
   height: 90%;
@@ -90,54 +47,57 @@ div.body section {
   }
 }
 
-div.name {
-  width: 70%;
-  margin: 0px auto;
-  padding: 15px;
-  border-bottom: 1px solid #858585;
-}
 div.detail {
   display: flex;
   justify-content: center;
   padding: 16px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin: 6px auto;
   width: 70%;
   white-space: nowrap;
+
   strong {
-    background-color: #a7cba2;
+    /* background-color: #a7cba2; */
     text-align: center;
     flex: 1;
     margin-right: 20px;
     /* border-right 색 변경좀.. */
     border-right: 1px solid rgb(150, 150, 150);
     padding: 12px;
-    font-weight: 900;
+    font-weight: 800;
   }
   span {
-    flex: 4;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+    flex: 2;
+    /* box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6); */
     padding: 12px;
   }
 }
 div.divBox {
-  width: 80%;
-  height: 90%;
-  margin: auto;
   background-color: #f4f4f4;
+  width: 80%;
+  height: 100%;
+  margin: 5px auto;
+}
+div.detail {
+  border-bottom: 1px solid #aaa;
 }
 div.btnBox {
   display: flex;
   justify-content: center;
+
   button {
     margin: 12px 16px;
     padding: 10px 16px;
     cursor: pointer;
     border: none;
     border-radius: 12px;
+
+    &:hover {
+      background-color: #eee !important;
+    }
   }
   button.update {
-    background-color: #a7cba2;
+    background-color: #e9e9ad;
   }
   button.delete {
     background-color: rgb(201, 112, 112);
