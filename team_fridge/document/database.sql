@@ -2,6 +2,7 @@ DROP DATABASE fridgeDB;
 CREATE DATABASE fridgeDB;
 USE fridgeDB;
 DROP  TABLE tbl_user;
+TRUNCATE tbl_fridge;
 CREATE TABLE tbl_fridge(
 f_num	INT		PRIMARY KEY  AUTO_INCREMENT,
 f_pnum	INT		,
