@@ -15,6 +15,16 @@ const join_btn_click_event = async () => {
     userid.select();
     return false;
   } else {
+    const response = await fetch(`/setting/${userid.value}/check`);
+    const json = await response.json();
+    if (json.MESSAGE === "FOUND") {
+      alert("이미 등록된 사용자 ID 입니다");
+      userid.select();
+      return false;
+    } else {
+      alert("사용가능한 사용자 ID 입니다");
+      password.select();
+    }
   }
   if (password.value === "") {
     alert("비밀번호를 입력해 주세요.");

@@ -1,5 +1,7 @@
 import express from "express";
 import DB from "../config/mysql.js";
+import db from "../models/index.js";
+const USER = db.models.tbl_user;
 
 const router = express.Router();
 
@@ -16,20 +18,20 @@ router.get("/", (req, res) => {
   });
 });
 
-router.get("/login", (req, res) => {
-  res.render("setting/login");
-});
-
-router.post("/login", (req, res) => {});
-
 router.get("/join", (req, res) => {
   res.render("setting/join");
 });
 
-router.post("/join", (req, res) => {
-  const username = req.body.username;
-  const userid = req.body.userid;
-  const password = req.body.password;
+router.post("/join", async (req, res) => {
+  const rows = await USER.findAll();
+  if (rows.length > 0) {
+    req.body.ps_role = "USER";
+  } else {
+    req.body.ps_role = "ADMIN";
+  }
+  const username = req.body.ps_name;
+  const userid = req.body.ps_id;
+  const password = req.body.ps_pw;
 
   const params = [username, userid, password];
   const sql = " INSERT INTO tbl_user(ps_name, ps_id, ps_pw) " + " VALUES( ?,?,? ) ";
@@ -42,6 +44,42 @@ router.post("/join", (req, res) => {
   });
 });
 
+// 됐다@!!!!!!!
+router.get("/:ps_id/check", async (req, res) => {
+  const userid = req.params.ps_id;
+  const row = await USER.findByPk(userid);
+  if (row) {
+    return res.json({ MESSAGE: "FOUND" });
+  } else {
+    return res.json({ MESSAGE: "NOT FOUND" });
+  }
+});
+
+router.get("/login", (req, res) => {
+  const message = req.query.fail;
+  return res.render("setting/login", { NEED: message });
+});
+
+const LOGIN_MESSAGE = {
+  USER_NOT: "사용자 ID 없음",
+  PASS_WRONG: " 비밀번호 오류",
+  NEED_LOGIN: "로그인 필요",
+};
+
+// 이거 안됨
+router.post("/login", async (req, res) => {
+  const userid = req.body.ps_id;
+  const password = req.body.ps_pw;
+  const result = await USER.findByPk(userid);
+  if (!result) {
+    return res.redirect(`/setting/login?fail=${LOGIN_MESSAGE.USER_NOT}`);
+  } else if (result.userid === userid && result.password !== password) {
+    return res.redirect(`/setting/login?fail=${LOGIN_MESSAGE.PASS_WRONG}`);
+  } else {
+    req.session.user = result;
+    return res.redirect("/setting");
+  }
+});
 router.get("/logout", (req, res) => {
   req.session.destroy();
   return res.redirect("/");
