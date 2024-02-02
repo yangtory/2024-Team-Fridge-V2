@@ -2,10 +2,9 @@ import express from "express";
 import DB from "../config/mysql.js";
 import db from "../models/index.js";
 const USER = db.models.tbl_user;
+const dbConn = DB.init();
 
 const router = express.Router();
-
-const dbConn = DB.init();
 
 router.get("/", (req, res) => {
   const sql = " SELECT * FROM tbl_user ";
@@ -26,6 +25,8 @@ router.post("/join", async (req, res) => {
   const rows = await USER.findAll();
   if (rows.length > 0) {
     req.body.ps_role = "USER";
+    const result = await USER.create(req.body);
+    return res.redirect("/setting/login");
   } else {
     req.body.ps_role = "ADMIN";
   }
@@ -44,7 +45,6 @@ router.post("/join", async (req, res) => {
   });
 });
 
-// 됐다@!!!!!!!
 router.get("/:ps_id/check", async (req, res) => {
   const userid = req.params.ps_id;
   const row = await USER.findByPk(userid);
@@ -66,20 +66,27 @@ const LOGIN_MESSAGE = {
   NEED_LOGIN: "로그인 필요",
 };
 
-// 이거 안됨
+// `npm install express-session` 해줘야 실행됨.
 router.post("/login", async (req, res) => {
   const userid = req.body.ps_id;
   const password = req.body.ps_pw;
   const result = await USER.findByPk(userid);
   if (!result) {
     return res.redirect(`/setting/login?fail=${LOGIN_MESSAGE.USER_NOT}`);
-  } else if (result.userid === userid && result.password !== password) {
+  } else if (result.ps_id === userid && result.ps_pw !== password) {
     return res.redirect(`/setting/login?fail=${LOGIN_MESSAGE.PASS_WRONG}`);
   } else {
+    // 로그아웃 창이 안나타남
     req.session.user = result;
-    return res.redirect("/setting");
+    return res.redirect("/setting/user");
+    // return res.render("setting/setting");
   }
 });
+
+router.get("/user", (req, res) => {
+  return res.render("setting/setting_out");
+});
+
 router.get("/logout", (req, res) => {
   req.session.destroy();
   return res.redirect("/");

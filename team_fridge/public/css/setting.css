@@ -28,6 +28,7 @@ div.body li {
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #4e4e4e;
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
 div li:hover {
