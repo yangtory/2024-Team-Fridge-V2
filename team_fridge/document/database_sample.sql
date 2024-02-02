@@ -67,8 +67,9 @@ SELECT * FROM tbl_fridge;
 CREATE TABLE tbl_user(
     ps_name VARCHAR(35) NOT NULL,
     ps_id VARCHAR(35) PRIMARY KEY,
-    ps_pw VARCHAR(35) NOT NULL
+    ps_pw VARCHAR(35) NOT NULL,
+    ps_role VARCHAR(5)
 );
 
-INSERT INTO tbl_user(ps_name, ps_id, ps_pw) VALUES('운영자', 'fridge', 'fridge');
+INSERT INTO tbl_user(ps_name, ps_id, ps_pw , ps_role) VALUES('운영자', 'fridge', 'fridge','USER');
 
