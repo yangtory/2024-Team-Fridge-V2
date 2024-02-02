@@ -22,18 +22,18 @@ block content
                         each item in templist 
                             tr 
                                 td= " ✓ "
+                                td.t_num= item.t_num 
                                 td= item.t_name 
                                 td= " - "
                                 td= item.t_quan
                                 td= "개 "
-                                td= " X "
+                                td.delete= " X "
                     else
                         tr
                             td(colspan='5') 장보기 목록을 추가해주세요!
                 
             div.btn_box
-                button.delete
-                    a(href="/shopmemo/deleteAll")  전체삭제
+                button.delete 전체삭제
                 button.save 저장
        
 

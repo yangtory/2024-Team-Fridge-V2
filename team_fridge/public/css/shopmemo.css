@@ -17,6 +17,11 @@ body {
   flex-direction: column;
 }
 
+/* 일련번호 숨기기 */
+td.t_num {
+  display: none;
+}
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -24,7 +29,7 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-div.body{
+div.body {
   background-color: #e7e5e5;
   border-radius: 15px;
 
@@ -42,24 +47,24 @@ table.cartlist {
   white-space: nowrap;
   border-collapse: collapse;
   border-radius: 20px;
-  
+
   /*border: 1px solid red;*/
 }
 td {
   padding: 12px 16px;
   text-align: center;
 }
-tr{
+tr {
   border: 1px solid red;
   margin: 3px 0;
-background-color: #f4f4f4;
+  background-color: #f4f4f4;
 }
 tr:hover {
   cursor: pointer;
   background-color: #e7e5e5;
 }
 
-section.box{
+section.box {
   width: 90%;
   height: 90%;
   background-color: #f4f4f4;
@@ -68,23 +73,20 @@ section.box{
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-
 }
 
-div{
+div {
   text-align: center;
- /*border: 1px solid red;*/
+  /*border: 1px solid red;*/
   margin: 10px;
-  .box{
+  .box {
     display: flex;
-      justify-content: center;
+    justify-content: center;
   }
 
-
-  .amount{
+  .amount {
     display: flex;
     text-align: right;
-    
   }
 }
 
@@ -106,28 +108,28 @@ div.amount {
     &:hover {
       background-color: #858585;
     }
-  }}
-  div.body input.amount {
-    width: 50%;
   }
+}
+div.body input.amount {
+  width: 50%;
+}
 
+div.btn_box {
+  margin-top: auto;
+  bottom: 0;
+  padding: 10px;
+  /* border: 1px solid red; */
 
-  div.btn_box {
-    margin-top: auto;
-    bottom: 0;
-    padding: 10px;
-    /* border: 1px solid red; */
-  
-    button {
-      margin: 10px;
-    }
-    button.delete:hover {
-      background-color: red;
-    }
+  button {
+    margin: 10px;
   }
+  button.delete:hover {
+    background-color: red;
+  }
+}
 
-  .cartlist{
-    width: 70%;
-    max-height: 300px; /* 적절한 높이 설정 */
-    overflow: auto; /* 수직 스크롤 설정 */
+.cartlist {
+  width: 70%;
+  max-height: 300px; /* 적절한 높이 설정 */
+  overflow: auto; /* 수직 스크롤 설정 */
 }

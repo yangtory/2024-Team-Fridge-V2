@@ -1,0 +1,17 @@
+
+// ============================
+
+router.get("/shopmemo/:t_num/delete", (req, res) => {
+  const t_num = req.params.t_num;
+  const sql = "DELETE FROM tbl_templist WHERE t_num = ?";
+
+  dbConn.query(sql, t_num, (err, result) => {
+    if (err) {
+      return res.json();
+    } else {
+      return res.redirect("/fridge/shopmemo");
+    }
+  });
+});
+
+// ============================
