@@ -5,8 +5,8 @@ block content
   script(src="/js/fridge_detail.js")
   div.body
     section
-      div.divBox
-        each item in FOOD
+      each item in FOOD
+        div.divBox(data-food = `${item.p_num}`)
           div.name
             h2.line=item.p_name
           div.detail
