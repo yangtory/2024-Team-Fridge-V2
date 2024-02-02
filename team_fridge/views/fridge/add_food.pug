@@ -1,0 +1,30 @@
+extends ../layout_home
+
+block content
+    link(rel="stylesheet", href="/css/fridge/add_food.css")
+    div.body
+        section    
+            h1 음식 추가  
+            form.add(method="POST")
+                
+                div.select
+                    label(for="select_div" value="냉장") 냉장
+                    label(for="select_div" value="냉동") 냉동
+                    label(for="select_div" value="실외") 실외
+                        input(id="select_div" name="f_div")
+                div.input
+                    if food
+                        input(name="p_name" placeholder="음식 이름을 입력하세요" value=`${food ? food.p_name : ""}`, readonly="readonly")
+                    else 
+                        input(name="p_name" placeholder="음식 이름을 입력하세요" value=`${food ? food.p_name : ""}`)
+                    input(name="p_date" placeholder="구매날짜를 입력하세요" value=`${food ? food.p_date : ""}`)
+                    input(name="p_exdate" placeholder="유통기한을 입력하세요" value=`${food ? food.p_exdate : ""}`)
+                    input(name="memo" placeholder="메모를 입력하세요")
+                    input(name="p_quan" placeholder="수량을 입력하세요" value=`${food ? food.p_quan : ""}`)
+                div.btn
+                    input(type=`${food ? "submit" : "button"}`, value =`${food ? "수정" : "추가"}`) 
+
+
+
+
+

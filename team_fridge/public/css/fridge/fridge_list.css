@@ -14,10 +14,6 @@ html {
   height: 100vh;
 }
 
-body {
-  height: 95%;
-}
-
 li {
   list-style: none;
 }
@@ -29,31 +25,22 @@ div.body {
 }
 div.body section {
   width: 90%;
-  height: 90%;
-  margin: 40px auto;
+  height: 100%;
+  margin: 38px auto;
   background-color: #a7cba2;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
 }
 
-div li,
-div span {
-  font-size: 1.5rem;
-  color: #4e4e4e;
-}
-div.body h2 {
-  text-align: center;
-}
-
 div.btn_myRef {
-  /* border: 1px solid blue; */
   text-align: center;
-}
-div button.myRef {
-  /* border: 1px solid red; */
-  width: 95%;
-  font-size: 12px;
+
+  button.myRef {
+    width: 95%;
+    font-size: 1.1rem;
+    font-weight: 800;
+  }
 }
 div.btn_group {
   text-align: center;
@@ -75,41 +62,35 @@ button:active {
   box-shadow: #422800 2px 2px 0 0;
   transform: translate(1px, 1px);
 }
+section {
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
 div.food {
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  border-radius: 10px;
   display: flex;
+  flex-direction: column;
   padding: 20px;
-  margin: 30px auto;
+  margin: 8px auto;
   width: 80%;
   justify-content: center;
+  background-color: #fff;
 
-  background-color: #e7e5e5;
   &:hover {
-    background-color: #aaa;
+    background-color: #eee;
     cursor: pointer;
   }
   ul {
-    width: 80%;
+    padding: 6px;
   }
-
   li {
-    font-size: 1.5rem;
+    border-bottom: 1px solid #aaa;
+    margin-bottom: 2px;
+    font-weight: 800;
     color: #4e4e4e;
-  }
-}
-div.li {
-  padding: 6px;
-  display: flex;
-
-  li {
-    text-align: right;
-    flex: 1;
-    margin-right: 8px;
-    /* border: 1px solid gray; */
-  }
-  span {
-    /* border: 1px solid red; */
-    flex: 1;
   }
 }
 

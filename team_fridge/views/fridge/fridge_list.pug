@@ -1,7 +1,7 @@
 extends ../layout_home
 
 block content
-    link(rel="stylesheet", href="/css/fridge_list.css")
+    link(rel="stylesheet", href="/css/fridge/fridge_list.css")
     script(src="/js/fridge_list.js")
     div.body 
         section 
@@ -13,17 +13,18 @@ block content
                 button 냉장
                 button 냉동
             
-            div.food
-                ul 
-                    div.li
-                        li 음식이름 :  
-                        span food.name
-                    div.li
-                        li 수량 : 
-                        span food.count
-                    div.li
-                        li 구매일자 : 
-                        span food.buy
+                        
+            
+            div.food_box
+                each item in food
+                    div.food
+                        ul(data-food = `${item.p_num}`)
+                            li ✓ 음식이름 :   
+                                span=item.p_name
+                            li ✓ 수량 : 
+                                span=item.p_quan
+                            li ✓ 구매일자 :  
+                                span=item.p_exdate
 
             btn.add
-                button 추가
+                button 음식추가

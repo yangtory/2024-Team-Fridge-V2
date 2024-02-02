@@ -6,19 +6,33 @@ block content
  
     div.body
         section.box 
-            p 장보기 목록을 추가하세요!
-            section.input 
-                div.name
-                    input.name(placeholder="살것")
-                div.amount
-                    button.plus +
-                    input.amount(type="number", min="1", placeholder="수량")
-                    button.minus -
-            button.addmemo 추가
+            form.listInput(method="POST") 
+                div.box 
+                    div.name
+                        input.name(name="t_name",placeholder="살것")
+                    div.amount
+                        div.plus +
+                        input.amount(name="t_quan",type="number", min="1", placeholder="수량")
+                        div.minus -
+                button(type="button").addmemo 추가
             //- 장바구니 리스트
-            section.list 
-                ul 
-            section.stiky 
+            table.cartlist
+                tbody 
+                    if templist && templist.length > 0  
+                        each item in templist 
+                            tr 
+                                td.buy= " ✓ "
+                                td.t_num= item.t_num 
+                                td= item.t_name 
+                                td= " - "
+                                td= item.t_quan
+                                td= "개 "
+                                td.delete= " X "
+                    else
+                        tr
+                            td(colspan='5') 장보기 목록을 추가해주세요!
+                
+            div.btn_box
                 button.delete 전체삭제
                 button.save 저장
        

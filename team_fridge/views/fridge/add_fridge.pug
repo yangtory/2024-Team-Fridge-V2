@@ -13,7 +13,6 @@ block content
                             input.add.photo(id="selectfile" name="f_photo" type="file" accept="image/*")
                             img.pre
                 div.select
-                    div.add.error
                     label#fresh(for="selecttem" value="fresh") 냉장
                     label#cold(for="selecttem" value="cold") 냉동
                     label#out(for="selecttem" value="out") 실외
@@ -24,7 +23,7 @@ block content
                     input#f_memo(name="f_memo" placeholder="메모를 입력하세요")
                 div.btn
                     a(href="/list_fridge") 
-                        input#f_btn(type="submit")
+                        input#f_btn(type="submit" value="추가")
 
 
 

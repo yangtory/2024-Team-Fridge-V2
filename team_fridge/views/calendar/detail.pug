@@ -3,7 +3,7 @@ extends ../layout_home
 
 block content
     link(rel="stylesheet", href="/css/calendar.css")
-    
+    script(src="/js/calendar/detail.js")
     div.container
         section
             div.box 
@@ -15,7 +15,7 @@ block content
                         p 구매한 갯수
                         p 유통기한
                     each item,index in result 
-                        div 
+                        div#list(data-p_num=item.p_num) 
                             p=item.p_date 
                             p=item.p_name
                             p=item.p_quan
