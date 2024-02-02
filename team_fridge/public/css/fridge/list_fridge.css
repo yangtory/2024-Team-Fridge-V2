@@ -56,12 +56,13 @@ section.list li {
   }
 
   span {
-    display: block;
+    border: 1px solid black;
     text-align: center;
   }
 }
 
 div.btn {
+  width: 100%;
   text-align: center;
   display: flex;
   justify-content: center;
