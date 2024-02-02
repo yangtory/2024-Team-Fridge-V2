@@ -12,10 +12,6 @@ router.get("/add_fridge", (req, res) => {
   return res.render("fridge/add_fridge");
 });
 
-router.get("/shopmemo", (req, res) => {
-  return res.render("fridge/shopmemo");
-});
-
 router.get("/list_fridge", (req, res) => {
   const sql = " SELECT * FROM tbl_fridge ";
   dbConn.query(sql, (err, result) => {
@@ -23,6 +19,41 @@ router.get("/list_fridge", (req, res) => {
       return res.json();
     } else {
       return res.render("fridge/list_fridge", { FR: result });
+    }
+  });
+});
+
+router.get("/shopmemo", (req, res) => {
+  const sql = " SELECT * FROM tbl_templist";
+  dbConn.query(sql, (err, result) => {
+    if (err) {
+      return res.json();
+    } else {
+      return res.render("fridge/shopmemo", { templist: result });
+    }
+  });
+});
+router.post("/shopmemo", (req, res) => {
+  const t_name = req.body.t_name;
+  const t_quan = req.body.t_quan;
+  const params = [t_name, t_quan];
+  const sql = "INSERT INTO tbl_templist (t_name, t_quan) VALUES (?, ?)";
+  dbConn.query(sql, params, (err, result) => {
+    if (err) {
+      return console.error(err);
+    } else {
+      return res.redirect("/fridge/shopmemo");
+    }
+  });
+});
+
+router.get("/shopmemo/deleteAll", (req, res) => {
+  const sql = " TRUNCATE tbl_templist";
+  dbConn.query(sql, (err, result) => {
+    if (err) {
+      return res.json();
+    } else {
+      return res.redirect("/fridge/shopmemo");
     }
   });
 });
