@@ -5,7 +5,7 @@ export default class tbl_shopping extends Model {
     return super.init(
       {
         s_num: {
-          type: DataTypes.STRING(125),
+          type: DataTypes.INTEGER,
           allowNull: false,
           primaryKey: true,
         },
