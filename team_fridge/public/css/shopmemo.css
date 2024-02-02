@@ -103,6 +103,9 @@ div {
 
 div.name {
   width: 50%;
+  input {
+    height: 2rem;
+  }
 }
 div.amount {
   height: 2rem;
