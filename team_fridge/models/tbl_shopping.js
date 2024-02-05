@@ -1,10 +1,12 @@
-import { Model } from "sequelize";
+import _sequelize from "sequelize";
+const { Model } = _sequelize;
 
 export default class tbl_shopping extends Model {
   static init(sequelize, DataTypes) {
     return super.init(
       {
-        s_num: {
+        s_seq: {
+          autoIncrement: true,
           type: DataTypes.INTEGER,
           allowNull: false,
           primaryKey: true,
@@ -27,7 +29,7 @@ export default class tbl_shopping extends Model {
             name: "PRIMARY",
             unique: true,
             using: "BTREE",
-            fields: [{ name: "s_num" }],
+            fields: [{ name: "s_seq" }],
           },
         ],
       }
