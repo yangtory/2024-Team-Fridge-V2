@@ -59,7 +59,7 @@ ADD CONSTRAINT FK_SCODE
 FOREIGN KEY (f_snum)
 REFERENCES tbl_shopping(s_num);
 SHOW TABLES;
-SELECT * FROM tbl_fridge;
+SELECT * FROM tbl_shopping;
 
 ALTER TABLE tbl_fridge
 ADD CONSTRAINT FK_PCODE
