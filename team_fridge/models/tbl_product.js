@@ -1,11 +1,13 @@
-import { Model } from "sequelize";
+import _sequelize from "sequelize";
+const { Model } = _sequelize;
 
-export default class tbl_food extends Model {
+export default class tbl_product extends Model {
   static init(sequelize, DataTypes) {
     return super.init(
       {
-        p_num: {
-          type: DataTypes.STRING(12),
+        p_seq: {
+          autoIncrement: true,
+          type: DataTypes.INTEGER,
           allowNull: false,
           primaryKey: true,
         },
@@ -28,14 +30,14 @@ export default class tbl_food extends Model {
       },
       {
         sequelize,
-        tableName: "tbl_food",
+        tableName: "tbl_product",
         timestamps: false,
         indexes: [
           {
             name: "PRIMARY",
             unique: true,
             using: "BTREE",
-            fields: [{ name: "p_num" }],
+            fields: [{ name: "p_seq" }],
           },
         ],
       }
