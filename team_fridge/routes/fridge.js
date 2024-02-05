@@ -104,6 +104,13 @@ router.get("/shopmemo/:t_num/add", (req, res) => {
   });
 });
 
+
+router.get("/shopmemo/save", (req, res) => {
+ //어떻게 할지까먹어서 나중에 생각나면 할것.
+ // 저장버튼을 누르면 쇼핑테이블에있는 데이터들이 자동으로 냉장고 테이블과 연동됨.
+ res.redirect("/fridge/shopmemo");
+});
+
 // ============================
 
 router.post("/add_fridge", (req, res) => {
