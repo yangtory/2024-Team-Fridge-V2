@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (menu_text === "로그인") {
         document.location.href = "/setting/login";
       } else if (menu_text === "로그아웃") {
-        document.location.href = "/setting";
+        document.location.href = "/setting/logout";
       }
     }
 
