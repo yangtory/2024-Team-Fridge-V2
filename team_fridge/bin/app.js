@@ -83,6 +83,10 @@ app.post("/saveToDatabase", async (req, res) => {
     res.status(500).json({ success: false, message: "Failed to insert data." });
   }
 });
+app.use((req, res, next) => {
+  res.locals = req.session;
+  next();
+});
 
 app.use("/users", usersRouter);
 app.use("/fridge", fridgeRouter);
@@ -90,10 +94,6 @@ app.use("/calendar", calendarRouter);
 app.use("/alarm", alarmRouter);
 app.use("/setting", settingRouter);
 
-app.use((req, res, next) => {
-  res.locals = req.session;
-  next();
-});
 // router link enable, link connection
 app.use("/", indexRouter);
 
