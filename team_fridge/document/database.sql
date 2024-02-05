@@ -25,18 +25,6 @@ s_name	VARCHAR(125)	NOT NULL	,
 s_quan	INT	NOT NULL	
 );
 
-ALTER TABLE tbl_fridge
-ADD CONSTRAINT FK_SCODE
-FOREIGN KEY (f_snum)
-REFERENCES tbl_shopping(s_num);
-SHOW TABLES;
-SELECT * FROM tbl_shopping;
-
-ALTER TABLE tbl_fridge
-ADD CONSTRAINT FK_PCODE
-FOREIGN KEY (f_pnum)
-REFERENCES tbl_food(p_num);
-
 CREATE TABLE tbl_templist(
     t_num INT AUTO_INCREMENT PRIMARY KEY,
 	t_name VARCHAR(125) NOT NULL,
@@ -49,6 +37,8 @@ u_pw	VARCHAR(255)	NOT NULL	,
 u_name	VARCHAR(35)	NOT NULL	,
 u_role	VARCHAR(35)	NOT NULL	
 );
+
+DROP TABLE tbl_user;
 
 -- 외래키 설정
 ALTER TABLE tbl_fridge
