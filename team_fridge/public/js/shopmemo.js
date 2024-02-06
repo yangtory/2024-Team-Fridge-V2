@@ -60,6 +60,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
   //===============
+
+  //요밑은 저장기능 넣을거.
+  //===============
+
+
+  const btn_save = document.querySelector("button.save");
+  btn_save?.addEventListener("click", () => {
+    alert("냉장고에 저장되었습니다.")
+    //어떤 냉장고에 저장해야하는지에 대한 선택지도 뜨게 해야하나..?
+  
+   location.replace("shopmemo/save");
+  
+  });
+
+  //===============
   const table = document.querySelector("table.cartlist");
   // const td_delete = document.querySelector("td.delete");
   table.addEventListener("click", (e) => {

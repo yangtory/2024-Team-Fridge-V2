@@ -1,25 +1,26 @@
-import { Model } from "sequelize";
+import _sequelize from "sequelize";
+const { Model } = _sequelize;
 
 export default class tbl_user extends Model {
   static init(sequelize, DataTypes) {
     return super.init(
       {
-        ps_name: {
-          type: DataTypes.STRING(35),
-          allowNull: false,
-        },
-        ps_id: {
+        u_id: {
           type: DataTypes.STRING(35),
           allowNull: false,
           primaryKey: true,
         },
-        ps_pw: {
+        u_pw: {
+          type: DataTypes.STRING(255),
+          allowNull: false,
+        },
+        u_name: {
           type: DataTypes.STRING(35),
           allowNull: false,
         },
-        ps_role: {
-          type: DataTypes.STRING(5),
-          allowNull: true,
+        u_role: {
+          type: DataTypes.STRING(35),
+          allowNull: false,
         },
       },
       {
@@ -31,7 +32,7 @@ export default class tbl_user extends Model {
             name: "PRIMARY",
             unique: true,
             using: "BTREE",
-            fields: [{ name: "ps_id" }],
+            fields: [{ name: "u_id" }],
           },
         ],
       }

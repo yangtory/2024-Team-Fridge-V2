@@ -55,16 +55,16 @@ router.get("/:ps_id/check", async (req, res) => {
   }
 });
 
-router.get("/login", (req, res) => {
-  const message = req.query.fail;
-  return res.render("setting/login", { NEED: message });
-});
-
 const LOGIN_MESSAGE = {
   USER_NOT: "사용자 ID 없음",
   PASS_WRONG: " 비밀번호 오류",
   NEED_LOGIN: "로그인 필요",
 };
+
+router.get("/login", (req, res) => {
+  const message = req.query.fail;
+  return res.render("setting/login", { NEED: message });
+});
 
 // `npm install express-session` 해줘야 실행됨.
 router.post("/login", async (req, res) => {
@@ -76,20 +76,14 @@ router.post("/login", async (req, res) => {
   } else if (result.ps_id === userid && result.ps_pw !== password) {
     return res.redirect(`/setting/login?fail=${LOGIN_MESSAGE.PASS_WRONG}`);
   } else {
-    // 로그아웃 창이 안나타남
     req.session.user = result;
-    return res.redirect("/setting/user");
-    // return res.render("setting/setting");
+    return res.redirect("/setting");
   }
-});
-
-router.get("/user", (req, res) => {
-  return res.render("setting/setting_out");
 });
 
 router.get("/logout", (req, res) => {
   req.session.destroy();
-  return res.redirect("/");
+  return res.redirect("/setting");
 });
 
 export default router;
