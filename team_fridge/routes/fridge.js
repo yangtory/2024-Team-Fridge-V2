@@ -1,8 +1,8 @@
 import express from "express";
-import DB from "../config/mysql.js";
+import DB from "../models/index.js";
+const FRIDGE = DB.models.tbl_fridge;
 
 const router = express.Router();
-const dbConn = DB.init();
 
 router.get("/", (req, res) => {
   return res.render("fridge/add");
@@ -12,15 +12,10 @@ router.get("/add_fridge", (req, res) => {
   return res.render("fridge/add_fridge");
 });
 
-router.get("/list_fridge", (req, res) => {
-  const sql = " SELECT * FROM tbl_fridge ";
-  dbConn.query(sql, (err, result) => {
-    if (err) {
-      return res.json();
-    } else {
-      return res.render("fridge/list_fridge", { FR: result });
-    }
-  });
+router.get("/list_fridge", async (req, res) => {
+  const rows = await FRIDGE.findAll();
+  // return res.json(rows);
+  return res.render("fridge/list_fridge", { FR: rows });
 });
 
 router.get("/shopmemo", (req, res) => {
@@ -104,44 +99,23 @@ router.get("/shopmemo/:t_num/add", (req, res) => {
   });
 });
 
-
 router.get("/shopmemo/save", (req, res) => {
- //어떻게 할지까먹어서 나중에 생각나면 할것.
- // 저장버튼을 누르면 쇼핑테이블에있는 데이터들이 자동으로 냉장고 테이블과 연동됨.
- res.redirect("/fridge/shopmemo");
+  //어떻게 할지까먹어서 나중에 생각나면 할것.
+  // 저장버튼을 누르면 쇼핑테이블에있는 데이터들이 자동으로 냉장고 테이블과 연동됨.
+  res.redirect("/fridge/shopmemo");
 });
 
 // ============================
 
 router.post("/add_fridge", (req, res) => {
-  const f_photo = req.body.f_photo;
-  const f_div = req.body.f_div;
-  const f_name = req.body.f_name;
-  const f_memo = req.body.f_memo;
-
-  const params = [f_photo, f_div, f_name, f_memo];
-
-  const sql = "INSERT INTO tbl_fridge(f_photo, f_div, f_name, f_memo) " + " VALUES (?,?,?,?) ";
-  dbConn.query(sql, params, (err, result) => {
-    if (err) {
-      return res.json(err);
-    } else {
-      console.log(params);
-      return res.redirect("/fridge/list_fridge");
-    }
-  });
+  const data = req.body;
+  try {
+    FRIDGE.create(data);
+    return res.redirect("/fridge/list_fridge");
+  } catch (error) {
+    return res.json(error);
+  }
 });
-
-// router.get("/add_fridge", (req, res) => {
-//   const sql = " SELECT * FROM tbl_fridge";
-//   dbCreate.query(sql, (err, result) => {
-//     if (err) {
-//       return res.json();
-//     } else {
-//       return res.render("fridge/list_fridge");
-//     }
-//   });
-// });
 
 router.get("/fridge_list", (req, res) => {
   const sql = " SELECT * FROM tbl_food ";

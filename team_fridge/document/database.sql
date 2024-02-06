@@ -11,6 +11,7 @@ f_div	VARCHAR(4)		,
 f_memo	VARCHAR(125)	,	
 f_photo	VARCHAR(255)		
 );
+
 CREATE TABLE tbl_product(
 p_seq	INT	AUTO_INCREMENT	PRIMARY KEY,
 p_name	VARCHAR(125)	NOT NULL,	
