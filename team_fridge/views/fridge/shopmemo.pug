@@ -16,22 +16,23 @@ block content
                         div.minus -
                 button(type="button").addmemo 추가
             //- 장바구니 리스트
-            table.cartlist
-                tbody 
-                    if templist && templist.length > 0  
-                        each item in templist 
-                            tr 
-                                td.buy= " ✓ "
-                                td.t_num= item.t_num 
-                                td= item.t_name 
-                                td= " - "
-                                td= item.t_quan
-                                td= "개 "
-                                td.delete= " X "
-                    else
-                        tr
-                            td(colspan='5') 장보기 목록을 추가해주세요!
-                
+            div.listbox
+                table.cartlist
+                    tbody 
+                        if templist && templist.length > 0  
+                            each item in templist 
+                                tr 
+                                    td.buy= " ✓ "
+                                    td.t_num= item.t_num 
+                                    td.t_name= item.t_name 
+                                    td= " - "
+                                    td.t_name= item.t_quan
+                                    td= "개 "
+                                    td.delete= " X "
+                        else
+                            tr
+                                td(colspan='5') 장보기 목록을 추가해주세요!
+                    
             div.btn_box
                 button.delete 전체삭제
                 button.save 저장

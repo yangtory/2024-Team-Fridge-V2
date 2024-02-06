@@ -81,8 +81,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (target.className === "buy") {
       const paTR = target.closest("TR");
       const tds = paTR.querySelectorAll("TD");
+      // <td> 요소들 중 t_num, t_name, t_quan 정보를 추출합니다.
       const t_num = tds[1].innerText;
-      location.replace(`shopmemo/${t_num}/add`);
+      const t_name = tds[2].innerText;
+      const t_quan = tds[4].innerText;
+      // 추출한 정보를 사용하여 새로운 URL을 생성하고 페이지를 이동합니다.
+      location.replace(`shopmemo/${t_num}/${t_name}/${t_quan}/add`);
     }
   });
 });
