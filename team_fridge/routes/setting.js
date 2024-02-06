@@ -24,18 +24,18 @@ router.get("/join", (req, res) => {
 router.post("/join", async (req, res) => {
   const rows = await USER.findAll();
   if (rows.length > 0) {
-    req.body.ps_role = "USER";
+    req.body.u_role = "USER";
     const result = await USER.create(req.body);
     return res.redirect("/setting/login");
   } else {
-    req.body.ps_role = "ADMIN";
+    req.body.u_role = "ADMIN";
   }
-  const username = req.body.ps_name;
-  const userid = req.body.ps_id;
-  const password = req.body.ps_pw;
+  const username = req.body.u_name;
+  const userid = req.body.u_id;
+  const password = req.body.u_pw;
 
   const params = [username, userid, password];
-  const sql = " INSERT INTO tbl_user(ps_name, ps_id, ps_pw) " + " VALUES( ?,?,? ) ";
+  const sql = " INSERT INTO tbl_user(u_name, u_id, u_pw) " + " VALUES( ?,?,? ) ";
   dbConn.query(sql, params, (err, result) => {
     if (err) {
       return res.json(err);
@@ -45,8 +45,8 @@ router.post("/join", async (req, res) => {
   });
 });
 
-router.get("/:ps_id/check", async (req, res) => {
-  const userid = req.params.ps_id;
+router.get("/:u_id/check", async (req, res) => {
+  const userid = req.params.u_id;
   const row = await USER.findByPk(userid);
   if (row) {
     return res.json({ MESSAGE: "FOUND" });
@@ -66,14 +66,13 @@ router.get("/login", (req, res) => {
   return res.render("setting/login", { NEED: message });
 });
 
-// `npm install express-session` 해줘야 실행됨.
 router.post("/login", async (req, res) => {
-  const userid = req.body.ps_id;
-  const password = req.body.ps_pw;
+  const userid = req.body.u_id;
+  const password = req.body.u_pw;
   const result = await USER.findByPk(userid);
   if (!result) {
     return res.redirect(`/setting/login?fail=${LOGIN_MESSAGE.USER_NOT}`);
-  } else if (result.ps_id === userid && result.ps_pw !== password) {
+  } else if (result.u_id === userid && result.u_pw !== password) {
     return res.redirect(`/setting/login?fail=${LOGIN_MESSAGE.PASS_WRONG}`);
   } else {
     req.session.user = result;
