@@ -6,10 +6,11 @@ const router = express.Router();
 /* GET home page. */
 router.get("/", async (req, res) => {
   const fridge = await FRIDGE.findAll();
-  if (!fridge) {
+  if (fridge.length === 0) {
     res.render("index", { message: "냉장고를 추가하세요!" });
-  } else if (fridge) {
-    res.render("fridge/list_fridge");
+  } else {
+    const rows = await FRIDGE.findAll();
+    return res.render("fridge/list_fridge", { FR: rows });
   }
 });
 
