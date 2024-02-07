@@ -127,7 +127,7 @@ router.get("/:p_seq/fridge_detail", async (req, res) => {
   const p_seq = req.params.p_seq;
   try {
     const row = await FOOD.findAll({
-      where: { p_seq: p_seq },
+      where: { p_seq },
     });
     return res.render("fridge/fridge_detail", { FOOD: row });
   } catch (error) {
@@ -135,16 +135,16 @@ router.get("/:p_seq/fridge_detail", async (req, res) => {
   }
 });
 
-router.get("/:p_num/delete", (req, res) => {
-  const p_num = req.params.p_num;
-  const sql = " DELETE FROM tbl_food WHERE p_num = ? ";
-  dbConn.query(sql, [p_num], (err, result) => {
-    if (err) {
-      return res.json(err);
-    } else {
-      return res.redirect("/fridge/fridge_list");
-    }
-  });
+router.get("/:p_seq/delete", async (req, res) => {
+  const p_seq = req.params.p_seq;
+  try {
+    await FOOD.destroy({
+      where: { p_seq },
+    });
+    return res.redirect("/fridge/fridge_list");
+  } catch (error) {
+    return res.json(error);
+  }
 });
 
 router.get("/add_food", (req, res) => {
@@ -152,39 +152,32 @@ router.get("/add_food", (req, res) => {
 });
 
 router.post("/add_food", async (req, res) => {
+  const data = req.body;
   try {
-    const data = req.body;
-    await FOOD.create(data);
+    await FOOD.create(data, { where: { p_seq: req.body.p_seq } });
     return res.redirect("/fridge/fridge_list");
   } catch (error) {
     return res.json(error);
   }
 });
 
-router.get("/:p_num/update", (req, res) => {
-  const p_num = req.params.p_num;
-  const sql = " SELECT * FROM tbl_food WHERE p_num = ? ";
-  dbConn.query(sql, [p_num], (err, result) => {
-    if (err) {
-      return res.json(err);
-    } else {
-      return res.render("fridge/add_food", { food: result[0] });
-    }
-  });
+router.get("/:p_seq/update", async (req, res) => {
+  const p_seq = req.params.p_seq;
+  try {
+    const row = await FOOD.findByPk(p_seq);
+    return res.render("fridge/add_food", { food: row });
+  } catch (error) {
+    return res.json(err);
+  }
 });
-router.post("/:p_num/update", (req, res) => {
-  const p_num = req.params.p_num;
-  const p_exdate = req.body.p_exdate;
-  const p_date = req.body.p_date;
-  const p_quan = req.body.p_quan;
-  const params = [p_exdate, p_date, p_quan, p_num];
-  const sql = " UPDATE tbl_food SET p_exdate = ? , p_date = ? , p_quan = ? WHERE p_num = ? ";
-  dbConn.query(sql, params, (err, result) => {
-    if (err) {
-      return res.json(err);
-    } else {
-      return res.redirect(`/fridge/${p_num}/fridge_detail`);
-    }
-  });
+router.post("/:p_seq/update", async (req, res) => {
+  const data = req.body;
+  const p_seq = req.params.p_seq;
+  try {
+    await FOOD.update(data, { where: { p_seq: p_seq } });
+    return res.redirect(`/fridge/${p_seq}/fridge_detail`);
+  } catch (error) {
+    return res.json(error);
+  }
 });
 export default router;
