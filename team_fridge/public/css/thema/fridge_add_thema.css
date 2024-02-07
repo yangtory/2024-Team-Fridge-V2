@@ -23,6 +23,10 @@ div.main {
   background: var(--background1);
 }
 
+div.btn_box {
+  background: var(--background3);
+}
+
 li {
   color: var(--boxColor);
   border-bottom: var(--boxColor);
@@ -35,6 +39,10 @@ div.body li {
 section,
 nav.control {
   background: var(--background2);
+}
+
+section {
+  background: var(--background3);
 }
 
 /* 아이콘 색 */
@@ -54,27 +62,6 @@ div li.add {
   height: 10em;
   background: var(--boxColor);
   color: var(--background);
-}
-
-/* 설정 버튼 */
-.switch_label,
-.switch_label:hover {
-  background: var(--background2);
-  border: 2px solid var(--background3);
-}
-
-.onf_btn {
-  background: var(--background3);
-}
-#switch2:checked + .switch_label,
-#switch2:checked + .switch_label:hover,
-#switch1:checked + .switch_label,
-#switch1:checked + .switch_label:hover {
-  background: var(--background3);
-}
-#switch2:checked + .switch_label .onf_btn,
-#switch1:checked + .switch_label .onf_btn {
-  background: var(--background2);
 }
 
 /* 로그인 & 회원가입 창 */
