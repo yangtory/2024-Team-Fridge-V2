@@ -18,7 +18,8 @@ body {
 }
 
 /* 일련번호 숨기기 */
-td.t_num {
+td.s_ox,
+td.s_seq {
   display: none;
 }
 

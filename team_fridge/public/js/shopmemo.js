@@ -64,14 +64,12 @@ document.addEventListener("DOMContentLoaded", () => {
   //요밑은 저장기능 넣을거.
   //===============
 
-
   const btn_save = document.querySelector("button.save");
   btn_save?.addEventListener("click", () => {
-    alert("냉장고에 저장되었습니다.")
+    alert("냉장고에 저장되었습니다.");
     //어떤 냉장고에 저장해야하는지에 대한 선택지도 뜨게 해야하나..?
-  
-   location.replace("shopmemo/save");
-  
+
+    location.replace("shopmemo/save");
   });
 
   //===============
@@ -83,8 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (confirm("정말 이 메모를 삭제할까요?")) {
         const paTR = target.closest("TR");
         const tds = paTR.querySelectorAll("TD");
-        const t_num = tds[1].innerText;
-        location.replace(`shopmemo/${t_num}/delete`);
+        const s_seq = tds[1].innerText;
+        location.replace(`shopmemo/${s_seq}/delete`);
       }
     } else {
       return false;
@@ -96,12 +94,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (target.className === "buy") {
       const paTR = target.closest("TR");
       const tds = paTR.querySelectorAll("TD");
-      // <td> 요소들 중 t_num, t_name, t_quan 정보를 추출합니다.
-      const t_num = tds[1].innerText;
-      const t_name = tds[2].innerText;
-      const t_quan = tds[4].innerText;
+      // <td> 요소들 중 s_seq, s_name, s_quan 정보를 추출합니다.
+      const s_seq = tds[1].innerText;
+      const s_ox = tds[5].innerText;
       // 추출한 정보를 사용하여 새로운 URL을 생성하고 페이지를 이동합니다.
-      location.replace(`shopmemo/${t_num}/${t_name}/${t_quan}/add`);
+      location.replace(`shopmemo/${s_seq}/${s_ox}/add`);
     }
   });
 });
