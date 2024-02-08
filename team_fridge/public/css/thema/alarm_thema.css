@@ -23,11 +23,6 @@ div.main {
   background: var(--background1);
 }
 
-div.btn_box {
-  background: var(--background3);
-  /* background: var(--background2); */
-}
-
 li {
   color: var(--boxColor);
   border-bottom: var(--boxColor);
@@ -37,16 +32,11 @@ div.body li {
   border-bottom: 1px solid var(--boxColor2);
 }
 
+div.body section {
+  background: var(--background3);
+}
 nav.control {
   background: var(--background2);
-}
-
-div.btn_box a {
-  color: #4e4e4e;
-}
-
-section {
-  background: var(--background3);
 }
 
 /* 아이콘 색 */
@@ -58,4 +48,8 @@ i.fa.fa-calendar.check {
 
 div li.add {
   color: var(--background3);
+}
+
+p {
+  color: var(--boxColor);
 }

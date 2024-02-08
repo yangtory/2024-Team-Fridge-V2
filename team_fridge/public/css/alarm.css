@@ -146,6 +146,8 @@ td {
 th {
   border-top: 2px solid #85c58a;
   background-color: #eee;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 tr {
