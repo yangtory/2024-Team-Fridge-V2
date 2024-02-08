@@ -25,6 +25,7 @@ div.main {
 
 div.btn_box {
   background: var(--background3);
+  /* background: var(--background2); */
 }
 
 li {
@@ -36,9 +37,12 @@ div.body li {
   border-bottom: 1px solid var(--boxColor2);
 }
 
-section,
 nav.control {
   background: var(--background2);
+}
+
+div.btn_box a {
+  color: #4e4e4e;
 }
 
 section {

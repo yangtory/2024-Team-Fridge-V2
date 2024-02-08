@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const $checkbox = document.querySelector(".check");
+  const $checkbox = document.querySelector(".button.check");
 
   const isUserColorTheme = localStorage.getItem("color-theme");
   const isOsColorTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
