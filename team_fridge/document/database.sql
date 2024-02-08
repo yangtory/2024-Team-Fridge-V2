@@ -16,9 +16,9 @@ CREATE TABLE tbl_product(
 p_seq	INT	AUTO_INCREMENT	PRIMARY KEY,
 p_fseq	INT	NOT NULL	,
 p_name	VARCHAR(125)	NOT NULL	,
-p_exdate	VARCHAR(12)	NOT NULL	,
+p_exdate	VARCHAR(12)	,
 p_quan	INT	NOT NULL	,
-p_date	VARCHAR(12)	NOT NULL	,
+p_date	VARCHAR(12)	,
 p_memo	VARCHAR(125)			
 );
 
@@ -26,7 +26,8 @@ CREATE TABLE tbl_shopping (
 s_seq	INT	AUTO_INCREMENT	PRIMARY KEY,
 s_name	VARCHAR(125)	NOT NULL	,
 s_quan	INT	NOT NULL	,
-s_ox	INT		
+s_ox	INT	,
+s_fseq	INT	NOT NULL	
 );
 
 CREATE TABLE tbl_user(
@@ -51,53 +52,72 @@ INSERT INTO tbl_user(u_name, u_id, u_pw , u_role) VALUES('운영자', 'fridge', 
 
 -- 임시 데이터
 INSERT INTO tbl_product
-(p_seq , p_name , p_exdate, p_quan, p_date, p_memo)
-VALUE ('0001','당근','2024-10-01','3','2024-01-30', '당근임');
-
-
-INSERT INTO tbl_product
-(p_seq , p_name , p_exdate, p_quan, p_date, p_memo)
-VALUE ('0002','도토리','2024-10-01','3','2024-01-30', '도토리임');
-INSERT INTO tbl_product
-(p_seq , p_name , p_exdate, p_quan, p_date, p_memo)
-VALUE ('0003','감자','2024-10-01','3','2024-01-30', '감자임');
-
-INSERT INTO tbl_product
-(p_seq , p_name , p_exdate, p_quan, p_date, p_memo)
-VALUE ('0004','사과','2024-10-01','3','2024-01-30', '사과임');
-
-INSERT INTO tbl_product
-(p_seq , p_name , p_exdate, p_quan, p_date, p_memo)
-VALUE ('0005','대파','2024-10-01','3','2024-01-30', '대파임');
-
-INSERT INTO tbl_product
-(p_seq , p_name , p_exdate, p_quan, p_date, p_memo)
-VALUE ('0006','마늘','2024-10-01','5','2024-01-30', '마늘임');
-
-INSERT INTO tbl_product
-(p_seq , p_name , p_exdate, p_quan, p_date, p_memo)
-VALUE ('0007','토마토','2024-10-01','50','2024-01-30', '토마토임');
+(p_fseq, p_name , p_exdate, p_quan, p_date, p_memo)
+VALUE ('1','당근','2024-10-01','3','2024-01-30', '당근임');
 
 INSERT INTO tbl_product
 (p_fseq, p_name , p_exdate, p_quan, p_date, p_memo)
-VALUE ('2','포도','2024-10-01','50','2024-01-30', '커피임');
+VALUE ('1', '도토리','2024-10-01','3','2024-01-30', '도토리임');
+INSERT INTO tbl_product
+(p_fseq, p_name , p_exdate, p_quan, p_date, p_memo)
+VALUE ('2','감자','2024-10-01','3','2024-01-30', '감자임');
+
+INSERT INTO tbl_product
+(p_fseq, p_name , p_exdate, p_quan, p_date, p_memo)
+VALUE ('1','사과','2024-10-01','3','2024-01-30', '사과임');
+
+INSERT INTO tbl_product
+(p_fseq, p_name , p_exdate, p_quan, p_date, p_memo)
+VALUE ('2','대파','2024-10-01','3','2024-01-30', '대파임');
+
+INSERT INTO tbl_product
+(p_fseq, p_name , p_exdate, p_quan, p_date, p_memo)
+VALUE ('2','마늘','2024-10-01','5','2024-01-30', '마늘임');
+
+INSERT INTO tbl_product
+(p_fseq, p_name , p_exdate, p_quan, p_date, p_memo)
+VALUE ('1', '토마토','2024-10-01','50','2024-01-30', '토마토임');
+
+INSERT INTO tbl_product
+(p_fseq, p_name , p_exdate, p_quan, p_date, p_memo)
+VALUE ('2', '커피','2024-10-01','50','2024-01-30', '커피임');
+
+INSERT INTO tbl_product
+(p_fseq, p_name , p_exdate, p_quan, p_date, p_memo)
+VALUE ('2', '바나나','2024-02-13','50','2024-01-30', '바나나임');
+
+INSERT INTO tbl_product
+(p_fseq, p_name , p_exdate, p_quan, p_date, p_memo)
+VALUE  ('1', '생수','2024-02-08','50','2024-01-30', '물임');
+
+INSERT INTO tbl_product
+(p_fseq, p_name , p_exdate, p_quan, p_date, p_memo)
+VALUE ('1', '비요뜨','2024-02-17','50','2024-01-30', '비요뜨임');
+
+INSERT INTO tbl_product
+(p_fseq, p_name , p_exdate, p_quan, p_date, p_memo)
+VALUE ('2', '고구마','2024-02-10','50','2024-01-30', '고구마임');
+
+SELECT * FROM tbl_product;
+SELECT * FROM tbl_fridge;
+
 
 SELECT f_seq as 냉장고번호, f_name as 냉장고이름,
 p_fseq as 냉장고번호,p_seq as 음식번호, p_name as 음식이름,
 p_quan as 수량,p_date as 구매날짜, p_exdate as 소비기한
 FROM tbl_product
 LEFT JOIN tbl_fridge
-ON f_seq = p_seq;
+ON f_seq = p_fseq;
 
 CREATE VIEW view_plist AS
 (
-SELECT f_seq, p_name, p_seq, p_fseq
+SELECT f_seq as 냉장고번호, p_name as 음식이름, p_seq as 음식번호, p_fseq as 냉장고번호
 FROM tbl_product
 	LEFT JOIN tbl_fridge
 		ON f_seq = p_fseq
 ORDER BY f_seq
 );
 
-
+SELECT * FROM view_plist;
 
 SELECT * FROM tbl_product;
