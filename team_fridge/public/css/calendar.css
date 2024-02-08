@@ -91,7 +91,8 @@ div.weekend {
   display: flex;
   flex: 1;
   div {
-    border-right: 1px solid #4e4e4e;
+    background-color: #f4f4f4;
+    border-right: 1px solid #a7cda2;
     flex: 1;
     text-align: center;
     color: #4e4e4e;
@@ -99,7 +100,13 @@ div.weekend {
     /* border: 1px solid black; */
   }
   div:nth-of-type(1) {
-    border-left: 1px solid #4e4e4e;
+    border-left: 1px solid #a7cda2;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+  div:nth-of-type(7) {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
   }
 }
 div.days {

@@ -1,0 +1,55 @@
+/* 라이트 모드 */
+:root[color-theme="light"] {
+  --background1: #e7e5e5;
+  --background2: #f4f4f4;
+  --background3: #a7cda2;
+  --boxColor: #4e4e4e;
+  --boxColor2: #4e4e4e;
+  --boxColor3: #858585;
+}
+/* 다크모드 */
+:root[color-theme="dark"] {
+  --background1: #363535;
+  --background2: #474646;
+  --background3: #97b992;
+  --boxColor: #bdb8b8;
+  --boxColor2: #a09e9e;
+  --boxColor3: #7e7b7b;
+}
+
+/* 설정창 */
+body,
+div.main {
+  background: var(--background1);
+}
+
+li {
+  color: var(--boxColor);
+  border-bottom: var(--boxColor);
+}
+
+div.body li {
+  border-bottom: 1px solid var(--boxColor2);
+}
+
+div.body section {
+  background: var(--background3);
+}
+nav.control {
+  background: var(--background2);
+}
+
+/* 아이콘 색 */
+i.fa.fa-cog,
+i.fa.fa-bell,
+i.fa.fa-calendar.check {
+  color: var(--boxColor2);
+}
+
+div li.add {
+  color: var(--background3);
+}
+
+p {
+  color: var(--boxColor);
+}
