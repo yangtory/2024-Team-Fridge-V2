@@ -66,6 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const btn_save = document.querySelector("button.save");
   btn_save?.addEventListener("click", () => {
+    alert("아직 구현 준비중... ");
+
     alert("냉장고에 저장되었습니다.");
     //어떤 냉장고에 저장해야하는지에 대한 선택지도 뜨게 해야하나..?
 
@@ -96,7 +98,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const tds = paTR.querySelectorAll("TD");
       // <td> 요소들 중 s_seq, s_name, s_quan 정보를 추출합니다.
       const s_seq = tds[1].innerText;
-      const s_ox = tds[5].innerText;
+      const s_ox = tds[7].innerText;
+      // alert(s_ox);
       // 추출한 정보를 사용하여 새로운 URL을 생성하고 페이지를 이동합니다.
       location.replace(`shopmemo/${s_seq}/${s_ox}/add`);
     }
