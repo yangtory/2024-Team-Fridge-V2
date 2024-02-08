@@ -28,10 +28,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // 일자 부분에 div value 값넣기
   const last = new Date(year.innerHTML, month.innerHTML, 0);
   const first = new Date(year.innerHTML, month.innerHTML - 1, 1);
-
-  for (let i = first.getDate(); i < last.getDate() + 1; i++) {
+  const get_first = first.getDay();
+  const get_last = last.getDate();
+  let index = 1;
+  for (let i = get_first; i < get_first + get_last; i++) {
     const target = document.querySelectorAll(".day div");
-    target[i].innerHTML = i;
+    target[i].innerHTML = index++;
   }
 
   // 달력 이전버튼 누를때 이벤트
@@ -89,8 +91,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // day 부분을 눌렀을때 디테일 화면으로 전환
-  days.addEventListener("click", async (e) => {
+  days.addEventListener("click", (e) => {
     const target = e.target;
+
     let url = `/calendar/${[year.innerHTML + "-" + month.innerHTML + "-" + target.innerHTML]}/detail`;
 
     if (`${[month.innerHTML.length]}` === "2" && `${[target.innerHTML.length]}` === "1") {
@@ -107,3 +110,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {});

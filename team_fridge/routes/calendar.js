@@ -1,34 +1,21 @@
 import express from "express";
-import DB from "../config/mysql.js";
+import DB from "../models/index.js";
 const router = express.Router();
-const dbConn = DB.init();
+const PRODUCT = DB.models.tbl_product;
 router.get("/", (req, res) => {
-  const sql = " SELECT * FROM tbl_food ";
-  dbConn.query(sql, (err, result) => {
-    if (err) {
-      return res.json(err);
-    } else {
-      if (result) {
-        return res.render("./calendar/calendar.pug", { result: result });
-      }
-    }
-  });
+  const result = PRODUCT.findAll();
+  return res.render("./calendar/calendar.pug", { result: result });
 });
 
-router.get(`/:day/detail`, (req, res) => {
-  const row = req.params.day;
-  const params = [row];
-  const sql = " SELECT * FROM tbl_food WHERE p_date = ? ";
-  dbConn.query(sql, params, (err, result) => {
-    if (err) {
-      return res.json(err);
-    } else if (result) {
-      return res.render("./calendar/detail.pug", { row: params, result: result });
-    } else if (!result) {
-      alert("구매한 물품이없습니다.");
-      return res.redirect("./calendar/calendar.pug");
-    }
+router.get(`/:day/detail`, async (req, res) => {
+  const p_date = req.params.day;
+  const row = p_date;
+  const result = await PRODUCT.findAll({
+    where: { p_date: p_date },
   });
+
+  // return res.json(result);
+  return res.render("calendar/detail", { result: result, row: row });
 });
 
 export default router;
