@@ -13,12 +13,12 @@ f_image_origin_name	VARCHAR(255)
 );
 
 CREATE TABLE tbl_product(
-p_seq	INT	AUTO_INCREMENT	PRIMARY KEY
-p_fseq	INT	NOT NULL	
-p_name	VARCHAR(125)	NOT NULL	
-p_exdate	VARCHAR(12)	NOT NULL	
-p_quan	INT	NOT NULL	
-p_date	VARCHAR(12)	NOT NULL	
+p_seq	INT	AUTO_INCREMENT	PRIMARY KEY,
+p_fseq	INT	NOT NULL	,
+p_name	VARCHAR(125)	NOT NULL	,
+p_exdate	VARCHAR(12)	NOT NULL	,
+p_quan	INT	NOT NULL	,
+p_date	VARCHAR(12)	NOT NULL	,
 p_memo	VARCHAR(125)			
 );
 
@@ -81,3 +81,6 @@ VALUE ('0007','토마토','2024-10-01','50','2024-01-30', '토마토임');
 INSERT INTO tbl_product
 (p_seq , p_name , p_exdate, p_quan, p_date, p_memo)
 VALUE ('0008','커피','2024-10-01','50','2024-01-30', '커피임');
+
+SELECT * FROM tbl_product;
+SELECT * FROM tbl_fridge;

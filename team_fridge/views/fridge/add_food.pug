@@ -10,7 +10,8 @@ block content
             else 
                 h1 음식 추가
             form.add(method="POST")
-                
+                div.div
+                    input(name="p_fseq" value=`${food.p_fseq}` readonly)
                 div.select
                     label#fresh(for="select_div" value="fresh") 냉장
                     label#cold(for="select_div" value="cold") 냉동

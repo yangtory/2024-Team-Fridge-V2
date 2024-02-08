@@ -1,38 +1,37 @@
 import { Model } from "sequelize";
 
-export default class tbl_shopping extends Model {
+export default class tbl_user extends Model {
   static init(sequelize, DataTypes) {
     return super.init(
       {
-        s_seq: {
-          autoIncrement: true,
-          type: DataTypes.INTEGER,
+        u_id: {
+          type: DataTypes.STRING(35),
           allowNull: false,
           primaryKey: true,
         },
-        s_name: {
-          type: DataTypes.STRING(125),
+        u_pw: {
+          type: DataTypes.STRING(255),
           allowNull: false,
         },
-        s_quan: {
-          type: DataTypes.INTEGER,
+        u_name: {
+          type: DataTypes.STRING(35),
           allowNull: false,
         },
-        s_ox: {
-          type: DataTypes.INTEGER,
-          allowNull: true,
+        u_role: {
+          type: DataTypes.STRING(35),
+          allowNull: false,
         },
       },
       {
         sequelize,
-        tableName: "tbl_shopping",
+        tableName: "tbl_user",
         timestamps: false,
         indexes: [
           {
             name: "PRIMARY",
             unique: true,
             using: "BTREE",
-            fields: [{ name: "s_seq" }],
+            fields: [{ name: "u_id" }],
           },
         ],
       }
