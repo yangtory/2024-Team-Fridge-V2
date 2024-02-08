@@ -17,13 +17,14 @@ p_seq	INT	AUTO_INCREMENT	PRIMARY KEY,
 p_name	VARCHAR(125)	NOT NULL,	
 p_exdate	VARCHAR(12)	NOT NULL	,
 p_quan	INT	NOT NULL	,
-p_date	VARCHAR(12)	NOT NULL		
+p_date	VARCHAR(12)	NOT NULL,
+p_memo VARCHAR(125)		
 );
 
 CREATE TABLE tbl_shopping (
 s_seq	INT	AUTO_INCREMENT	PRIMARY KEY,
 s_name	VARCHAR(125)	NOT NULL	,
-s_quan	INT	NOT NULL,
+s_quan	INT	NOT NULL	,
 s_ox INT
 );
 

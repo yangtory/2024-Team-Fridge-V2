@@ -19,7 +19,7 @@ block content
             div.listbox
                 table.cartlist
                     tbody 
-                        if SHOPPING && SHOPPING.length > 0  
+                        if (SHOPPING && SHOPPING.length > 0) || (SHOPPING2 && SHOPPING2.length > 0)
                             each item in SHOPPING 
                                 tr.nocheck
                                     td.buy= " ✓ "
