@@ -68,6 +68,31 @@ form.add {
   }
 }
 
+div.select {
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: white;
+  border-radius: 15px;
+  text-wrap: nowrap;
+  display: flex;
+  justify-content: space-around;
+  font-weight: 700;
+
+  label {
+    /* border: 1px solid black; */
+    padding: 5px 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    /* background-color: transparent; */
+    border-radius: 10px;
+  }
+
+  input {
+    display: none;
+  }
+}
+
 div.input {
   /* border: 1px solid black; */
   display: flex;

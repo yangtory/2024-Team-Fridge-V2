@@ -57,7 +57,7 @@ router.get("/:p_seq/delete", async (req, res) => {
   //   }
   // });
   try {
-    const row = await PRODUCT.destroy({
+    await PRODUCT.destroy({
       where: { p_seq: req.params.p_seq },
     });
     return res.redirect("/alarm");
@@ -68,7 +68,9 @@ router.get("/:p_seq/delete", async (req, res) => {
 
 router.get("/:p_seq/update", async (req, res) => {
   const p_seq = req.params.p_seq;
-  const row = await PRODUCT.findByPk(p_seq);
+  const row = await PRODUCT.findByPk(p_seq, {
+    include: { model: FRIDGE, as: "tbl_fridges", include: { model: PRODUCT, as: "f_pseq_tbl_product" } },
+  });
   return res.render("fridge/add_food", { PRODUCT: row });
 });
 router.post("/:p_seq/update", async (req, res) => {

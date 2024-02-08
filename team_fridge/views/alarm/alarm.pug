@@ -15,9 +15,9 @@ block content
                               tbody 
                                     each item,index in PRODUCT
                                           
-                                          tr(data-p_date= `${item.p_date}` data-p_seq= `${item.p_seq}`)
+                                          tr(data-p_seq= `${item.p_seq}`)
                                                 td=item.p_name
-                                                td.date=item.p_date
+                                                td.date=item.p_exdate
                                                 
 
             
