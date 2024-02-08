@@ -1,16 +1,18 @@
 extends ../layout_home
 block content
-    link(rel="stylesheet", href="/css/setting.css")
-    link(rel="stylesheet", href="/css/setting_login.css")
-    script(src="/js/setting_join.js")
+    link(rel="stylesheet", href="/css/setting/setting.css")
+    link(rel="stylesheet", href="/css/setting/setting_login.css")
+    link(rel="stylesheet", href="/css/thema/setting_thema.css")
+    script(src="/js/setting/setting_join.js")
+    script(src="/js/setting/setting_thema.js")
     div.main
       div.body
         section.main
           article.join_body
             h2 회원가입
             form.join(method="post")
-              input.username(name="ps_name" placeholder="닉네임")
-              input.userid(name="ps_id" placeholder="아이디")
-              input.password(id="password" name="ps_pw" placeholder="비밀번호" type="password")
+              input.username(name="u_name" placeholder="닉네임")
+              input.userid(name="u_id" placeholder="아이디")
+              input.password(id="password" name="u_pw" placeholder="비밀번호" type="password")
               input.re_password(id="password" name="re_pw" placeholder="비밀번호 확인" type="password")
               button.btn_login(type="button") 회원가입

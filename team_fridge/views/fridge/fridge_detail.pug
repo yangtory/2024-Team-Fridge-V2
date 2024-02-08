@@ -6,7 +6,7 @@ block content
   div.body
     section
       each item in FOOD
-        div.divBox(data-food = `${item.p_num}`)
+        div.divBox(data-food = `${item.p_seq}`)
           div.name
             h2.line=item.p_name
           div.detail
@@ -16,11 +16,11 @@ block content
             strong 유통 기한
             span=item.p_date
           div.detail
-            strong 저장방법
-            span
-          div.detail
             strong 수량
             span=item.p_quan
+          div.detail
+            strong 메모
+            span=item.p_memo
           div.btnBox
             button.update 수정
             button.delete 삭제
