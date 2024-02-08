@@ -1,12 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const div_tag = document.querySelector("#list");
+  const div_tag = document.querySelector("div.list");
 
   div_tag.addEventListener("click", (e) => {
     const target = e.target;
-    const p_num = div_tag.dataset.p_num;
 
-    if (target.innerHTML) {
-      return (document.location.href = `/fridge/${p_num}/fridge_detail`);
+    const click = target.closest("DIV");
+    const p_num = click.dataset.p_seq;
+
+    if (p_num) {
+      return document.location.replace(`/fridge/${p_num}/fridge_detail`);
     }
   });
 });
