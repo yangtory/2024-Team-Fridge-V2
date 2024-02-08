@@ -16,14 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   fridge.addEventListener("click", (e) => {
     const target = e.target;
+
     if (target.tagName === "DIV") {
-      document.location.href = "/fridge/fridge_list";
-    }
-    if (target.tagName === "LI") {
       const ul = target.closest("UL");
-      const f_num = ul.dataset.num;
-      // alert(f_num);
-      // document.location.replace(`/fridge/${f_num}/fridge_detail`);
+      const f_seq = ul.dataset.num;
+      document.location.replace(`/fridge/${f_seq}/fridge_list`);
     }
   });
 });

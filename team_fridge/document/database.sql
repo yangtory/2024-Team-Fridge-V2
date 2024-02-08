@@ -79,8 +79,25 @@ INSERT INTO tbl_product
 VALUE ('0007','토마토','2024-10-01','50','2024-01-30', '토마토임');
 
 INSERT INTO tbl_product
-(p_seq , p_name , p_exdate, p_quan, p_date, p_memo)
-VALUE ('0008','커피','2024-10-01','50','2024-01-30', '커피임');
+(p_fseq, p_name , p_exdate, p_quan, p_date, p_memo)
+VALUE ('2','포도','2024-10-01','50','2024-01-30', '커피임');
+
+SELECT f_seq as 냉장고번호, f_name as 냉장고이름,
+p_fseq as 냉장고번호,p_seq as 음식번호, p_name as 음식이름,
+p_quan as 수량,p_date as 구매날짜, p_exdate as 소비기한
+FROM tbl_product
+LEFT JOIN tbl_fridge
+ON f_seq = p_seq;
+
+CREATE VIEW view_plist AS
+(
+SELECT f_seq, p_name, p_seq, p_fseq
+FROM tbl_product
+	LEFT JOIN tbl_fridge
+		ON f_seq = p_fseq
+ORDER BY f_seq
+);
+
+
 
 SELECT * FROM tbl_product;
-SELECT * FROM tbl_fridge;

@@ -12,19 +12,15 @@ block content
                 button 실외
                 button 냉장
                 button 냉동
-            
-                        
-            
             div.food_box
-                each item in food
+                each item in FOOD.F_음식
                     div.food
-                        ul(data-food = `${item.p_seq}`)
+                        ul(data-food= `${item.p_seq}`)
                             li ✓ 음식이름 :   
-                                span=item.p_name
+                                span= item.p_name
                             li ✓ 수량 : 
-                                span=item.p_quan
+                                span= item.p_quan
                             li ✓ 구매일자 :  
-                                span=item.p_exdate
-
+                                span= item.p_exdate
             btn.add
                 button 음식추가
