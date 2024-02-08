@@ -59,21 +59,14 @@ div.photo {
   align-items: center;
   justify-content: center;
   color: #4e4e4e;
-  padding: 9rem;
+  padding: 1rem;
 }
 
-label.photo {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #858585;
-  padding: 12px;
-  border: 2px solid #858585;
-  border-radius: 15px;
+img {
   cursor: pointer;
-  text-wrap: nowrap;
 }
 
-input.add.photo {
+input.photo {
   display: none;
 }
 
@@ -90,7 +83,7 @@ div.select {
 
   label {
     /* border: 1px solid black; */
-    padding: 5px 30px;
+    padding: 5px 40px;
     cursor: pointer;
     transition: 0.3s;
     /* background-color: transparent; */
@@ -106,7 +99,7 @@ div.input input {
   display: flex;
   width: 100%;
   padding: 1rem;
-  margin: 8px 0;
+  margin: 5px 0;
   border: none;
   border-radius: 10px;
 }
@@ -130,8 +123,4 @@ div.btn {
       transform: translate(1px, 1px);
     }
   }
-}
-
-input.photo {
-  display: none;
 }

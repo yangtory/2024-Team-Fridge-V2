@@ -54,4 +54,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     form.submit();
   });
+
+  const imagePreView = (e) => {
+    const img_add = document.querySelector("img.img_add");
+    const file = e.target.files[0];
+    const fileReader = new FileReader();
+    fileReader.onload = (e) => {
+      const fileURL = e.target.result;
+      img_add.src = fileURL;
+    };
+    fileReader.readAsDataURL(file);
+  };
+  const img_add = document.querySelector("img.img_add");
+  const input_img = document.querySelector("input.photo");
+  const div_img = document.querySelector("div.photo");
+
+  div_img?.addEventListener("click", (e) => {
+    const target = e.target;
+    if (target.tagName === "IMG" || target.tagName === "DIV") {
+      input_img.click();
+    }
+  });
+
+  input_img?.addEventListener("change", imagePreView);
 });
+
+document.addEventListener("DOMContentLoaded", () => {});

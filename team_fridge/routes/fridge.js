@@ -1,5 +1,6 @@
 import express from "express";
 import DB from "../models/index.js";
+import { upLoad } from "../modules/file_upload.js";
 const FRIDGE = DB.models.tbl_fridge;
 const FOOD = DB.models.tbl_product;
 
@@ -108,10 +109,11 @@ router.get("/shopmemo/save", (req, res) => {
 
 // ============================
 
-router.post("/add_fridge", (req, res) => {
+router.post("/add_fridge", upLoad.single("f_photo"), async (req, res) => {
   const data = req.body;
   try {
-    FRIDGE.create(data);
+    await FRIDGE.create(data);
+    // return res.json(data);
     return res.redirect("/fridge/list_fridge");
   } catch (error) {
     return res.json(error);
