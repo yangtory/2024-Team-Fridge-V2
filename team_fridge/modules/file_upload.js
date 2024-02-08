@@ -6,4 +6,20 @@ import { v4 as uuid } from "uuid";
 const appRoot = process.env.PWD;
 const uploadPath = path.join(appRoot, "public", "uploads");
 
-const storageOption = {};
+const storageOption = {
+  destination: async (req, file, callback) => {
+    if (!existSync(uploadPath)) {
+      mkdirSync(uploadPath);
+    }
+    callback(null, uploadPath);
+  },
+  filename: (req, file, callback) => {
+    const upFileName = `${uuid()}-${file.originalname}`;
+    callback(null, upFileName);
+  },
+};
+
+const storage = multer.diskStorage(storageOption);
+const upLoad = multer({ storage });
+
+export { upLoad };

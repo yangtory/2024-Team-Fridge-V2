@@ -11,9 +11,9 @@ block content
                 h1 냉장고 추가
                 div.add
                     div.photo
-                        label.photo(for="file") 사진등록
-                            img.img_add(width="100px" height="100px")
-                            input(id="file" name="f_photo" type="file" accept="image/*" id="f_photo")
+                        label.photo(for="f_photo") 사진등록
+                            img.img_add
+                            input.photo(name="f_photo" type="file" accept="image/*" id="f_photo")
                 div.select
                     label#fresh(for="selecttem" value="fresh") 냉장
                     label#cold(for="selecttem" value="cold") 냉동
