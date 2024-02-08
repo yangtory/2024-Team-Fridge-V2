@@ -37,7 +37,7 @@ p {
 .onf_btn {
   position: absolute;
   top: 2.5px;
-  left: 3.5px;
+  left: 4px;
   display: inline-block;
   width: 19px;
   height: 19px;
@@ -60,7 +60,8 @@ p {
 /* move */
 #switch2:checked + .switch_label .onf_btn,
 #switch1:checked + .switch_label .onf_btn {
-  left: 33px;
+  top: 4px;
+  left: 34px;
   background: #f4f4f4;
   box-shadow: 1px 2px 3px #00000020;
 }

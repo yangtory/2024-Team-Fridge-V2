@@ -95,3 +95,11 @@ article.join_body input:focus,
 article.login_body input:focus {
   border: 2px solid var(--boxColor2);
 }
+
+/* 글씨 */
+h1,
+h2,
+pre,
+p {
+  color: var(--boxColor);
+}
