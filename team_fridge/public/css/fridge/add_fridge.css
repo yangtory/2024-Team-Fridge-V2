@@ -48,13 +48,13 @@ form {
 h1 {
   text-align: center;
   font-size: 2rem;
-  margin: 3px 8px;
+  margin: 5px 8px;
 }
 
 div.photo {
   background-color: white;
   border-radius: 15px;
-  margin: 0 auto;
+  margin: 5px auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,6 +64,7 @@ div.photo {
 
 label.photo {
   font-size: 1rem;
+  font-weight: 700;
   color: #858585;
   padding: 12px;
   border: 2px solid #858585;
@@ -78,13 +79,14 @@ input.add.photo {
 
 div.select {
   width: 100%;
-  margin: 5px auto;
+  margin: 0 auto;
   padding: 10px;
   background-color: white;
   border-radius: 15px;
   text-wrap: nowrap;
   display: flex;
   justify-content: space-around;
+  font-weight: 700;
 
   label {
     /* border: 1px solid black; */
@@ -128,4 +130,8 @@ div.btn {
       transform: translate(1px, 1px);
     }
   }
+}
+
+input.photo {
+  display: none;
 }

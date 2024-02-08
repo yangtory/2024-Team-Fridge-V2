@@ -14,6 +14,7 @@ router.get("/", async (req, res) => {
   //     return res.render("alarm/alarm.pug", { result: result });
   //   }
   // });
+
   try {
     const rows = await PRODUCT.findAll();
 
@@ -39,7 +40,7 @@ router.get("/:p_seq/detail", async (req, res) => {
       include: { model: FRIDGE, as: "tbl_fridges", include: { model: PRODUCT, as: "f_pseq_tbl_product" } },
     });
     // return res.json(row);
-    console.log(row);
+    // console.log(row);
     return res.render("alarm/detail", { PRODUCT: row });
   } catch (error) {
     return res.json(error);

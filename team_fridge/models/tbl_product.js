@@ -1,5 +1,4 @@
-import _sequelize from "sequelize";
-const { Model } = _sequelize;
+import { Model } from "sequelize";
 
 export default class tbl_product extends Model {
   static init(sequelize, DataTypes) {
@@ -26,6 +25,10 @@ export default class tbl_product extends Model {
         p_date: {
           type: DataTypes.STRING(12),
           allowNull: false,
+        },
+        p_memo: {
+          type: DataTypes.STRING(125),
+          allowNull: true,
         },
       },
       {

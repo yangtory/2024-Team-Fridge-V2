@@ -1,8 +1,9 @@
 import express from "express";
-import DB from "../config/mysql.js";
+import DB from "../models/index.js";
+const FRIDGE = DB.models.tbl_fridge;
+const FOOD = DB.models.tbl_product;
 
 const router = express.Router();
-const dbConn = DB.init();
 
 router.get("/", (req, res) => {
   return res.render("fridge/add");
@@ -12,15 +13,10 @@ router.get("/add_fridge", (req, res) => {
   return res.render("fridge/add_fridge");
 });
 
-router.get("/list_fridge", (req, res) => {
-  const sql = " SELECT * FROM tbl_fridge ";
-  dbConn.query(sql, (err, result) => {
-    if (err) {
-      return res.json();
-    } else {
-      return res.render("fridge/list_fridge", { FR: result });
-    }
-  });
+router.get("/list_fridge", async (req, res) => {
+  const rows = await FRIDGE.findAll();
+  // return res.json(rows);
+  return res.render("fridge/list_fridge", { FR: rows });
 });
 
 router.get("/shopmemo", (req, res) => {
@@ -104,130 +100,84 @@ router.get("/shopmemo/:t_num/add", (req, res) => {
   });
 });
 
-
 router.get("/shopmemo/save", (req, res) => {
- //어떻게 할지까먹어서 나중에 생각나면 할것.
- // 저장버튼을 누르면 쇼핑테이블에있는 데이터들이 자동으로 냉장고 테이블과 연동됨.
- res.redirect("/fridge/shopmemo");
+  //어떻게 할지까먹어서 나중에 생각나면 할것.
+  // 저장버튼을 누르면 쇼핑테이블에있는 데이터들이 자동으로 냉장고 테이블과 연동됨.
+  res.redirect("/fridge/shopmemo");
 });
 
 // ============================
 
 router.post("/add_fridge", (req, res) => {
-  const f_photo = req.body.f_photo;
-  const f_div = req.body.f_div;
-  const f_name = req.body.f_name;
-  const f_memo = req.body.f_memo;
-
-  const params = [f_photo, f_div, f_name, f_memo];
-
-  const sql = "INSERT INTO tbl_fridge(f_photo, f_div, f_name, f_memo) " + " VALUES (?,?,?,?) ";
-  dbConn.query(sql, params, (err, result) => {
-    if (err) {
-      return res.json(err);
-    } else {
-      console.log(params);
-      return res.redirect("/fridge/list_fridge");
-    }
-  });
+  const data = req.body;
+  try {
+    FRIDGE.create(data);
+    return res.redirect("/fridge/list_fridge");
+  } catch (error) {
+    return res.json(error);
+  }
 });
 
-// router.get("/add_fridge", (req, res) => {
-//   const sql = " SELECT * FROM tbl_fridge";
-//   dbCreate.query(sql, (err, result) => {
-//     if (err) {
-//       return res.json();
-//     } else {
-//       return res.render("fridge/list_fridge");
-//     }
-//   });
-// });
-
-router.get("/fridge_list", (req, res) => {
-  const sql = " SELECT * FROM tbl_food ";
-
-  dbConn.query(sql, (err, result) => {
-    if (err) {
-      return res.json(err);
-    } else {
-      return res.render("fridge/fridge_list", { food: result });
-    }
-  });
+router.get("/fridge_list", async (req, res) => {
+  const rows = await FOOD.findAll();
+  return res.render("fridge/fridge_list", { food: rows });
 });
 
-router.get("/:p_num/fridge_detail", (req, res) => {
-  const p_num = req.params.p_num;
-  const params = [p_num];
-  const sql = " SELECT * FROM tbl_food WHERE p_num = ? ";
-
-  dbConn.query(sql, params, (err, result) => {
-    if (err) {
-      return res.json(err);
-    } else {
-      // return res.json(result);
-      return res.render("fridge/fridge_detail", { FOOD: result });
-    }
-  });
+router.get("/:p_seq/fridge_detail", async (req, res) => {
+  const p_seq = req.params.p_seq;
+  try {
+    const row = await FOOD.findAll({
+      where: { p_seq },
+    });
+    return res.render("fridge/fridge_detail", { FOOD: row });
+  } catch (error) {
+    return res.json(error);
+  }
 });
 
-router.get("/:p_num/delete", (req, res) => {
-  const p_num = req.params.p_num;
-  const sql = " DELETE FROM tbl_food WHERE p_num = ? ";
-  dbConn.query(sql, [p_num], (err, result) => {
-    if (err) {
-      return res.json(err);
-    } else {
-      return res.redirect("/fridge/fridge_list");
-    }
-  });
+router.get("/:p_seq/delete", async (req, res) => {
+  const p_seq = req.params.p_seq;
+  try {
+    await FOOD.destroy({
+      where: { p_seq },
+    });
+    return res.redirect("/fridge/fridge_list");
+  } catch (error) {
+    return res.json(error);
+  }
 });
 
 router.get("/add_food", (req, res) => {
   return res.render("fridge/add_food");
 });
 
-router.post("/add_food", (req, res) => {
-  // const f_div = req.body.f_div;
-  const p_name = req.body.p_name;
-  const p_quan = req.body.p_quan;
-  const p_exdate = req.body.p_exdate;
-  const p_date = req.body.p_date;
-  const sql = " INSERT INTO tbl_food(p_name,p_quan,p_exdate,p_date) " + " VALUES (?,?,?,?) ";
-  const params = [p_name, p_quan, p_exdate, p_date];
-
-  dbConn.query(sql, params, (err, result) => {
-    if (err) {
-      return res.json(err);
-    } else {
-      return res.redirect("/fridge/fridge_list");
-    }
-  });
+router.post("/add_food", async (req, res) => {
+  const data = req.body;
+  try {
+    await FOOD.create(data, { where: { p_seq: req.body.p_seq } });
+    return res.redirect("/fridge/fridge_list");
+  } catch (error) {
+    return res.json(error);
+  }
 });
 
-router.get("/:p_num/update", (req, res) => {
-  const p_num = req.params.p_num;
-  const sql = " SELECT * FROM tbl_food WHERE p_num = ? ";
-  dbConn.query(sql, [p_num], (err, result) => {
-    if (err) {
-      return res.json(err);
-    } else {
-      return res.render("fridge/add_food", { food: result[0] });
-    }
-  });
+router.get("/:p_seq/update", async (req, res) => {
+  const p_seq = req.params.p_seq;
+  try {
+    const row = await FOOD.findByPk(p_seq);
+    return res.render("fridge/add_food", { food: row });
+  } catch (error) {
+    return res.json(err);
+  }
 });
-router.post("/:p_num/update", (req, res) => {
-  const p_num = req.params.p_num;
-  const p_exdate = req.body.p_exdate;
-  const p_date = req.body.p_date;
-  const p_quan = req.body.p_quan;
-  const params = [p_exdate, p_date, p_quan, p_num];
-  const sql = " UPDATE tbl_food SET p_exdate = ? , p_date = ? , p_quan = ? WHERE p_num = ? ";
-  dbConn.query(sql, params, (err, result) => {
-    if (err) {
-      return res.json(err);
-    } else {
-      return res.redirect(`/fridge/${p_num}/fridge_detail`);
-    }
-  });
+router.post("/:p_seq/update", async (req, res) => {
+  const data = req.body;
+  const p_seq = req.params.p_seq;
+  try {
+    await FOOD.update(data, { where: { p_seq: p_seq } });
+    return res.redirect(`/fridge/${p_seq}/fridge_detail`);
+  } catch (error) {
+    return res.json(error);
+  }
 });
 export default router;

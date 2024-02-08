@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
   food_box.addEventListener("click", (e) => {
     const target = e.target;
     if (target.tagName === "LI") {
-      const div = target.closest("UL");
-      const p_seq = div.dataset.food;
+      const box = target.closest("UL");
+      const p_seq = box.dataset.food;
       // alert(p_num);
       document.location.replace(`/fridge/${p_seq}/fridge_detail`);
     }
