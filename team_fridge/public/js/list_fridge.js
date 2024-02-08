@@ -4,10 +4,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   btn_box.addEventListener("click", (e) => {
     const target = e.target;
-    if (target.innerText === "냉장고추가") {
+    if (target.innerText === "냉장고 추가") {
       document.location.href = "/fridge/add_fridge";
     }
-    if (target.innerText === "냉장고삭제") {
+    if (target.innerText === "장바구니 추가") {
+      document.location.href = "/fridge/shopmemo";
+    }
+    if (target.innerText === "냉장고 삭제") {
       alert("아직구현못함");
     }
   });
