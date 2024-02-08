@@ -1,17 +1,27 @@
 import express from "express";
-import DB from "../config/mysql.js";
+import DB from "../models/index.js";
 const router = express.Router();
-const dbConn = DB.init();
+// const dbConn = DB.init();
+const FRIDGE = DB.models.tbl_fridge;
+const PRODUCT = DB.models.tbl_product;
 
-router.get("/", (req, res) => {
-  const sql = " SELECT * FROM tbl_food ";
-  dbConn.query(sql, (err, result) => {
-    if (err) {
-      return res.json(err);
-    } else {
-      return res.render("alarm/alarm.pug", { result: result });
-    }
-  });
+router.get("/", async (req, res) => {
+  // const sql = " SELECT * FROM tbl_product ";
+  // dbConn.query(sql, (err, result) => {
+  //   if (err) {
+  //     return res.json(err);
+  //   } else {
+  //     return res.render("alarm/alarm.pug", { result: result });
+  //   }
+  // });
+
+  try {
+    const rows = await PRODUCT.findAll();
+
+    return res.render("alarm/alarm", { PRODUCT: rows });
+  } catch (error) {
+    return res.json(error);
+  }
 });
 
 // router.get("/:foodName/detail", async (req, res) => {
@@ -23,56 +33,54 @@ router.get("/", (req, res) => {
 //     return res.json(error);
 //   }
 // });
-router.get("/:p_num/detail", (req, res) => {
-  const p_num = req.params.p_num;
-  const sql = " SELECT * FROM tbl_food WHERE p_num = ? ";
-  const params = [p_num];
-  dbConn.query(sql, params, (err, result) => {
-    if (err) {
-      return res.json(err);
-    } else {
-      return res.render("alarm/detail", { result: result });
-    }
-  });
+router.get("/:p_seq/detail", async (req, res) => {
+  const p_seq = req.params.p_seq;
+  try {
+    const row = await PRODUCT.findByPk(p_seq, {
+      include: { model: FRIDGE, as: "tbl_fridges", include: { model: PRODUCT, as: "f_pseq_tbl_product" } },
+    });
+    // return res.json(row);
+    // console.log(row);
+    return res.render("alarm/detail", { PRODUCT: row });
+  } catch (error) {
+    return res.json(error);
+  }
 });
 
-router.get("/:p_num/delete", (req, res) => {
-  const p_num = req.params.p_num;
-  const sql = " DELETE FROM tbl_food WHERE p_num = ? ";
-  dbConn.query(sql, [p_num], (err, result) => {
-    if (err) {
-      return res.json(err);
-    } else {
-      return res.redirect("/alarm");
-    }
-  });
+router.get("/:p_seq/delete", async (req, res) => {
+  // const sql = " DELETE FROM tbl_product WHERE p_seq = ? ";
+  // dbConn.query(sql, [p_seq], (err, result) => {
+  //   if (err) {
+  //     return res.json(err);
+  //   } else {
+  //     return res.redirect("/alarm");
+  //   }
+  // });
+  try {
+    const row = await PRODUCT.destroy({
+      where: { p_seq: req.params.p_seq },
+    });
+    return res.redirect("/alarm");
+  } catch (error) {
+    return res.json(error);
+  }
 });
 
-router.get("/:p_num/update", (req, res) => {
-  const p_num = req.params.p_num;
-  const sql = " SELECT * FROM tbl_food WHERE p_num = ? ";
-  dbConn.query(sql, [p_num], (err, result) => {
-    if (err) {
-      return res.json(err);
-    } else {
-      return res.render("fridge/add_food", { food: result[0] });
-    }
-  });
+router.get("/:p_seq/update", async (req, res) => {
+  const p_seq = req.params.p_seq;
+  const row = await PRODUCT.findByPk(p_seq);
+  return res.render("fridge/add_food", { PRODUCT: row });
 });
-router.post("/:p_num/update", (req, res) => {
-  const p_num = req.params.p_num;
-  const p_exdate = req.body.p_exdate;
-  const p_date = req.body.p_date;
-  const p_quan = req.body.p_quan;
-  const params = [p_exdate, p_date, p_quan, p_num];
-  const sql = " UPDATE tbl_food SET p_exdate = ? , p_date = ? , p_quan = ? WHERE p_num = ? ";
-  dbConn.query(sql, params, (err, result) => {
-    if (err) {
-      return res.json(err);
-    } else {
-      return res.redirect(`/alarm/${p_num}/detail`);
-    }
-  });
+router.post("/:p_seq/update", async (req, res) => {
+  const p_seq = req.params.p_seq;
+  const data = req.body;
+  // return res.json(data);
+  try {
+    await PRODUCT.update(data, { where: { p_seq } });
+    return res.redirect(`/alarm/${p_seq}/detail`);
+  } catch (error) {
+    return res.json(error);
+  }
 });
 
 export default router;
