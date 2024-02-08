@@ -18,6 +18,7 @@ block content
                 //-     label#out(for="select_div" value="out") 실외
                 //-         input(id="select_div" name="f_div") 
                 div.input
+                    span 음식이름
                     if PRODUCT
                         input(name="p_name" placeholder="음식 이름을 입력하세요" value=`${food ? food.p_name : ""}`, readonly="readonly")
                     else 
