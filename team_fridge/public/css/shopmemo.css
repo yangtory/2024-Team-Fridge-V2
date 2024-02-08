@@ -88,6 +88,9 @@ section.box {
 
 div.listbox {
   overflow: auto;
+  /* border: 1px solid red; */
+
+  border-radius: 15px;
 }
 button,
 div {
@@ -102,6 +105,16 @@ div {
   .amount {
     display: flex;
     text-align: right;
+    .plus {
+      width: 22px;
+      height: 20px;
+      padding-bottom: 2px;
+      border-bottom: 1px solid #4e4e4e;
+    }
+    .minus {
+      width: 22px;
+      height: 20px;
+    }
   }
 }
 
@@ -178,4 +191,11 @@ button.addmemo {
 
 span {
   display: none;
+}
+
+.check {
+  background-color: #ddd;
+  :nth-of-type(3) {
+    text-decoration: line-through;
+  }
 }
