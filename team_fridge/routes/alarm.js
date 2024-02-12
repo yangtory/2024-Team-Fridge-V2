@@ -68,7 +68,7 @@ router.get("/:p_seq/delete", async (req, res) => {
 router.get("/:p_seq/update", async (req, res) => {
   const p_seq = req.params.p_seq;
   const row = await PRODUCT.findByPk(p_seq);
-  return res.render("fridge/add_food", { PRODUCT: row });
+  return res.render("fridge/add_food", { food: row });
 });
 router.post("/:p_seq/update", async (req, res) => {
   const p_seq = req.params.p_seq;

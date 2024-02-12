@@ -9,6 +9,7 @@ export default class tbl_product extends Model {
           type: DataTypes.INTEGER,
           allowNull: false,
           primaryKey: true,
+          defaultValue: 0,
         },
         p_fseq: {
           type: DataTypes.INTEGER,
@@ -21,22 +22,27 @@ export default class tbl_product extends Model {
         p_name: {
           type: DataTypes.STRING(125),
           allowNull: false,
+          defaultValue: "",
         },
         p_exdate: {
           type: DataTypes.STRING(12),
           allowNull: false,
+          defaultValue: "",
         },
         p_quan: {
           type: DataTypes.INTEGER,
           allowNull: false,
+          defaultValue: 0,
         },
         p_date: {
           type: DataTypes.STRING(12),
           allowNull: false,
+          defaultValue: "",
         },
         p_memo: {
           type: DataTypes.STRING(125),
           allowNull: true,
+          defaultValue: "",
         },
       },
       {
