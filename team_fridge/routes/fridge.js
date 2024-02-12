@@ -17,8 +17,12 @@ router.get('/add_fridge', (req, res) => {
 
 router.get('/list_fridge', async (req, res) => {
     const rows = await FRIDGE.findAll();
-    // return res.json(rows);
     return res.render('fridge/list_fridge', { FR: rows });
+});
+
+router.get('/delete_fridge', async (req, res) => {
+    const rows = await FRIDGE.findAll();
+    return res.render('fridge/delete_fridge', { FR: rows });
 });
 
 router.post('/add_fridge', upLoad.single('f_photo'), async (req, res) => {
