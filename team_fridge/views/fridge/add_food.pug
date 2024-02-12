@@ -19,14 +19,18 @@ block content
                 //-         input(id="select_div" name="f_div") 
                 div.input
                     span 음식이름
-                    if PRODUCT
-                        input(name="p_name" placeholder="음식 이름을 입력하세요" value=`${food ? food.p_name : ""}`, readonly="readonly")
-                    else 
-                        input(name="p_name" placeholder="음식 이름을 입력하세요" value=`${food ? food.p_name : ""}`)
-                    input(name="p_date" placeholder="구매날짜를 입력하세요" value=`${food ? food.p_date : ""}`)
-                    input(name="p_exdate" placeholder="유통기한을 입력하세요" value=`${food ? food.p_exdate : ""}`)
-                    input(name="memo" placeholder="메모를 입력하세요" value=`${food ? food.p_memo : ""}`)
-                    input(name="p_quan" placeholder="수량을 입력하세요" value=`${food ? food.p_quan : ""}`)
+                        if PRODUCT
+                            input(name="p_name" placeholder="음식 이름을 입력하세요" value=`${food ? food.p_name : ""}` readonly)
+                        else 
+                            input(name="p_name" placeholder="음식 이름을 입력하세요" value=`${food ? food.p_name : ""}`)
+                    span 구매날짜
+                        input(name="p_date" placeholder="구매날짜를 입력하세요" value=`${food ? food.p_date : ""}`)
+                    span 소비기한
+                        input(name="p_exdate" placeholder="유통기한을 입력하세요" value=`${food ? food.p_exdate : ""}`)
+                    span 구매수량
+                        input(name="p_quan" placeholder="수량을 입력하세요" value=`${food ? food.p_quan : ""}`)
+                    span 　메모　
+                        input(name="memo" placeholder="메모를 입력하세요" value=`${food ? food.p_memo : ""}`)
                 div.btn
                     input(type="submit", value =`${food ? "수정" : "추가"}`) 
 
