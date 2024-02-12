@@ -15,6 +15,10 @@ block content
                 each item in FR
                     ul(data-num = `${item.f_seq}`)
                         li
-                            div.list.photo= item.f_photo
+                            div.photo
+                            if item.f_image_name
+                                img(src=`uploads/${item.f_image_name}` width="200px" height="150px")
+                            else 
+                                img(src="images/noImage.svg" width="200px" height="150px")
                             span.list.div= item.f_div
                             span.list.name= item.f_name
