@@ -20,11 +20,6 @@ router.get('/list_fridge', async (req, res) => {
     return res.render('fridge/list_fridge', { FR: rows });
 });
 
-router.get('/delete_fridge', async (req, res) => {
-    const rows = await FRIDGE.findAll();
-    return res.render('fridge/delete_fridge', { FR: rows });
-});
-
 router.post('/add_fridge', upLoad.single('f_photo'), async (req, res) => {
     const data = req.body;
     const file = req.file;
@@ -82,21 +77,50 @@ router.get('/:p_seq/delete', async (req, res) => {
     }
 });
 
-router.get('/add_food', async (req, res) => {
-    const rows = await FOOD.findAll({
-        include: [{ model: FRIDGE, as: 'F_냉장고' }],
-    });
-    return res.render('fridge/add_food', { food: rows });
+router.get('/:p_fseq/fridge_delete', async (req, res) => {
+    const p_fseq = req.params.p_fseq;
+    // const row = await FOOD.findAll({
+    //     include: [{ model: FRIDGE, as: 'F_냉장고' }],
+    //     where: { p_fseq },
+    // });
+    // console.log(fridge_num);
+    // return res.json(fridge_num);
+    // const f_name = row.f_name;
+    try {
+        await FRIDGE.destroy({
+            where: { p_fseq },
+        });
+        // await FRIDGE.destroy(fridge_num);
+        // return res.json(fridge_num);
+        return res.redirect('/fridge/list_fridge');
+    } catch (error) {
+        return res.json(error);
+    }
 });
 
-router.post('/add_food', async (req, res) => {
+router.get('/:f_seq/add_food', async (req, res) => {
+    const f_seq = req.params.f_seq;
+    const row = await FRIDGE.findByPk(f_seq);
+
+    // const rows = await FOOD.findAll({
+    //     include: [{ model: FRIDGE, as: 'F_냉장고' }],
+    // });
+    // return res.json(row);
+    return res.render('fridge/add_food', { food: row });
+});
+
+router.post('/:f_seq/add_food', async (req, res) => {
+    const f_seq = req.params.f_seq;
     const data = req.body;
+    const rows = await FRIDGE.findByPk(f_seq, {
+        include: {
+            model: FOOD,
+            as: 'F_음식',
+        },
+    });
     try {
-        await FOOD.create(data, {
-            include: [{ model: FRIDGE, as: 'F_food' }],
-            where: { p_fseq: req.body.f_seq },
-        });
-        return res.redirect('/fridge/fridge_list');
+        await FOOD.create(data);
+        return res.redirect(`fridge/${f_seq}/fridge_list`);
     } catch (error) {
         return res.json(error);
     }

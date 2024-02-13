@@ -11,6 +11,8 @@ block content
                 h1= FOOD.f_name
             div.btn_group 
                 button 오름차순
+                button.btn_add(data-food= `${FOOD.f_seq}`) 음식추가
+                button.btn_delete(data-num= `${FOOD.f_seq}`) 냉장고삭제
             //-     button 실외
             //-     button 냉장
             //-     button 냉동
@@ -26,5 +28,3 @@ block content
                                 span= item.p_exdate
                             li ✓ 소비기한 : 
                                 span= item.p_date
-            btn.add
-                button 음식추가

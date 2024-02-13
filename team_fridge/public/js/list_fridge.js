@@ -10,9 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (target.innerText === '장바구니 추가') {
             document.location.href = '/fridge/shopmemo';
         }
-        if (target.innerText === '냉장고 삭제') {
-            document.location.href = '/fridge/delete_fridge';
-        }
     });
     fridge.addEventListener('click', (e) => {
         const target = e.target;
