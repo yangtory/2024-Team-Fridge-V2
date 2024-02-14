@@ -1,4 +1,7 @@
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("Hello Korea");
-  console.log("This is Top level event handler, DOM is ready");
+document.addEventListener('DOMContentLoaded', () => {
+    const back = document.querySelector('a.back');
+
+    // back.addEventListener('click', () => {
+    //     window.history.back();
+    // });
 });

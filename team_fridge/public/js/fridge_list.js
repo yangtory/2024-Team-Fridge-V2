@@ -5,11 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btn_add.addEventListener('click', () => {
         const f_seq = btn_add.dataset.food;
-        document.location.href = `fridge/${f_seq}/add_food`;
+        document.location.href = `/fridge/${f_seq}/add_food`;
     });
     btn_delete.addEventListener('click', () => {
         const f_seq = btn_delete.dataset.num;
-        document.location.href = `/fridge/${f_seq}/fridge_delete`;
+        if (confirm('냉장고를 정말 삭제할까요?')) {
+            document.location.href = `/fridge/${f_seq}/fridge_delete`;
+        }
     });
     food_box.addEventListener('click', (e) => {
         const target = e.target;

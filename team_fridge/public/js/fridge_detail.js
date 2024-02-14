@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     btn_list.addEventListener('click', () => {
-        document.location.href = '/fridge/list_fridge';
+        const f_seq = btn_list.dataset.f_seq;
+        document.location.replace(`/fridge/${f_seq}/fridge_list`);
     });
 });

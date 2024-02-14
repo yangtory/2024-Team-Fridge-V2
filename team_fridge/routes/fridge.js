@@ -77,21 +77,15 @@ router.get('/:p_seq/delete', async (req, res) => {
     }
 });
 
-router.get('/:p_fseq/fridge_delete', async (req, res) => {
-    const p_fseq = req.params.p_fseq;
-    // const row = await FOOD.findAll({
-    //     include: [{ model: FRIDGE, as: 'F_냉장고' }],
-    //     where: { p_fseq },
-    // });
-    // console.log(fridge_num);
-    // return res.json(fridge_num);
-    // const f_name = row.f_name;
+router.get('/:f_seq/fridge_delete', async (req, res) => {
+    const f_seq = req.params.f_seq;
     try {
-        await FRIDGE.destroy({
-            where: { p_fseq },
+        await FOOD.destroy({
+            where: { p_fseq: f_seq },
         });
-        // await FRIDGE.destroy(fridge_num);
-        // return res.json(fridge_num);
+        await FRIDGE.destroy({
+            where: { f_seq },
+        });
         return res.redirect('/fridge/list_fridge');
     } catch (error) {
         return res.json(error);
@@ -101,11 +95,6 @@ router.get('/:p_fseq/fridge_delete', async (req, res) => {
 router.get('/:f_seq/add_food', async (req, res) => {
     const f_seq = req.params.f_seq;
     const row = await FRIDGE.findByPk(f_seq);
-
-    // const rows = await FOOD.findAll({
-    //     include: [{ model: FRIDGE, as: 'F_냉장고' }],
-    // });
-    // return res.json(row);
     return res.render('fridge/add_food', { food: row });
 });
 
@@ -120,7 +109,7 @@ router.post('/:f_seq/add_food', async (req, res) => {
     });
     try {
         await FOOD.create(data);
-        return res.redirect(`fridge/${f_seq}/fridge_list`);
+        return res.redirect(`/fridge/${f_seq}/fridge_list`);
     } catch (error) {
         return res.json(error);
     }
