@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const target = e.target;
 
     const click = target.closest("DIV");
-    const p_num = click.dataset.p_seq;
+    const p_seq = click.dataset.p_seq;
 
-    if (p_num) {
-      return document.location.replace(`/fridge/${p_num}/fridge_detail`);
+    if (p_seq) {
+      return document.location.replace(`/fridge/${p_seq}/fridge_detail`);
     }
   });
 });
