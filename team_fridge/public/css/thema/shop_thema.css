@@ -6,6 +6,7 @@
   --boxColor: #4e4e4e;
   --boxColor2: #4e4e4e;
   --boxColor3: #858585;
+  --boxColor4: #e7e5e5;
 }
 /* 다크모드 */
 :root[color-theme="dark"] {
@@ -15,9 +16,36 @@
   --boxColor: #bdb8b8;
   --boxColor2: #a09e9e;
   --boxColor3: #7e7b7b;
+  --boxColor4: #dddddd1a;
 }
 
 /* 설정창 */
+tr.check {
+  color: #858585;
+  background-color: var(--boxColor4);
+  :nth-of-type(3) {
+    text-decoration: line-through;
+  }
+}
+tr:hover {
+  cursor: pointer;
+  background-color: var(--boxColor4);
+}
+
+div.amount {
+  div {
+    color: var(--background2);
+  }
+}
+div.btn_box {
+  button {
+    color: var(--background2);
+  }
+}
+button.addmemo {
+  color: var(--background2);
+}
+
 div.body,
 body,
 div.main {

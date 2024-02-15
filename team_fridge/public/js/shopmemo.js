@@ -79,11 +79,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // const td_delete = document.querySelector("td.delete");
   table.addEventListener("click", (e) => {
     const target = e.target;
+    const paTR = target.closest("TR");
+    const tds = paTR.querySelectorAll("TD");
+    const s_seq = tds[1].innerText;
     if (target.className === "delete") {
+      if (tds[7].innerText == 1) {
+        alert("체크표시된 목록은 삭제할 수 없습니다. 저장을 누르면 자동으로 목록에서 사라집니다.");
+        return false;
+      }
       if (confirm("정말 이 메모를 삭제할까요?")) {
-        const paTR = target.closest("TR");
-        const tds = paTR.querySelectorAll("TD");
-        const s_seq = tds[1].innerText;
         location.replace(`shopmemo/${s_seq}/delete`);
       }
     } else {
