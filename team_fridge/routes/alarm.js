@@ -13,6 +13,10 @@ router.get("/", async (req, res) => {
 
   try {
     const rows = await PRODUCT.findAll({
+      include: {
+        model: FRIDGE,
+        as: "F_냉장고",
+      },
       where: {
         p_exdate: { [Op.lte]: exdate },
       },
