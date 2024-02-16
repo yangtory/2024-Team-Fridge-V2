@@ -27,7 +27,7 @@ s_seq	INT	AUTO_INCREMENT	PRIMARY KEY,
 s_name	VARCHAR(125)	NOT NULL	,
 s_quan	INT	NOT NULL	,
 s_ox	INT	,
-s_fseq	INT	NOT NULL	
+s_fseq	INT	
 );
 
 CREATE TABLE tbl_user(
