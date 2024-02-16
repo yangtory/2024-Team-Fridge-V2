@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         url += `/${p_seq}/delete`;
       }
-      document.location.replace(url);
+      document.location.href = `${url}`;
     }
   });
 });
