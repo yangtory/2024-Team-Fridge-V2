@@ -12,17 +12,18 @@ block content
                     i.fa.fa-lemon
                 a 장바구니 추가 
                     i.fa.fa-shopping-cart
-                a 냉장고 수정 
-                    i.fa.fa-wrench
             div.list.fridge
                 each item in FR
                     ul(data-num = `${item.f_seq}`)
                         li
-                            div.img
-                                if item.f_image_name
-                                    img(src=`/uploads/${item.f_image_name}` )
-                                else 
-                                    img(src="/images/noImage.svg" )
+                            div.setting 
+                                a(href=`/fridge/${item.f_seq}/fridge_update`)(data-update = `${item.f_seq}`) 
+                                    i.fa.fa-wrench
+                                div.img
+                                    if item.f_image_name
+                                        img(src=`/uploads/${item.f_image_name}` )
+                                    else 
+                                        img(src="/images/noImage.svg" )
                             div.span
                                 span.list.div= item.f_div
                                 span.list.name= item.f_name

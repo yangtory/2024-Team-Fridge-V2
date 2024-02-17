@@ -8,23 +8,32 @@ block content
     div.body
         section    
             form.add(method="POST" enctype="multipart/form-data")
-                h1 냉장고 추가
+                if FR
+                    h1 #{FR.f_div} 수정
+                else 
+                    h1 냉장고 추가
                 div.add
                     div.photo
-                        img.img_add(src="/images/add_image.svg" )
-                        input.photo(name="f_photo" type="file" accept="image/*" id="f_photo")
-                div.select
+                        if FR
+                            img.img_add(src=`/uploads/${FR.f_image_name}` )
+                            input.photo(name="f_photo" type="file" accept="image/*" id="f_photo")
+                        else
+                            img.img_add(src="/images/add_image.svg" )
+                            input.photo(name="f_photo" type="file" accept="image/*" id="f_photo")
+                div.select 
                     label#fresh(for="selecttem" value="fresh") 냉장
                     label#cold(for="selecttem" value="cold") 냉동
                     label#out(for="selecttem" value="out") 실외
-                        input.add.select(id="selecttem" name="f_div")
+                    
+                        if FR
+                            input.update_div(id="selecttem" name="f_div" value= `${FR.f_div}`)(data-div=`${FR.f_div}`)
+                        else
+                            input.add.select(id="selecttem" name="f_div")
                 div.input
-                    div.add.error
-                    input#f_name(name="f_name" placeholder="냉장고 이름을 입력하세요")
-                    input#f_memo(name="f_memo" placeholder="메모를 입력하세요")
+                    input#f_name(name="f_name" placeholder="냉장고 이름을 입력하세요" value = `${FR ? FR.f_name : ""}`)
+                    input#f_memo(name="f_memo" placeholder="메모를 입력하세요" value = `${FR ? FR.f_memo : ""}`)
                 div.btn
-                    //- a(href="/list_fridge") 
-                    input#f_btn(type="submit" value="추가")
+                    input#f_btn(type="submit" value= `${FR? "수정":"추가"}`)
 
 
 

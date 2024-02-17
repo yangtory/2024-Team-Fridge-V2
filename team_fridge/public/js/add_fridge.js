@@ -1,9 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('form.add');
-    const f_name = document.querySelector('#f_name');
-    const f_memo = document.querySelector('#f_memo');
-    const f_btn = document.querySelector('#f_btn');
-
     const select_box = document.querySelector('div.select');
     const fresh_btn = document.querySelector('#fresh');
     const cold_btn = document.querySelector('#cold');
@@ -23,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cold_btn.addEventListener('click', changeBack);
     out_btn.addEventListener('click', changeBack);
 
-    select_box.addEventListener('click', (e) => {
+    select_box?.addEventListener('click', (e) => {
         const target = e.target;
         const select_input = document.querySelector('#selecttem');
 
@@ -35,6 +30,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (target.innerText === '실외') {
             select_input.value = '실외';
+        }
+    });
+
+    const div = document.querySelector('input.update_div');
+    window.addEventListener('load', () => {
+        if (div.value === '냉장고') {
+            fresh_btn.style.backgroundColor = '#ccc';
+        } else if (div.value === '냉동고') {
+            cold_btn.style.backgroundColor = '#ccc';
+        } else if (div.value === '실외') {
+            out_btn.style.backgroundColor = '#ccc';
         }
     });
 
