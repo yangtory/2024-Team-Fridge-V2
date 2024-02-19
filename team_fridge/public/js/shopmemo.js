@@ -66,9 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const btn_save = document.querySelector("button.save");
   btn_save?.addEventListener("click", () => {
-    alert("아직 구현 준비중... ");
+    // alert("아직 구현 준비중... ");
 
-    alert("냉장고에 저장되었습니다.");
+    // alert("냉장고에 저장되었습니다.");
     //어떤 냉장고에 저장해야하는지에 대한 선택지도 뜨게 해야하나..?
 
     location.replace("shopmemo/save");
