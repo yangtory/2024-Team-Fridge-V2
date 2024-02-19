@@ -1,0 +1,21 @@
+extends ../layout_home
+
+block content
+    link(rel="stylesheet", href="/css/fridge/shopsave.css")
+    script(src="/js/shopsave.js")
+    div.body
+        section.list 
+            div.list.fridge
+                each item in FR
+                    ul(data-num = `${item.f_seq}`)
+                        li.f
+                            div.img
+                                if item.f_image_name
+                                    img(src=`/uploads/${item.f_image_name}`, width='100px', height='100px' )
+                                else 
+                                    img(src="/images/noImage.svg", width='100px', height='100px' )
+                            //- span.list.div= item.f_div
+                            span.list.name= item.f_name
+                            span.fseq= item.f_seq
+            //- div.list.btn
+            //-     button.save 냉장고 추가
