@@ -7,22 +7,26 @@ const router = express.Router();
 const FRIDGE = DB.models.tbl_fridge;
 const PRODUCT = DB.models.tbl_product;
 
-router.get('/', async (req, res) => {
-    const today = moment().format('YYYY-MM-DD');
-    const exdate = moment().add(10, 'days').format('YYYY-MM-DD');
+router.get("/", async (req, res) => {
+  const today = moment().format("YYYY-MM-DD");
+  const exdate = moment().add(10, "days").format("YYYY-MM-DD");
 
-    try {
-        const rows = await PRODUCT.findAll({
-            where: {
-                p_exdate: { [Op.lte]: exdate },
-            },
-            order: [['p_exdate', 'ASC']],
-        });
-        // return res.json(rows);
-        return res.render('alarm/alarm', { PRODUCT: rows });
-    } catch (error) {
-        return res.json(error);
-    }
+  try {
+    const rows = await PRODUCT.findAll({
+      include: {
+        model: FRIDGE,
+        as: "F_냉장고",
+      },
+      where: {
+        p_exdate: { [Op.lte]: exdate },
+      },
+      order: [["p_exdate", "ASC"]],
+    });
+    // return res.json(rows);
+    return res.render("alarm/alarm", { PRODUCT: rows });
+  } catch (error) {
+    return res.json(error);
+  }
 });
 
 // router.get("/:foodName/detail", async (req, res) => {
