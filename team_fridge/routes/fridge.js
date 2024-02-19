@@ -35,7 +35,6 @@ router.post("/:f_seq/fridge_update", upLoad.single("f_photo"), async (req, res) 
   const f_seq = req.params.f_seq;
   const data = req.body;
   const file = req.file;
-
   if (file) {
     req.body.f_image_name = file.filename;
     req.body.f_image_origin_name = file.originalname;
