@@ -44,20 +44,39 @@ section.list {
 }
 
 section.list li {
-    width: auto;
-    align-items: center;
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid #858585;
+    align-items: center;
+    border-bottom: 1px solid #4e4e4e;
     margin: 20px;
+    /* border: 1px solid black; */
+    div.img {
+        /* background-color: white; */
+        /* border-radius: 10%; */
 
-    div.photo {
-        width: 300px;
+        img {
+            width: 150px;
+            height: 150px;
+            margin: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* background-color: #eee; */
+            border-radius: 10%;
+            cursor: pointer;
+        }
     }
-
-    span {
-        /* border: 1px solid black; */
-        text-align: center;
+    div.span {
+        margin: 3px;
+        span {
+            /* border: 1px solid black; */
+            text-align: center;
+            margin: 3px;
+            font-weight: 900;
+        }
+        a {
+            cursor: pointer;
+        }
     }
 }
 
@@ -68,8 +87,9 @@ div.btn {
     justify-content: center;
 }
 div.btn a {
-    width: 20%;
-    font-size: 12px;
+    width: 50%;
+    font-size: 0.9rem;
+    font-weight: 800;
     text-decoration: none;
     color: #4e4e4e;
     cursor: pointer;
@@ -80,15 +100,22 @@ div.btn a {
     box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
     background-color: white;
 }
-
-img {
-    width: 30%;
-    height: 150px;
-    margin: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* background-color: #eee; */
-    border-radius: 15px;
-    cursor: pointer;
+div.setting {
+    /* border: 1px solid red; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    position: relative;
+    i {
+        /* border: 1px solid black; */
+        border-radius: 15px;
+        position: absolute;
+        top: 3%;
+        left: 73.5%;
+        transform: translate(-10% -80%);
+        cursor: pointer;
+        padding: 10px;
+        &:hover {
+            background-color: #ccc;
+        }
+    }
 }

@@ -1,6 +1,8 @@
 import express from "express";
 import DB from "../models/index.js";
 import { upLoad } from "../modules/file_upload.js";
+import { Op } from "sequelize";
+
 const FRIDGE = DB.models.tbl_fridge;
 const FOOD = DB.models.tbl_product;
 const SHOPPING = DB.models.tbl_shopping;
@@ -20,6 +22,37 @@ router.get("/list_fridge", async (req, res) => {
   return res.render("fridge/list_fridge", { FR: rows });
 });
 
+router.get("/:f_seq/fridge_update", async (req, res) => {
+  const f_seq = req.params.f_seq;
+
+  try {
+    const row = await FRIDGE.findByPk(f_seq);
+    return res.render("fridge/add_fridge", { FR: row });
+  } catch (error) {
+    return res.json(error);
+  }
+});
+router.post("/:f_seq/fridge_update", upLoad.single("f_photo"), async (req, res) => {
+  const f_seq = req.params.f_seq;
+  const data = req.body;
+  const file = req.file;
+
+  if (file) {
+    req.body.f_image_name = file.filename;
+    req.body.f_image_origin_name = file.originalname;
+  }
+
+  try {
+    await FRIDGE.update(data, {
+      where: { f_seq: f_seq },
+    });
+    console.log(FRIDGE);
+    return res.redirect("/");
+  } catch (error) {
+    return res.json(error);
+  }
+});
+
 router.post("/add_fridge", upLoad.single("f_photo"), async (req, res) => {
   const data = req.body;
   const file = req.file;
@@ -29,7 +62,6 @@ router.post("/add_fridge", upLoad.single("f_photo"), async (req, res) => {
   }
   try {
     await FRIDGE.create(data);
-    // return res.json(data);
     return res.redirect("/fridge/list_fridge");
   } catch (error) {
     return res.json(error);
@@ -45,11 +77,69 @@ router.get("/:f_seq/fridge_list", async (req, res) => {
         as: "F_음식",
       },
     });
-    // return res.json(rows);
     return res.render("fridge/fridge_list", { FOOD: rows });
   } catch (error) {
     res.json(error);
   }
+});
+
+router.get("/:p_seq/fridge_detail", async (req, res) => {
+  const p_seq = req.params.p_seq;
+  try {
+    const row = await FOOD.findAll({
+      where: { p_seq },
+    });
+    return res.render("fridge/fridge_detail", { FOOD: row });
+  } catch (error) {
+    return res.json(error);
+  }
+});
+
+router.get("/:p_seq/delete", async (req, res) => {
+  const p_seq = req.params.p_seq;
+  const row = await FOOD.findByPk(p_seq);
+  try {
+    await FOOD.destroy({
+      where: { p_seq },
+    });
+    return res.redirect(`/fridge/${row.p_fseq}/fridge_list`);
+  } catch (error) {
+    return res.json(error);
+  }
+});
+
+router.get("/:f_seq/fridge_delete", async (req, res) => {
+  const f_seq = req.params.f_seq;
+  try {
+    await FOOD.destroy({
+      where: { p_fseq: f_seq },
+    });
+    await FRIDGE.destroy({
+      where: { f_seq },
+    });
+    return res.redirect("/fridge/list_fridge");
+  } catch (error) {
+    return res.json(error);
+  }
+});
+
+router.get("/:f_seq/add_food", async (req, res) => {
+  const f_seq = req.params.f_seq;
+  const row = await FRIDGE.findByPk(f_seq);
+  return res.render("fridge/add_food", { food: row });
+});
+
+router.post("/:f_seq/add_food", async (req, res) => {
+  const f_seq = req.params.f_seq;
+  const data = req.body;
+  await FRIDGE.findByPk(f_seq, {
+    include: {
+      model: FOOD,
+      as: "F_음식",
+    },
+  });
+  // return res.json(rows);
+  return res.render("fridge/fridge_list", { FOOD: rows });
 });
 
 router.get("/:p_seq/fridge_detail", async (req, res) => {

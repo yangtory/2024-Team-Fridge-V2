@@ -9,7 +9,7 @@ const PRODUCT = DB.models.tbl_product;
 
 router.get("/", async (req, res) => {
   const today = moment().format("YYYY-MM-DD");
-  const exdate = moment().add(7, "days").format("YYYY-MM-DD");
+  const exdate = moment().add(10, "days").format("YYYY-MM-DD");
 
   try {
     const rows = await PRODUCT.findAll({
