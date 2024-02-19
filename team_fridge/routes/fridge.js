@@ -241,9 +241,30 @@ router.get("/shopmemo/:s_seq//add", async (req, res) => {
 });
 
 router.get("/shopmemo/save", async (req, res) => {
-  //어떻게 할지까먹어서 나중에 생각나면 할것.
-  // 저장버튼을 누르면 쇼핑테이블에있는 데이터들이 자동으로 냉장고 테이블과 연동됨.
-  res.redirect("/fridge/shopmemo");
+  // return res.render("fridge/shopmemo", { SHOPPING: rows, SHOPPING2: rows2 });
+
+  const rows = await FRIDGE.findAll();
+  return res.render("fridge/shopsave", { FR: rows });
+});
+router.get("/shopmemo/:f_seq/save", async (req, res) => {
+  try {
+    const f_seq = req.params.f_seq;
+    await SHOPPING.update({ s_fseq: f_seq }, { where: { s_ox: 1 } });
+    const rows2 = await SHOPPING.findAll({ where: { s_ox: 1 } });
+    for (let item of rows2) {
+      // 각 항목의 데이터를 사용하여 FOOD 테이블에 새 항목 생성
+      await FOOD.create({
+        p_fseq: f_seq,
+        p_name: item.s_name,
+        p_quan: item.s_quan,
+      });
+    }
+    await SHOPPING.update({ s_ox: 0 }, { where: { s_ox: 1 } });
+    return res.redirect("/fridge/shopmemo");
+  } catch (error) {
+    return res.json(error);
+  }
 });
 // ============================
+
 export default router;

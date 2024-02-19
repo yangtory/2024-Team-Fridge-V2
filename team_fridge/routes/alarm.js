@@ -9,11 +9,14 @@ const PRODUCT = DB.models.tbl_product;
 
 router.get("/", async (req, res) => {
   const today = moment().format("YYYY-MM-DD");
-  const exdate = moment().add(365, "days").format("YYYY-MM-DD");
+  const exdate = moment().add(10, "days").format("YYYY-MM-DD");
 
   try {
     const rows = await PRODUCT.findAll({
-      include: { model: FRIDGE, as: "F_냉장고" },
+      include: {
+        model: FRIDGE,
+        as: "F_냉장고",
+      },
       where: {
         p_exdate: { [Op.lte]: exdate },
       },

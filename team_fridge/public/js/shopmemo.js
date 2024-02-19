@@ -66,9 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const btn_save = document.querySelector("button.save");
   btn_save?.addEventListener("click", () => {
-    alert("아직 구현 준비중... ");
+    // alert("아직 구현 준비중... ");
 
-    alert("냉장고에 저장되었습니다.");
+    // alert("냉장고에 저장되었습니다.");
     //어떤 냉장고에 저장해야하는지에 대한 선택지도 뜨게 해야하나..?
 
     location.replace("shopmemo/save");
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const s_seq = tds[1].innerText;
     if (target.className === "delete") {
       if (tds[7].innerText == 1) {
-        alert("체크표시된 목록은 삭제할 수 없습니다. 저장을 누르면 자동으로 목록에서 사라집니다.");
+        alert("체크표시된 목록은 삭제할 수 없습니다. \n 저장을 누르면 자동으로 목록에서 사라집니다.");
         return false;
       }
       if (confirm("정말 이 메모를 삭제할까요?")) {
