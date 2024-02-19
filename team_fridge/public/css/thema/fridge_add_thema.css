@@ -3,6 +3,7 @@
   --background1: #e7e5e5;
   --background2: #f4f4f4;
   --background3: #a7cda2;
+  --background4: #a7cda2;
   --boxColor: #4e4e4e;
   --boxColor2: #4e4e4e;
   --boxColor3: #858585;
@@ -12,6 +13,7 @@
   --background1: #363535;
   --background2: #474646;
   --background3: #97b992;
+  --background4: #474646;
   --boxColor: #bdb8b8;
   --boxColor2: #a09e9e;
   --boxColor3: #7e7b7b;
@@ -31,10 +33,6 @@ div.btn_box {
 li {
   color: var(--boxColor);
   border-bottom: var(--boxColor);
-}
-
-div.body li {
-  border-bottom: 1px solid var(--boxColor2);
 }
 
 nav.control {
