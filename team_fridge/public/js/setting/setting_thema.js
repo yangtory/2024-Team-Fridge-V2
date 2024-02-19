@@ -26,3 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
     setUserTheme(theme);
   });
 });
+
+window.addEventListener("pageshow", (event) => {
+  if (event.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
+    location.reload();
+  }
+});
