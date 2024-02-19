@@ -93,13 +93,15 @@ tr.nocheck {
     padding: 12px 16px;
     text-align: center;
     &:nth-of-type(n) {
-      min-width: 10px;
-      max-width: 10px;
+      min-width: 4px;
+      max-width: 5px;
       overflow: hidden;
     }
     &:nth-of-type(3) {
       min-width: 100px;
-      max-width: 100px;
+      /* max-width: 100px; */
+      /* border: 1px solid red; */
+      /* overflow: auto; */
     }
   }
 }
@@ -126,10 +128,11 @@ section.box {
 }
 
 div.listbox {
+  width: 80%;
   overflow: auto;
   /* border: 1px solid red; */
 
-  border-radius: 15px;
+  /* border-radius: 15px; */
 }
 button,
 div {
