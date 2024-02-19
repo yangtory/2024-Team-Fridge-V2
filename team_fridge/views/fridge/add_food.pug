@@ -13,10 +13,10 @@ block content
                 h1 음식 추가
             form.add(method="POST")
                 div.input
-                    input.seq(name="p_fseq" value= `${food.f_seq}`)
+                    input.seq(name="p_fseq" value= `${food.p_fseq? food.p_fseq : food.f_seq}`)
                     span 음식이름
                         if food.p_name
-                            input(name="p_name" placeholder="음식 이름을 입력하세요" value=`${food.p_name}` readonly)
+                            input(name="p_name" placeholder="음식 이름을 입력하세요" value=`${food.p_name}`)
                         else 
                             input(name="p_name" placeholder="음식 이름을 입력하세요")
                     span 구매날짜
@@ -30,7 +30,7 @@ block content
                             input(name="p_memo" placeholder="메모를 입력하세요" value=`${food.p_memo}`)
                         else 
                             input(name="p_memo" placeholder="메모를 입력하세요")
-                div.btn(data-f_seq= food.f_seq)
+                div.btn(data-p_fseq= food.p_fseq)
                     input(type="submit", value =`${food.p_fseq ? "수정" : "추가"}`) 
 
 

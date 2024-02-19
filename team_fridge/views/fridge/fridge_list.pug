@@ -10,15 +10,11 @@ block content
             div.btn_myRef 
                 h1= FOOD.f_name
             div.btn_group 
-                button 오름차순
                 button.btn_add(data-food= `${FOOD.f_seq}`) 음식추가
                 button.btn_delete(data-num= `${FOOD.f_seq}`) 냉장고삭제
-            //-     button 실외
-            //-     button 냉장
-            //-     button 냉동
             div.food_box
                 each item in FOOD.F_음식
-                    div.food
+                    div.food(data-food= `${item.p_seq}`)
                         ul(data-food= `${item.p_seq}`)
                             li ✓ 음식이름 :   
                                 span= item.p_name
