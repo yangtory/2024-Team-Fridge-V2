@@ -1,128 +1,128 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 a {
-    text-decoration: none;
-    color: inherit;
-    white-space: nowrap;
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
 }
 html {
-    height: 100vh;
+  height: 100vh;
 }
 body {
-    height: 95%;
+  height: 95%;
 }
 
 div.body {
-    height: 90%;
-    color: #4e4e4e;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 90%;
+  color: #4e4e4e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 section {
-    background-color: #a7cba2;
-    width: 90%;
-    height: 90%;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: scroll;
+  background-color: #a7cba2;
+  width: 90%;
+  height: 90%;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: scroll;
 
-    &::-webkit-scrollbar {
-        display: none;
-    }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 form {
-    /* border: 1px solid black; */
-    display: flex;
-    flex-direction: column;
-    height: 90%;
-    width: 80%;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  width: 80%;
 }
 
 h1 {
-    text-align: center;
-    font-size: 2rem;
-    margin: 5px 8px;
+  text-align: center;
+  font-size: 2rem;
+  margin: 5px 8px;
 }
 
 div.photo {
-    background-color: white;
-    border-radius: 15px;
-    margin: 5px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #4e4e4e;
-    padding: 1rem;
-    img {
-        cursor: pointer;
-        width: 180px;
-        height: 180px;
-        border-radius: 10px;
-    }
+  background-color: white;
+  border-radius: 15px;
+  margin: 5px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4e4e4e;
+  padding: 1rem;
+  img {
+    cursor: pointer;
+    width: 180px;
+    height: 180px;
+    border-radius: 10px;
+  }
 }
 
 input.photo {
-    display: none;
+  display: none;
 }
 
 div.select {
-    width: 100%;
-    margin: 0 auto;
-    padding: 10px;
-    background-color: white;
-    border-radius: 15px;
-    text-wrap: nowrap;
-    display: flex;
-    justify-content: space-around;
-    font-weight: 700;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: white;
+  border-radius: 15px;
+  text-wrap: nowrap;
+  display: flex;
+  justify-content: space-around;
+  font-weight: 700;
 
-    label {
-        /* border: 1px solid black; */
-        padding: 5px 40px;
-        cursor: pointer;
-        transition: 0.3s;
-        /* background-color: transparent; */
-        border-radius: 10px;
-    }
+  label {
+    /* border: 1px solid black; */
+    padding: 5px 40px;
+    cursor: pointer;
+    transition: 0.3s;
+    /* background-color: transparent; */
+    border-radius: 10px;
+  }
 
-    input {
-        display: none;
-    }
+  input {
+    display: none;
+  }
 }
 
 div.input input {
-    display: flex;
-    width: 100%;
-    padding: 1rem;
-    margin: 5px 0;
-    border: none;
-    border-radius: 10px;
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  margin: 5px 0;
+  border: none;
+  border-radius: 10px;
 }
 
 div.btn {
-    text-align: center;
-    height: 100%;
+  text-align: center;
+  height: 100%;
 
-    input {
-        font-size: 0.8rem;
-        text-decoration: none;
-        color: #4e4e4e;
-        cursor: pointer;
-        border: 2px solid;
-        border-radius: 10px;
-        padding: 1em 2em;
-        box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
-        background-color: #fff;
-        &:active {
-            box-shadow: #422800 2px 2px 0 0;
-            transform: translate(1px, 1px);
-        }
+  input {
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: #4e4e4e;
+    cursor: pointer;
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 1em 2em;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    background-color: #fff;
+    &:active {
+      box-shadow: #422800 2px 2px 0 0;
+      transform: translate(1px, 1px);
     }
+  }
 }
