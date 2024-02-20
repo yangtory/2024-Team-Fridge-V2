@@ -1,20 +1,14 @@
 import express from "express";
-import DB from "../config/mysql.js";
 import db from "../models/index.js";
 const USER = db.models.tbl_user;
-const dbConn = DB.init();
+const PRODUCT = db.models.tbl_product;
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  const sql = " SELECT * FROM tbl_user ";
-  dbConn.query(sql, (err, result) => {
-    if (err) {
-      return res.json(err);
-    } else {
-      return res.render("setting/setting", { userId: result });
-    }
-  });
+router.get("/", async (req, res) => {
+  const rows = await USER.findAll();
+  const rowss = await PRODUCT.findAll();
+  return res.render("setting/setting", { userId: rows, product: rowss });
 });
 
 router.get("/join", (req, res) => {
@@ -22,27 +16,25 @@ router.get("/join", (req, res) => {
 });
 
 router.post("/join", async (req, res) => {
-  const rows = await USER.findAll();
-  if (rows.length > 0) {
-    req.body.u_role = "USER";
-    const result = await USER.create(req.body);
-    return res.redirect("/setting/login");
-  } else {
-    req.body.u_role = "ADMIN";
-  }
-  const username = req.body.u_name;
-  const userid = req.body.u_id;
-  const password = req.body.u_pw;
-
-  const params = [username, userid, password];
-  const sql = " INSERT INTO tbl_user(u_name, u_id, u_pw) " + " VALUES( ?,?,? ) ";
-  dbConn.query(sql, params, (err, result) => {
-    if (err) {
-      return res.json(err);
-    } else {
+  try {
+    const rows = await USER.findAll();
+    if (rows.length > 0) {
+      req.body.u_role = "USER";
+      const result = await USER.create(req.body);
       return res.redirect("/setting/login");
+    } else {
+      req.body.u_role = "ADMIN";
     }
-  });
+    const username = req.body.u_name;
+    const userid = req.body.u_id;
+    const password = req.body.u_pw;
+
+    // 위에서 req.body.u_role가 설정되었으므로 바로 사용 가능
+    const result = await USER.create({ u_name: username, u_id: userid, u_pw: password, u_role: req.body.u_role });
+    return res.redirect("/setting/login");
+  } catch (error) {
+    return res.json(error);
+  }
 });
 
 router.get("/:u_id/check", async (req, res) => {
@@ -83,6 +75,11 @@ router.post("/login", async (req, res) => {
 router.get("/logout", (req, res) => {
   req.session.destroy();
   return res.redirect("/setting");
+});
+
+router.get("/count", async (req, res) => {
+  const rows = await PRODUCT.findAll();
+  return res.json({ count: rows.length });
 });
 
 export default router;

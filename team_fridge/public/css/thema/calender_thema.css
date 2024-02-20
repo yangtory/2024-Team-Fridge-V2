@@ -40,6 +40,7 @@ nav.control {
 }
 
 /* 아이콘 색 */
+i.fa.fa-chevron-left,
 i.fa.fa-cog,
 i.fa.fa-bell,
 i.fa.fa-calendar.check {
