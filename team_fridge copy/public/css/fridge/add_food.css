@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
+}
+html {
+  height: 100vh;
+}
+body {
+  height: 95%;
+}
+
+div.body {
+  height: 90%;
+  color: #4e4e4e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section {
+  background-color: #a7cba2;
+  width: 90%;
+  height: 90%;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  width: 80%;
+  text-align: center;
+  padding: 20px;
+  font-size: 2rem;
+  border-bottom: 1px solid #eee;
+}
+form.add {
+  /* border: 1px solid black; */
+  width: 100%;
+  height: 100%;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  div.select {
+    /* border: 1px solid black; */
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 10px 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    label {
+      padding: 5px 30px;
+      cursor: pointer;
+    }
+    input {
+      display: none;
+    }
+  }
+}
+
+div.select {
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: white;
+  border-radius: 15px;
+  text-wrap: nowrap;
+  display: flex;
+  justify-content: space-around;
+  font-weight: 700;
+
+  label {
+    /* border: 1px solid black; */
+    padding: 5px 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    /* background-color: transparent; */
+    border-radius: 10px;
+  }
+
+  input {
+    display: none;
+  }
+}
+
+div.input {
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto;
+  height: 70%;
+  width: 100%;
+
+  label {
+    display: inline-block;
+    white-space: nowrap;
+    text-align: center;
+    font-weight: 600;
+    width: 100%;
+
+    /* border: 1px solid black; */
+    input {
+      padding: 15px;
+      margin: 0 0 0 5px;
+      border-radius: 10px;
+      border: none;
+      text-align: center;
+      outline: none;
+      width: 80%;
+    }
+  }
+}
+
+div.btn {
+  display: flex;
+  justify-content: center;
+
+  input {
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: #4e4e4e;
+    cursor: pointer;
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 1em 2em;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    background-color: #fff;
+    margin-top: 3rem;
+    &:active {
+      box-shadow: #422800 2px 2px 0 0;
+      transform: translate(1px, 1px);
+    }
+  }
+}
+
+input.seq {
+  display: none;
+}
+
+div.input.error {
+  /* border: 1px solid red; */
+  width: 70%;
+  height: 20px;
+  font-size: 0.8rem;
+  color: red;
+
+  /* margin-left: 8rem; */
+  text-align: left;
+  /* text-align: center; */
+  /* margin: 1px 0 1px 8rem; */
+}
+/* input 타입 number 화살표 없애기 */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

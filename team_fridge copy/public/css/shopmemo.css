@@ -1,0 +1,241 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
+}
+html {
+  height: 100vh;
+}
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+/* 일련번호 숨기기 */
+td.s_ox,
+td.s_seq {
+  display: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  /* visibility: hidden; */
+  margin: 0;
+}
+
+div.body {
+  background-color: #e7e5e5;
+  border-radius: 15px;
+
+  color: #4e4e4e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+  overflow: hidden;
+
+  input {
+    font-size: 15px;
+    width: 100%;
+    background-color: inherit;
+    border: none;
+    border-bottom: 1px solid #4e4e4e;
+    padding: 3px;
+  }
+}
+
+table.cartlist {
+  margin: 20px auto;
+  white-space: nowrap;
+  border-collapse: collapse;
+  border-radius: 20px;
+
+  /*border: 1px solid red;*/
+}
+tr.cart {
+  &:hover {
+    background-color: inherit;
+  }
+}
+td {
+  padding: 12px 16px;
+  text-align: center;
+}
+tr.nocheck {
+  /* color: #858585; */
+  td.buy {
+    color: #a7cba2;
+  }
+  /* td.delete {
+    color: red;
+  } */
+}
+tr.check {
+  color: #858585;
+  background-color: #ddd;
+  :nth-of-type(3) {
+    text-decoration: line-through;
+  }
+}
+
+tr.check,
+tr.nocheck {
+  td {
+    padding: 12px 16px;
+    text-align: center;
+    &:nth-of-type(n) {
+      min-width: 4px;
+      max-width: 5px;
+      overflow: hidden;
+    }
+    &:nth-of-type(3) {
+      min-width: 100px;
+      /* max-width: 100px; */
+      /* border: 1px solid red; */
+      /* overflow: auto; */
+    }
+  }
+}
+tr {
+  /* border: 1px solid red; */
+  margin: 3px 0;
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #85858545;
+}
+tr:hover {
+  cursor: pointer;
+  background-color: #e7e5e5;
+}
+
+section.box {
+  width: 90%;
+  height: 90%;
+  background-color: #f4f4f4;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+div.listbox {
+  width: 80%;
+  overflow: auto;
+  /* border: 1px solid red; */
+
+  /* border-radius: 15px; */
+}
+button,
+div {
+  text-align: center;
+  /*border: 1px solid red;*/
+  margin: 10px 5px;
+  .box {
+    display: flex;
+    justify-content: center;
+  }
+
+  .amount {
+    /* display: flex; */
+    /* text-align: right; */
+    .plus {
+      width: 22px;
+      height: 20px;
+      padding-bottom: 2px;
+    }
+    .minus {
+      width: 22px;
+      height: 20px;
+      padding-bottom: 2px;
+    }
+  }
+}
+
+div.name {
+  width: 40%;
+  input {
+    height: 2rem;
+  }
+}
+div.amount {
+  height: 2rem;
+  width: 20%;
+
+  display: flex;
+  /* display: inline-block; */
+  white-space: nowrap;
+
+  input {
+    min-width: 20px;
+  }
+
+  div {
+    border: none;
+    padding: 0 4px;
+    border-radius: 50%;
+    background-color: #a7cba2;
+    color: #f4f4f4;
+    &:hover {
+      background-color: #858585;
+    }
+  }
+}
+div.body input.amount {
+  width: 50%;
+}
+
+div.btn_box {
+  margin-top: auto;
+  bottom: 0;
+  padding: 10px;
+  /* border: 1px solid red; */
+
+  button {
+    cursor: pointer;
+    margin: 10px;
+    background-color: #a7cba2;
+    border: none;
+
+    font-size: 15px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #f4f4f4;
+  }
+  button.save:hover {
+    background-color: #858585;
+    border: none;
+  }
+  button.delete:hover {
+    background-color: #c97070;
+    border: none;
+  }
+}
+
+.cartlist {
+  width: 70%;
+}
+button.addmemo {
+  cursor: pointer;
+  font-size: 15px;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #a7cba2;
+  color: #f4f4f4;
+  &:hover {
+    background-color: #858585;
+  }
+}
+
+span {
+  display: none;
+}

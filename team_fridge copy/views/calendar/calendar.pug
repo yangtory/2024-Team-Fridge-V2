@@ -1,0 +1,28 @@
+extends ../layout_home
+
+
+
+block content
+    link(rel="stylesheet", href="/css/calendar.css")
+    script(src="/js/calendar/calendar.js")
+    link(rel="stylesheet", href="/css/thema/calender_thema.css")
+    script(src="/js/setting/setting_thema.js")
+    div.container
+        section
+            div.date
+                p.prev &#60;
+                p#year( name= "year") 
+                p#month(name = "month") 
+                p.next &#62;
+            div.weekend
+                div sun
+                div mon
+                div tus
+                div wen
+                div thu
+                div fri
+                div sat
+            div.days
+                
+                   
+            
