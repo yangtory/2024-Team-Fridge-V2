@@ -86,6 +86,10 @@ router.get("/:p_seq/fridge_detail", async (req, res) => {
   try {
     const row = await FOOD.findAll({
       where: { p_seq },
+      include: {
+        model: FRIDGE,
+        as: "F_냉장고",
+      },
     });
     return res.render("fridge/fridge_detail", { FOOD: row });
   } catch (error) {

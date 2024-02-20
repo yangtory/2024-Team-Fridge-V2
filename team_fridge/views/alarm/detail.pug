@@ -9,9 +9,11 @@ block content
         section 
           
           div.divBox(data-p_seq= `${PRODUCT.p_seq}`)
+            div.name
+              h2.line #{PRODUCT.p_name}
             div.detail
-              strong 식품설명
-              span #{PRODUCT.p_name}
+              strong 냉장고이름
+              span #{PRODUCT.F_냉장고.f_name}
             div.detail
               strong 등록날짜
               span #{PRODUCT.p_date}

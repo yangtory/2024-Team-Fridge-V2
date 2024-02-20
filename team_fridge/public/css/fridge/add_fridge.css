@@ -47,14 +47,15 @@ form {
 
 h1 {
   text-align: center;
+  padding: 20px;
   font-size: 2rem;
-  margin: 5px 8px;
+  border-bottom: 1px solid #eee;
 }
 
 div.photo {
   background-color: white;
   border-radius: 15px;
-  margin: 5px auto;
+  margin: 1rem auto 5px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,19 +78,17 @@ div.select {
   margin: 0 auto;
   padding: 10px;
   background-color: white;
-  border-radius: 15px;
+  border-radius: 10px;
   text-wrap: nowrap;
   display: flex;
   justify-content: space-around;
-  font-weight: 700;
+  font-weight: 600;
 
   label {
-    /* border: 1px solid black; */
-    padding: 5px 40px;
     cursor: pointer;
     transition: 0.3s;
-    /* background-color: transparent; */
     border-radius: 10px;
+    padding: 5px 10px;
   }
 
   input {

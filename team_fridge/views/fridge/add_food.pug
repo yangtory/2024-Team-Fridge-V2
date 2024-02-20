@@ -14,24 +14,32 @@ block content
             form.add(method="POST")
                 div.input
                     input.seq(name="p_fseq" value= `${food.p_fseq? food.p_fseq : food.f_seq}`)
-                    span 음식이름
+                    div.input.error
+                    label 음식이름
                         if food.p_name
                             input(name="p_name" placeholder="음식 이름을 입력하세요" value=`${food.p_name}`)
                         else 
-                            input(name="p_name" placeholder="음식 이름을 입력하세요")
-                    span 구매날짜
-                        input(type="date" name="p_date" placeholder="구매날짜를 입력하세요" value=`${food.p_date}`)
-                    span 소비기한
-                        input(type="date" name="p_exdate" placeholder="유통기한을 입력하세요" value=`${food.p_exdate}`)
-                    span 구매수량
-                        input(type="number" name="p_quan" placeholder="수량을 입력하세요" value=`${food.p_quan}`)
-                    span 　메모　
+                            input#pname(name="p_name" placeholder="음식 이름을 입력하세요")
+                    div.input.error
+                    label 구매날짜
+                        input#pdate(type="date" name="p_date" placeholder="구매날짜를 입력하세요" value=`${food.p_date}`)
+                    div.input.error
+                    label 소비기한
+                        input#pexdate(type="date" name="p_exdate" placeholder="유통기한을 입력하세요" value=`${food.p_exdate}`)
+                    div.input.error
+                    label 구매수량
+                        input#pquan(type="number" name="p_quan" placeholder="수량을 입력하세요" value=`${food.p_quan}`)
+                    div.input.error
+                    label 　메모　
                         if food.p_memo
                             input(name="p_memo" placeholder="메모를 입력하세요" value=`${food.p_memo}`)
                         else 
                             input(name="p_memo" placeholder="메모를 입력하세요")
                 div.btn(data-p_fseq= food.p_fseq)
-                    input(type="submit", value =`${food.p_fseq ? "수정" : "추가"}`) 
+                    if food.p_fseq
+                        input.update(type="button", value = "수정") 
+                    else
+                        input.add(type="button", value = "추가") 
 
 
 
