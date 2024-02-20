@@ -45,16 +45,19 @@ section.list {
 
 section.list ul {
   border-top: 1px solid #eee;
+  width: 80%;
+  margin: 0 auto;
   &:nth-of-type(1) {
     border-top: none;
   }
+  /* border: 1px solid blue; */
 }
 section.list li {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 20px;
-
+  /* border: 1px solid red; */
   div.img {
     img {
       width: 200px;
@@ -109,6 +112,8 @@ div.btn a {
 div.setting {
   position: relative;
   i {
+    border-radius: 50%;
+    transition: 0.5s;
     color: #4e4e4e;
     position: absolute;
     top: 3%;
@@ -117,7 +122,6 @@ div.setting {
     cursor: pointer;
     padding: 10px;
     &:hover {
-      border-radius: 50%;
       background-color: #ccc;
     }
   }
