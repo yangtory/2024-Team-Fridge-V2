@@ -29,7 +29,6 @@ router.post("/join", async (req, res) => {
     const userid = req.body.u_id;
     const password = req.body.u_pw;
 
-    // 위에서 req.body.u_role가 설정되었으므로 바로 사용 가능
     const result = await USER.create({ u_name: username, u_id: userid, u_pw: password, u_role: req.body.u_role });
     return res.redirect("/setting/login");
   } catch (error) {

@@ -20,15 +20,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
-  // const set_alam = document.querySelector("label.switch_label");
-  // var alam = "on";
-
-  // set_alam.addEventListener("click", (e) => {
-  //   if (alam === "on") {
-  //     alert("알람 on");
-  //     alam = "off";
-  //   } else if (alam === "off") {
-  //     alert("알람 off");
-  //   }
-  // });
 });
