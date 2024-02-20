@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const switchState = localStorage.getItem("switchState");
 
   // setting/count 엔드포인트에서 데이터 가져오기
-  const res = await fetch("setting/count");
+  const res = await fetch("/setting/count");
   const json = await res.json();
 
   // 스위치 상태에 따라 초기 색상 설정
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (isSwitchOn && json.count > 0) {
       bellIcon.style.color = "#cad180";
     } else {
-      bellIcon.style.color = isSwitchOn ? "red" : ""; // 스위치가 꺼져 있으면 기본 색상으로 변경
+      bellIcon.style.color = isSwitchOn ? "#97b992" : ""; // 스위치가 꺼져 있으면 기본 색상으로 변경
     }
   }
 });

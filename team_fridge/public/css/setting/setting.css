@@ -5,7 +5,7 @@ div.main {
 }
 
 div.body {
-  height: 90%;
+  height: 100%;
   color: #4e4e4e;
   display: flex;
   align-items: center;
@@ -13,10 +13,12 @@ div.body {
 }
 
 section {
-  height: 90%;
+  background-color: #a7cba2;
   width: 90%;
-  background-color: #f4f4f4;
+  height: 90%;
   border-radius: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
 div.body ul {
