@@ -161,3 +161,9 @@ div.input.error {
   /* text-align: center; */
   /* margin: 1px 0 1px 8rem; */
 }
+/* input 타입 number 화살표 없애기 */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
