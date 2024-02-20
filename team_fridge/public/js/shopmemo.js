@@ -120,5 +120,12 @@ document.addEventListener("DOMContentLoaded", () => {
       // 추출한 정보를 사용하여 새로운 URL을 생성하고 페이지를 이동합니다.
       location.replace(`shopmemo/${s_seq}/${s_ox}/add`);
     }
+    if (target.className === "s_name") {
+      const paTR = target.closest("TR");
+      const tds = paTR.querySelectorAll("TD");
+      const s_seq = tds[1].innerText;
+      const s_ox = tds[7].innerText;
+      location.replace(`shopmemo/${s_seq}/${s_ox}/add`);
+    }
   });
 });
