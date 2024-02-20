@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const back = document.querySelector("a.back");
 
   back.addEventListener("click", () => {
-    // document.location.href = "/";
     location.replace("/");
   });
 
@@ -24,17 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   minusButton.addEventListener("click", function () {
-    // 현재 값 가져오기
     let currentValue = parseInt(amountInput.value, 10);
 
-    // 값 증가
     currentValue--;
-
     if (currentValue < 1) {
       // alert("해당 값보다 더 적어질 수 없습니다");
       return false;
     }
-    // 변경된 값을 다시 설정
     amountInput.value = currentValue;
   });
 
@@ -52,8 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return false;
     }
 
-    // }); //end addBtnclick
-    // return res.json(result);
     form.submit();
   });
 
@@ -66,30 +59,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  //요밑은 저장기능 넣을거.
-  //===============
-
+  //저장
   const btn_save = document.querySelector("button.save");
   btn_save?.addEventListener("click", () => {
     const checkedlist = document.querySelectorAll("table.cartlist tr.check");
     const checkedCount = checkedlist.length;
     if (checkedCount === 0) {
-      // alert(checkedCount);
       alert("현재 체크된 항목이 없습니다. 저장할 항목을 체크해주세요");
       return false;
     }
-    // alert(checkedCount);
-    // alert("아직 구현 준비중... ");
-
-    // alert("냉장고에 저장되었습니다.");
-    //어떤 냉장고에 저장해야하는지에 대한 선택지도 뜨게 해야하나..?
 
     location.replace("shopmemo/save");
   });
 
   //===============
   const table = document.querySelector("table.cartlist");
-  // const td_delete = document.querySelector("td.delete");
   table.addEventListener("click", (e) => {
     const target = e.target;
     const paTR = target.closest("TR");
@@ -107,7 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return false;
     }
   });
-  // const td_add = document.querySelector("td.buy");
   table.addEventListener("click", (e) => {
     const target = e.target;
     if (target.className === "buy") {
@@ -116,7 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
       // <td> 요소들 중 s_seq, s_name, s_quan 정보를 추출합니다.
       const s_seq = tds[1].innerText;
       const s_ox = tds[7].innerText;
-      // alert(s_ox);
       // 추출한 정보를 사용하여 새로운 URL을 생성하고 페이지를 이동합니다.
       location.replace(`shopmemo/${s_seq}/${s_ox}/add`);
     }
