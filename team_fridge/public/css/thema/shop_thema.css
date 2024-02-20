@@ -3,6 +3,7 @@
   --background1: #e7e5e5;
   --background2: #f4f4f4;
   --background3: #a7cda2;
+  --background3: #cad180;
   --boxColor: #4e4e4e;
   --boxColor2: #4e4e4e;
   --boxColor3: #858585;
@@ -73,6 +74,7 @@ nav.control {
 }
 
 /* 아이콘 색 */
+i.fa.fa-chevron-left,
 i.fa.fa-cog,
 i.fa.fa-bell,
 i.fa.fa-calendar.check {
