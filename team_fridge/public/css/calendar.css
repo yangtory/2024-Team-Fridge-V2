@@ -1,66 +1,75 @@
-body {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-div.container {
-  background-color: #a7cba2;
-  margin: 2rem 2rem;
+a {
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
+}
 
-  flex: 1;
-  border-radius: 20px;
+html {
+  height: 100vh;
+}
 
-  overflow: hidden;
-  section {
-    height: 100%;
-    flex: 1;
-    flex-wrap: wrap;
-    overflow: scroll;
-    &::-webkit-scrollbar {
-      display: none;
+body {
+  height: 95%;
+}
+div.body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 90%;
+}
+
+section.box {
+  height: 90%;
+  width: 90%;
+  flex-wrap: wrap;
+  border-radius: 15px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .box {
+    margin-top: 2rem;
+    text-align: center;
+    position: relative;
+
+    .when {
+      position: sticky;
+      top: 0;
+      color: #4e4e4e;
+      font-size: large;
     }
-
-    /* display: flex;
-    flex-direction: column; */
-    .box {
-      margin-top: 2rem;
-      text-align: center;
-      position: relative;
-
-      .when {
-        position: sticky;
-        top: 0;
-        color: #4e4e4e;
-        font-size: large;
-      }
-      .list {
-        div {
-          &:nth-of-type(1) {
-            p:hover {
-              cursor: inherit;
-            }
-            p {
-              color: white;
-            }
+    .list {
+      div {
+        &:nth-of-type(1) {
+          p:hover {
+            cursor: inherit;
           }
-          padding: 1rem;
-          border-bottom: 1px solid transparent;
-
           p {
-            color: #4e4e4e;
-            display: inline-block;
-            border-right: 1px solid white;
-
-            padding: 1rem;
-            width: 25%;
-          }
-          &:hover p {
-            cursor: pointer;
             color: white;
           }
-          &:nth-of-type(1) {
-            border-bottom: 5px solid white;
-          }
+        }
+        padding: 1rem;
+        border-bottom: 1px solid transparent;
+
+        p {
+          color: #4e4e4e;
+          display: inline-block;
+          border-right: 1px solid white;
+
+          padding: 1rem;
+          width: 25%;
+        }
+        &:hover p {
+          cursor: pointer;
+          color: white;
+        }
+        &:nth-of-type(1) {
+          border-bottom: 5px solid white;
         }
       }
     }
