@@ -191,3 +191,45 @@ div.product {
     }
   }
 }
+.page {
+  margin-top: 2rem;
+  text-align: center;
+  position: relative;
+
+  .when {
+    position: sticky;
+    top: 0;
+    color: #4e4e4e;
+    font-size: large;
+  }
+  .list {
+    div {
+      &:nth-of-type(1) {
+        p:hover {
+          cursor: inherit;
+        }
+        p {
+          color: white;
+        }
+      }
+      padding: 0.5rem;
+      border-bottom: 1px solid transparent;
+
+      p {
+        color: #4e4e4e;
+        display: inline-block;
+        border-right: 1px solid white;
+
+        padding: 1rem;
+        width: 25%;
+      }
+      &:hover p {
+        cursor: pointer;
+        color: white;
+      }
+      &:nth-of-type(1) {
+        border-bottom: 5px solid white;
+      }
+    }
+  }
+}
