@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const fridge = document.querySelector("div.list.fridge");
   const back = document.querySelector("a.back");
-  const newf = document.querySelector("button.save");
+  const newf = document.querySelector("button.add");
 
   newf.addEventListener("click", () => {
     document.location.href = "/fridge/add_fridge";
