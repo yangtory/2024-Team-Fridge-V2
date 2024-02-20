@@ -18,20 +18,24 @@ block content
                         if food.p_name
                             input(name="p_name" placeholder="음식 이름을 입력하세요" value=`${food.p_name}`)
                         else 
-                            input(name="p_name" placeholder="음식 이름을 입력하세요")
+                            input#pname(name="p_name" placeholder="음식 이름을 입력하세요")
+                            div.input.error
                     span 구매날짜
-                        input(type="date" name="p_date" placeholder="구매날짜를 입력하세요" value=`${food.p_date}`)
+                        input#pdate(type="date" name="p_date" placeholder="구매날짜를 입력하세요" value=`${food.p_date}`)
+                        div.input.error
                     span 소비기한
-                        input(type="date" name="p_exdate" placeholder="유통기한을 입력하세요" value=`${food.p_exdate}`)
+                        input#pexdate(type="date" name="p_exdate" placeholder="유통기한을 입력하세요" value=`${food.p_exdate}`)
+                        div.input.error
                     span 구매수량
-                        input(type="number" name="p_quan" placeholder="수량을 입력하세요" value=`${food.p_quan}`)
+                        input#pquan(type="number" name="p_quan" placeholder="수량을 입력하세요" value=`${food.p_quan}`)
+                        div.input.error
                     span 　메모　
                         if food.p_memo
                             input(name="p_memo" placeholder="메모를 입력하세요" value=`${food.p_memo}`)
                         else 
                             input(name="p_memo" placeholder="메모를 입력하세요")
                 div.btn(data-p_fseq= food.p_fseq)
-                    input(type="submit", value =`${food.p_fseq ? "수정" : "추가"}`) 
+                    input(type="button", value =`${food.p_fseq ? "수정" : "추가"}`) 
 
 
 
