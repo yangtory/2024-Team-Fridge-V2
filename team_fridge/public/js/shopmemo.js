@@ -65,13 +65,20 @@ document.addEventListener("DOMContentLoaded", () => {
       return false;
     }
   });
-  //===============
 
   //요밑은 저장기능 넣을거.
   //===============
 
   const btn_save = document.querySelector("button.save");
   btn_save?.addEventListener("click", () => {
+    const checkedlist = document.querySelectorAll("table.cartlist tr.check");
+    const checkedCount = checkedlist.length;
+    if (checkedCount === 0) {
+      // alert(checkedCount);
+      alert("현재 체크된 항목이 없습니다. 저장할 항목을 체크해주세요");
+      return false;
+    }
+    // alert(checkedCount);
     // alert("아직 구현 준비중... ");
 
     // alert("냉장고에 저장되었습니다.");
