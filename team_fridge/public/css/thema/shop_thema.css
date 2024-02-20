@@ -31,6 +31,10 @@ tr:hover {
   cursor: pointer;
   background-color: var(--boxColor4);
 }
+li.f:hover {
+  cursor: pointer;
+  background-color: var(--boxColor4) !important;
+}
 
 div.amount {
   div {
@@ -43,6 +47,9 @@ div.btn_box {
   }
 }
 button.addmemo {
+  color: var(--background2);
+}
+div.list.btn button.add {
   color: var(--background2);
 }
 
@@ -87,6 +94,7 @@ div li.add {
 h1,
 h2,
 pre,
-p {
+p,
+span {
   color: var(--boxColor);
 }
