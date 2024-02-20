@@ -129,6 +129,11 @@ div.body section {
     font-size: 1.2rem;
     margin: 10px;
   }
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 table.foodTable {
   border-collapse: collapse;
