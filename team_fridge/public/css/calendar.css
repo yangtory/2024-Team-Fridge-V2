@@ -155,3 +155,30 @@ div.product {
   color: #a7cda2;
   background-color: white;
 }
+
+@media screen and (max-width: 480px) {
+  div.container {
+    display: flex;
+    section {
+      div.date {
+        display: flex;
+      }
+      div.weekend {
+        margin: 10px auto;
+        display: flex;
+        div {
+          padding: 10px 0;
+        }
+      }
+      div.days {
+        margin: 0px auto;
+        div.day {
+          display: flex;
+          div {
+            padding: 10px 0;
+          }
+        }
+      }
+    }
+  }
+}
