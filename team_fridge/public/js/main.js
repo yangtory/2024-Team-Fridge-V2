@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const back = document.querySelector("a.back");
+  const bellIcon = document.querySelector("i.fa.fa-bell");
 
-  // const switchInput = document.getElementById("switch1");
-  // const bellIcon = document.querySelector("i.fa.fa-bell");
-
-  // const switchState = localStorage.getItem("switchState");
+  const switchInput = document.getElementById("switch1");
+  const switchState = localStorage.getItem("switchState");
 
   // const iolist_count_get = async () => {
   //   const res = await fetch("setting/count");
