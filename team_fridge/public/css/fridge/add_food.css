@@ -37,12 +37,12 @@ h1 {
   width: 80%;
   text-align: center;
   padding: 20px;
-  font-size: 2.5rem;
+  font-size: 2rem;
   border-bottom: 1px solid #eee;
 }
 form.add {
   /* border: 1px solid black; */
-  width: 90%;
+  width: 100%;
   height: 100%;
   margin: 10px 0;
   display: flex;
@@ -103,16 +103,20 @@ div.input {
   height: 70%;
   width: 100%;
 
-  span {
+  label {
     white-space: nowrap;
+    font-weight: 600;
+    width: 100%;
+    /* margin-left: 1rem; */
+    /* border: 1px solid black; */
     input {
       padding: 15px;
-      margin: 5px 0 0 5px;
+      margin: 0 0 0 5px;
       border-radius: 10px;
       border: none;
       text-align: center;
       outline: none;
-      width: 90%;
+      width: 80%;
     }
   }
 }
@@ -122,18 +126,29 @@ div.btn {
   justify-content: center;
 
   input {
-    padding: 8px 20px;
-    border: none;
-    border-radius: 10px;
-    font-size: 1rem;
-    transition: 0.3s;
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: #4e4e4e;
     cursor: pointer;
-    &:hover {
-      background-color: #ccc;
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 1em 2em;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    background-color: #fff;
+    margin-top: 3rem;
+    &:active {
+      box-shadow: #422800 2px 2px 0 0;
+      transform: translate(1px, 1px);
     }
   }
 }
 
 input.seq {
   display: none;
+}
+
+div.input.error {
+  /* border: 1px solid black; */
+  font-size: 0.8rem;
+  margin-left: 1rem;
 }
