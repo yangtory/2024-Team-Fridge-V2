@@ -4,6 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const amountInput = document.querySelector("input.amount");
   const plusButton = document.querySelector("div.plus");
   const minusButton = document.querySelector("div.minus");
+  const back = document.querySelector("a.back");
+
+  back.addEventListener("click", () => {
+    // document.location.href = "/";
+    location.replace("/");
+  });
 
   amountInput.value = 1;
   plusButton.addEventListener("click", function () {

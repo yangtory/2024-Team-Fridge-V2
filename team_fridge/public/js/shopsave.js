@@ -1,16 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const btn_box = document.querySelector("button.save");
   const fridge = document.querySelector("div.list.fridge");
   const back = document.querySelector("a.back");
+  const newf = document.querySelector("button.save");
 
-  back.addEventListener("click", () => {
-    document.location.href = "/fridge/shopmemo";
-
-    // window.history.back();
+  newf.addEventListener("click", () => {
+    document.location.href = "/fridge/add_fridge";
+    // location.replace("/fridge/add_fridge");
   });
-  // btn_box.addEventListener("click", (e) => {
-  //   document.location.href = "/fridge/shopmemo";
-  // });
+  back.addEventListener("click", () => {
+    // document.location.href = "/fridge/shopmemo";
+    location.replace("/fridge/shopmemo");
+  });
 
   fridge.addEventListener("click", (e) => {
     const target = e.target;
