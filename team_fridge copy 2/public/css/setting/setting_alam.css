@@ -1,0 +1,67 @@
+/* 알람 on/off 스위치 */
+.wrapper {
+  position: relative;
+}
+p {
+  display: inline-block;
+  text-align: center;
+}
+.wrapper:hover {
+  color: inherit;
+  position: relative;
+}
+#switch2,
+#switch1 {
+  position: absolute;
+  /* hidden */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.switch_label {
+  margin-bottom: -4px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  width: 58px;
+  height: 28px;
+  background: #f4f4f4;
+  border: 2px solid #a7cba2;
+  border-radius: 20px;
+  transition: 0.2s;
+}
+.switch_label:hover {
+  background: #f4f4f4;
+}
+.onf_btn {
+  position: absolute;
+  top: 2.5px;
+  left: 4px;
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  border-radius: 20px;
+  background: #a7cba2;
+  transition: 0.2s;
+}
+
+/* checking style */
+#switch2:checked + .switch_label,
+#switch1:checked + .switch_label {
+  background: #a7cba2;
+  border: 2px solid #a7cba2;
+}
+#switch2:checked + .switch_label:hover,
+#switch1:checked + .switch_label:hover {
+  background: #a7cba2;
+}
+
+/* move */
+#switch2:checked + .switch_label .onf_btn,
+#switch1:checked + .switch_label .onf_btn {
+  top: 4px;
+  left: 34px;
+  background: #f4f4f4;
+  box-shadow: 1px 2px 3px #00000020;
+}

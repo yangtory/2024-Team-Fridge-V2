@@ -1,6 +1,5 @@
 import express from "express";
 import DB from "../models/index.js";
-import moment from "moment";
 import { upLoad } from "../modules/file_upload.js";
 
 const FRIDGE = DB.models.tbl_fridge;
@@ -210,6 +209,7 @@ router.get("/shopmemo/:s_seq/delete", async (req, res) => {
   }
 });
 
+//여기까지 수정함...
 router.get("/shopmemo/:s_seq/:s_ox?/add", async (req, res) => {
   try {
     const s_seq = req.params.s_seq;
@@ -250,8 +250,6 @@ router.get("/shopmemo/save", async (req, res) => {
   return res.render("fridge/shopsave", { FR: rows });
 });
 router.get("/shopmemo/:f_seq/save", async (req, res) => {
-  const today = moment().format("YYYY-MM-DD");
-
   try {
     const f_seq = req.params.f_seq;
     await SHOPPING.update({ s_fseq: f_seq }, { where: { s_ox: 1 } });
@@ -262,7 +260,6 @@ router.get("/shopmemo/:f_seq/save", async (req, res) => {
         p_fseq: f_seq,
         p_name: item.s_name,
         p_quan: item.s_quan,
-        p_date: today,
       });
     }
     await SHOPPING.update({ s_ox: 0 }, { where: { s_ox: 1 } });

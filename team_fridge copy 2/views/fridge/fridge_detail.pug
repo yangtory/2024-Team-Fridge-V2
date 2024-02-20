@@ -1,0 +1,32 @@
+extends ../layout_home
+
+block content
+  link(rel="stylesheet", href="/css/alarmDetail.css")
+  link(rel="stylesheet", href="/css/thema/fridge_list_thema.css")
+  script(src="/js/setting/setting_thema.js")  
+  script(src="/js/fridge_detail.js")
+  div.body
+    section
+      each item in FOOD
+        div.divBox(data-food = `${item.p_seq}`)
+          div.name
+            h2.line=item.p_name
+          div.detail
+            strong 냉장고 이름
+            span= item.F_냉장고.f_name
+          div.detail
+            strong 등록날짜
+            span= item.p_date
+          div.detail
+            strong 소비 기한
+            span=item.p_exdate
+          div.detail
+            strong 수량
+            span=item.p_quan
+          div.detail
+            strong 메모
+            span=item.p_memo
+          div.btnBox
+            button.update 수정
+            button.delete 삭제
+            button.list(data-f_seq = item.p_fseq) 목록으로

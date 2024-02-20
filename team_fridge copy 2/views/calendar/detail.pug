@@ -1,0 +1,26 @@
+extends ../layout_home
+
+
+block content
+    link(rel="stylesheet", href="/css/calendar.css")
+    link(rel="stylesheet", href="/css/thema/calender_thema.css")
+    script(src="/js/calendar/detail.js")
+    script(src="/js/setting/setting_thema.js")    
+    div.container
+        section
+            div.box 
+                p.when= row
+                div.list
+                    div
+                        p 구매한 날짜
+                        p 구매한 물품
+                        p 구매한 갯수
+                        p 유통기한
+                    each item,index in result 
+                        div#list(data-p_seq=item.p_seq) 
+                            p=item.p_date 
+                            p=item.p_name
+                            p=item.p_quan
+                            p=item.p_exdate
+                                                                                              
+            

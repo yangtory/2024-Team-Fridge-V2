@@ -1,0 +1,97 @@
+/* -------login--------- */
+article.login_body {
+  padding: 40px;
+  margin: 20px auto;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -90%);
+  text-align: center;
+}
+
+article.login_body input,
+article.login_body button {
+  display: block;
+  margin: 10px auto;
+  width: 250px;
+  padding: 10px 10px;
+  background: none;
+  outline: 0;
+  border: 0;
+  border-radius: 10px;
+}
+
+article.login_body input {
+  border: 2px solid #858585;
+}
+
+article.login_body input:focus {
+  border: 2px solid #4e4e4e;
+}
+
+article.login_body button.btn_login {
+  cursor: pointer;
+  border: 2px solid #a7cba2;
+  background-color: #a7cba2;
+}
+
+article.login_body button.btn_login:hover {
+  border: 2px solid #97bb92;
+  background-color: #97bb92;
+}
+
+article.login_body button.btn_join {
+  cursor: pointer;
+  border: 2px solid #c7c7c7;
+  background-color: #c7c7c7;
+}
+
+article.login_body button.btn_join:hover {
+  border: 2px solid #b7b7b7;
+  background-color: #b7b7b7;
+}
+
+/* -------join--------- */
+
+article.join_body {
+  padding: 40px;
+  margin: 62px auto;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -90%);
+  text-align: center;
+}
+
+article.join_body input,
+article.join_body button {
+  display: block;
+  margin: 10px auto;
+  width: 250px;
+  padding: 10px 10px;
+  background: none;
+  outline: 0;
+  border: 0;
+  border-radius: 10px;
+}
+
+article.join_body input {
+  border: 2px solid #858585;
+}
+
+article.join_body input:focus {
+  border: 2px solid #4e4e4e;
+}
+
+article.join_body button.btn_login {
+  cursor: pointer;
+  border: 2px solid #a7cba2;
+  background-color: #a7cba2;
+}
+
+article.join_body button.btn_login:hover {
+  border: 2px solid #97bb92;
+  background-color: #97bb92;
+}
