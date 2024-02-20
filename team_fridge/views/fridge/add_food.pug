@@ -36,7 +36,10 @@ block content
                         else 
                             input(name="p_memo" placeholder="메모를 입력하세요")
                 div.btn(data-p_fseq= food.p_fseq)
-                    input(type="button", value =`${food.p_fseq ? "수정" : "추가"}`) 
+                    if food.p_fseq
+                        input.update(type="button", value = "수정") 
+                    else
+                        input.add(type="button", value = "추가") 
 
 
 
