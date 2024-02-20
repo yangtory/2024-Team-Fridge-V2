@@ -18,6 +18,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     updateBellIconColor(false);
   }
 
+  if (switchState === "on") {
+    switchInput.checked = true;
+    // updateBellIconColor(true);
+  } else {
+    switchInput.checked = false;
+    // updateBellIconColor(false);
+  }
+
   // 스위치 상태 변경 시 이벤트 리스너 추가
   switchInput.addEventListener("change", () => {
     // 스위치 상태를 로컬 스토리지에 저장
