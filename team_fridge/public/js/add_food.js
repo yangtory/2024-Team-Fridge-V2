@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const btn_add = document.querySelector("div.btn");
+  const btn_add = document.querySelector("div.btn input");
 
   const INPUT_INDEX = {
     P_NAME: 0,
