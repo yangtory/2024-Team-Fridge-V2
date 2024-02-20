@@ -57,7 +57,6 @@ td.s_seq {
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
-  /* visibility: hidden; */
   margin: 0;
 }
 
@@ -66,8 +65,6 @@ table.cartlist {
   white-space: nowrap;
   border-collapse: collapse;
   border-radius: 20px;
-
-  /*border: 1px solid red;*/
 }
 tr.cart {
   &:hover {
@@ -79,13 +76,9 @@ td {
   text-align: center;
 }
 tr.nocheck {
-  /* color: #858585; */
   td.buy {
     color: #a7cba2;
   }
-  /* td.delete {
-    color: red;
-  } */
 }
 tr.check {
   color: #858585;
@@ -94,7 +87,6 @@ tr.check {
     text-decoration: line-through;
   }
 }
-
 tr.check,
 tr.nocheck {
   td {
@@ -107,14 +99,10 @@ tr.nocheck {
     }
     &:nth-of-type(3) {
       min-width: 100px;
-      /* max-width: 100px; */
-      /* border: 1px solid red; */
-      /* overflow: auto; */
     }
   }
 }
 tr {
-  /* border: 1px solid red; */
   margin: 3px 0;
   background-color: #f4f4f4;
   border-bottom: 1px solid #85858545;
@@ -127,23 +115,16 @@ tr:hover {
 div.listbox {
   width: 80%;
   overflow: auto;
-  /* border: 1px solid red; */
-
-  /* border-radius: 15px; */
 }
 button,
 div {
   text-align: center;
-  /*border: 1px solid red;*/
   margin: 10px 5px;
   .box {
     display: flex;
     justify-content: center;
   }
-
   .amount {
-    /* display: flex; */
-    /* text-align: right; */
     .plus {
       width: 22px;
       height: 20px;
@@ -156,7 +137,6 @@ div {
     }
   }
 }
-
 div.name {
   width: 40%;
   input {
@@ -168,13 +148,10 @@ div.amount {
   width: 20%;
 
   display: flex;
-  /* display: inline-block; */
   white-space: nowrap;
-
   input {
     min-width: 20px;
   }
-
   div {
     border: none;
     padding: 0 4px;
@@ -189,19 +166,15 @@ div.amount {
 div.body input.amount {
   width: 50%;
 }
-
 div.btn_box {
   margin-top: auto;
   bottom: 0;
   padding: 10px;
-  /* border: 1px solid red; */
-
   button {
     cursor: pointer;
     margin: 10px;
     background-color: #a7cba2;
     border: none;
-
     font-size: 15px;
     padding: 5px 10px;
     border-radius: 5px;
@@ -216,7 +189,6 @@ div.btn_box {
     border: none;
   }
 }
-
 .cartlist {
   width: 70%;
 }
@@ -232,7 +204,6 @@ button.addmemo {
     background-color: #858585;
   }
 }
-
 span {
   display: none;
 }
