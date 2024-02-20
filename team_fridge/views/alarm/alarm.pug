@@ -12,12 +12,14 @@ block content
                   table.foodTable 
                         thead 
                               tr 
+                                    th 냉장고이름
                                     th 음식
-                                    th 유통기한
+                                    th 소비기한
                               tbody 
-                                    each item,index in PRODUCT
+                                    each item in PRODUCT
                                           
                                           tr(data-p_seq= `${item.p_seq}`)
+                                                td=item.F_냉장고.f_name
                                                 td=item.p_name
                                                 td.date=item.p_exdate
                                                 

@@ -42,7 +42,7 @@ div.body section {
     display: flex;
     justify-content: center;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 2rem;
     margin: 10px;
   }
 }
@@ -86,23 +86,30 @@ div.btnBox {
   justify-content: center;
 
   button {
-    margin: 12px 16px;
-    padding: 10px 16px;
+    width: 20%;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #4e4e4e;
     cursor: pointer;
-    border: none;
-    border-radius: 12px;
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 0.8rem;
+    margin: 1rem 0.5rem;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
 
-    &:hover {
-      background-color: #eee !important;
+    &:active {
+      box-shadow: #422800 2px 2px 0 0;
+      transform: translate(1px, 1px);
     }
   }
   button.update {
     background-color: #e9e9ad;
   }
   button.delete {
-    background-color: rgb(201, 112, 112);
+    background-color: #cf8a8a;
   }
   button.list {
-    background-color: #568ffa;
+    background-color: #95afe0;
   }
 }

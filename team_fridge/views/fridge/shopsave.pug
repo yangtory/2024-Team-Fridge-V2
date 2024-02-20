@@ -1,0 +1,28 @@
+extends ../layout_home
+
+block content
+    link(rel="stylesheet", href="/css/shopsave.css")
+    link(rel="stylesheet", href="/css/thema/shop_thema.css")
+
+    script(src="/js/shopsave.js")
+    script(src="/js/setting/setting_thema.js")
+
+    div.body
+        section.box
+            div.text
+                p 저장할 냉장고를 선택해주세요!
+            div.list.fridge
+                each item in FR
+                    ul.f(data-num = `${item.f_seq}`)
+                        li.f
+                            div.img
+                                if item.f_image_name
+                                    img(src=`/uploads/${item.f_image_name}`, width='100px', height='100px' )
+                                else 
+                                    img(src="/images/noImage.svg", width='100px', height='100px' )
+                            //- span.list.div= item.f_div
+                            div.f
+                                span.list.name= item.f_name
+                                span.fmemo= item.f_memo
+            div.list.btn
+                button.add 냉장고 추가

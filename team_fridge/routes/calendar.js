@@ -18,4 +18,9 @@ router.get(`/:day/detail`, async (req, res) => {
   return res.render("calendar/detail", { result: result, row: row });
 });
 
+router.get("/get", async (req, res) => {
+  const rows = await PRODUCT.findAll();
+  return res.json(rows);
+});
+
 export default router;
