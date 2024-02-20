@@ -2,11 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const days = document.querySelector("div.days");
   const prev = document.querySelector(".prev");
   const next = document.querySelector(".next");
-  const day_all = document.querySelectorAll("div.day");
+
   const date = new Date();
 
   const year = document.querySelector("#year");
   const month = document.querySelector("#month");
+
   // alert(next_date);
 
   year.innerHTML = date.getFullYear();
@@ -16,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
   for (let i = 0; i < 6; i++) {
     const dayTag = document.createElement("DIV");
     dayTag.classList.add("day");
-
     for (let j = 0; j < 7; j++) {
       const divTag = document.createElement("DIV");
       days.appendChild(divTag);
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 달력 이전버튼 누를때 이벤트
-  prev.addEventListener("click", () => {
+  prev?.addEventListener("click", async () => {
     --month.innerHTML;
     //이전으로 넘겼을때 마지막 날짜
     const last_date = new Date(year.innerHTML, month.innerHTML, 0);
@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // day 안에 있는 div 텍스트 지우기
     for (let i = 0; i < html.length; i++) {
       html[i].innerHTML = "";
+      html[i].classList.remove("product");
     }
     let index = 1;
 
@@ -65,9 +66,37 @@ document.addEventListener("DOMContentLoaded", () => {
       month.innerHTML = 12;
       year.innerHTML--;
     }
+    const year_text = String(year.innerHTML);
+    let month_text = String(month.innerHTML);
+
+    const res = await fetch(`/calendar/get`);
+    const json = await res.json();
+    const ex = new Array();
+    // console.log(json);
+    if (json.length !== 0) {
+      for (let i = 0; i < json.length; i++) {
+        ex.push(json[i].p_date);
+      }
+    }
+    const day_all = document.querySelectorAll("div.day div");
+
+    for (let i = 0; i < ex.length; i++) {
+      if (month_text.length === 1) {
+        month_text = "0" + month_text;
+      }
+
+      for (let j = 0; j < day_all.length; j++) {
+        if (day_all[j].innerHTML.length === 1) {
+          day_all[j].innerHTML = "0" + day_all[j].innerHTML;
+        }
+        if (`${year_text}-${month_text}-${day_all[j].innerHTML}` === ex[i]) {
+          day_all[j].classList.add("product");
+        }
+      }
+    }
   });
   // 달력 다음버튼 누를때 이벤트
-  next.addEventListener("click", () => {
+  next?.addEventListener("click", async () => {
     ++month.innerHTML;
     const html = document.querySelectorAll(".day div");
     const next_date = new Date(year.innerHTML, month.innerHTML - 1, 1);
@@ -77,6 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     for (let i = 0; i < html.length; i++) {
       html[i].innerHTML = "";
+      html[i].classList.remove("product");
     }
     let index = 1;
 
@@ -88,20 +118,66 @@ document.addEventListener("DOMContentLoaded", () => {
       month.innerHTML = 1;
       year.innerHTML++;
     }
+    const year_text = String(year.innerHTML);
+    let month_text = String(month.innerHTML);
+
+    const res = await fetch(`/calendar/get`);
+    const json = await res.json();
+    const ex = new Array();
+    // console.log(json);
+    if (json.length !== 0) {
+      for (let i = 0; i < json.length; i++) {
+        ex.push(json[i].p_date);
+      }
+    }
+    // console.log(ex);
+    const day_all = document.querySelectorAll("div.day div");
+
+    for (let i = 0; i < ex.length; i++) {
+      if (month_text.length === 1) {
+        month_text = "0" + month_text;
+      }
+
+      for (let j = 0; j < day_all.length; j++) {
+        if (day_all[j].innerHTML.length === 1) {
+          day_all[j].innerHTML = "0" + day_all[j].innerHTML;
+        }
+        if (`${year_text}-${month_text}-${day_all[j].innerHTML}` === ex[i]) {
+          day_all[j].classList.add("product");
+        }
+      }
+    }
   });
 
   // day 부분을 눌렀을때 디테일 화면으로 전환
-  days.addEventListener("click", (e) => {
+  days?.addEventListener("click", async (e) => {
     const target = e.target;
 
-    let url = `/calendar/${[year.innerHTML + "-" + month.innerHTML + "-" + target.innerHTML]}/detail`;
+    let url = `/calendar/${[
+      year.innerHTML + "-" + month.innerHTML + "-" + target.innerHTML,
+    ]}/detail`;
 
-    if (`${[month.innerHTML.length]}` === "2" && `${[target.innerHTML.length]}` === "1") {
-      url = `/calendar/${[year.innerHTML + "-" + month.innerHTML + "-0" + target.innerHTML]}/detail`;
-    } else if (`${[month.innerHTML.length]}` === "1" && `${[target.innerHTML.length]}` === "1") {
-      url = `/calendar/${[year.innerHTML + "-0" + month.innerHTML + "-0" + target.innerHTML]}/detail`;
-    } else if (`${[month.innerHTML.length]}` === "1" && `${[target.innerHTML.length]}` === "2") {
-      url = `/calendar/${[year.innerHTML + "-0" + month.innerHTML + "-" + target.innerHTML]}/detail`;
+    if (
+      `${[month.innerHTML.length]}` === "2" &&
+      `${[target.innerHTML.length]}` === "1"
+    ) {
+      url = `/calendar/${[
+        year.innerHTML + "-" + month.innerHTML + "-0" + target.innerHTML,
+      ]}/detail`;
+    } else if (
+      `${[month.innerHTML.length]}` === "1" &&
+      `${[target.innerHTML.length]}` === "1"
+    ) {
+      url = `/calendar/${[
+        year.innerHTML + "-0" + month.innerHTML + "-0" + target.innerHTML,
+      ]}/detail`;
+    } else if (
+      `${[month.innerHTML.length]}` === "1" &&
+      `${[target.innerHTML.length]}` === "2"
+    ) {
+      url = `/calendar/${[
+        year.innerHTML + "-0" + month.innerHTML + "-" + target.innerHTML,
+      ]}/detail`;
     }
 
     if (target.innerText) {
@@ -111,4 +187,35 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", () => {});
+// 냉장고에 그날 산음식들 표시하기
+document?.addEventListener("DOMContentLoaded", async () => {
+  const year_text = String(year.innerHTML);
+  let month_text = String(month.innerHTML);
+
+  const res = await fetch(`/calendar/get`);
+  const json = await res.json();
+  const ex = new Array();
+  // console.log(json);
+  if (json.length !== 0) {
+    for (let i = 0; i < json.length; i++) {
+      ex.push(json[i].p_date);
+    }
+  }
+  // console.log(ex);
+  const day_all = document.querySelectorAll("div.day div");
+
+  for (let i = 0; i < ex.length; i++) {
+    if (month_text.length === 1) {
+      month_text = "0" + month_text;
+    }
+
+    for (let j = 0; j < day_all.length; j++) {
+      if (day_all[j].innerHTML.length === 1) {
+        day_all[j].innerHTML = "0" + day_all[j].innerHTML;
+      }
+      if (`${year_text}-${month_text}-${day_all[j].innerHTML}` === ex[i]) {
+        day_all[j].classList.add("product");
+      }
+    }
+  }
+});
