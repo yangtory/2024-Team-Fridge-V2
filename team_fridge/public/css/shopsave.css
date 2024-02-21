@@ -1,21 +1,7 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-a {
-  text-decoration: none;
-  color: inherit;
-  white-space: nowrap;
-}
-html {
-  height: 100vh;
-}
-body {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  user-select: none;
+div.main {
+  height: 90%;
+  background-color: #e7e5e5;
+  border-radius: 15px;
 }
 
 div.body {
@@ -27,13 +13,12 @@ div.body {
   align-items: center;
   justify-content: center;
 
-  height: 100vh;
-  overflow: hidden;
+  height: 100%;
 }
 
 section.box {
-  width: 89.3%;
-  height: 87.2%;
+  width: 89.5%;
+  height: 90%;
   background-color: #f4f4f4;
   border-radius: 15px;
   display: flex;
