@@ -271,6 +271,23 @@ router.get("/shopmemo/:f_seq/save", async (req, res) => {
     return res.json(error);
   }
 });
+router.get("/shop_add_fridge", async (req, res) => {
+  return res.render("fridge/shop_add_fridge");
+});
+router.post("/shop_add_fridge", upLoad.single("f_photo"), async (req, res) => {
+  const data = req.body;
+  const file = req.file;
+  if (file) {
+    req.body.f_image_name = file.filename;
+    req.body.f_image_origin_name = file.originalname;
+  }
+  try {
+    await FRIDGE.create(data);
+    return res.redirect("/fridge/shopmemo/save");
+  } catch (error) {
+    return res.json(error);
+  }
+});
 // ============================
 
 export default router;

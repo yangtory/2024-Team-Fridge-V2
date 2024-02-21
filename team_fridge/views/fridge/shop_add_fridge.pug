@@ -1,0 +1,42 @@
+extends ../layout_home
+
+block content
+    link(rel="stylesheet", href="/css/fridge/add_fridge.css")
+    link(rel="stylesheet", href="/css/thema/fridge_add_thema.css")
+    script(src="/js/add_fridge.js")
+    script(src="/js/setting/setting_thema.js")    
+    div.body
+        section    
+            form.add(method="POST" enctype="multipart/form-data")
+                if FR
+                    h1 #{FR.f_div} 수정
+                else 
+                    h1 냉장고 추가
+                div.add
+                    div.photo
+                        if FR
+                            img.img_add(src=`/uploads/${FR.f_image_name}` )
+                            input.photo(name="f_photo" type="file" accept="image/*" id="f_photo")
+                        else
+                            img.img_add(src="/images/add_image.svg" )
+                            input.photo(name="f_photo" type="file" accept="image/*" id="f_photo")
+                div.err 
+                div.select
+                    label#fresh(for="selecttem" value="fresh") 냉장
+                    label#cold(for="selecttem" value="cold") 냉동
+                    label#out(for="selecttem" value="out") 실외
+                        if FR
+                            input.update_div(id="selecttem" name="f_div" value= `${FR.f_div}`)(data-div=`${FR.f_div}`)
+                        else
+                            input.update_div(id="selecttem" name="f_div")
+                div.input
+                    div.err
+                    input#f_name(name="f_name" placeholder="냉장고 이름을 입력하세요" value = `${FR ? FR.f_name : ""}`)
+                    input#f_memo(name="f_memo" placeholder="메모를 입력하세요" value = `${FR ? FR.f_memo : ""}`)
+                div.btn
+                    input#f_btn(type="button" value= `${FR? "수정":"추가"}`)
+
+
+
+
+
