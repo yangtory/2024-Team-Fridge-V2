@@ -233,3 +233,11 @@ div.product {
     }
   }
 }
+
+section.box {
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
