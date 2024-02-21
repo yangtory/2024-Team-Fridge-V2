@@ -1,23 +1,12 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+div.main {
+  height: 90%;
+  background-color: #e7e5e5;
+  border-radius: 15px;
 }
-a {
-  text-decoration: none;
-  color: inherit;
-  white-space: nowrap;
-}
-html {
-  height: 100vh;
-}
-body {
-  height: 99.5%;
-  display: flex;
-  flex-direction: column;
-  user-select: none;
-}
+
 div.body {
+  user-select: none;
+  height: 100%;
   background-color: #e7e5e5;
   border-radius: 15px;
 
@@ -26,11 +15,9 @@ div.body {
   align-items: center;
   justify-content: center;
 
-  height: 96%;
-
   input {
     font-size: 15px;
-    width: 100%;
+    /* width: 100%; */
     background-color: inherit;
     border: none;
     border-bottom: 1px solid #4e4e4e;
@@ -164,7 +151,7 @@ div.amount {
   }
 }
 div.body input.amount {
-  width: 50%;
+  width: 30%;
 }
 div.btn_box {
   margin-top: auto;
