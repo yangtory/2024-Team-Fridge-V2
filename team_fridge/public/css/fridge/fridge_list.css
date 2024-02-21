@@ -79,14 +79,20 @@ section {
     display: none;
   }
 }
+div.food_box.input {
+  /* border: 1px solid red; */
+  width: 80%;
+  margin: 0 auto;
+}
+
 div.food {
+  padding: 20px;
   /* border: 1px solid black; */
+  margin: 8px auto;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  margin: 8px auto;
-  width: 80%;
+
   justify-content: center;
   background-color: #fff;
 
@@ -103,9 +109,4 @@ div.food {
     font-weight: 800;
     color: #4e4e4e;
   }
-}
-
-section btn.add {
-  display: flex;
-  justify-content: center;
 }

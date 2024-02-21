@@ -1,7 +1,10 @@
 import express from "express";
 import db from "../models/index.js";
+import { Op } from "sequelize";
+import moment from "moment";
 const USER = db.models.tbl_user;
 const PRODUCT = db.models.tbl_product;
+const FRIDGE = db.models.tbl_fridge;
 
 const router = express.Router();
 
@@ -77,7 +80,17 @@ router.get("/logout", (req, res) => {
 });
 
 router.get("/count", async (req, res) => {
-  const rows = await PRODUCT.findAll();
+  const exdate = moment().add(10, "days").format("YYYY-MM-DD");
+  const rows = await PRODUCT.findAll({
+    include: {
+      model: FRIDGE,
+      as: "F_냉장고",
+    },
+    where: {
+      p_exdate: { [Op.lte]: exdate },
+    },
+    order: [["p_exdate", "ASC"]],
+  });
   return res.json({ count: rows.length });
 });
 

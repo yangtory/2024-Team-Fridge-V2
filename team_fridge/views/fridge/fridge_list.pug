@@ -12,15 +12,19 @@ block content
             div.btn_group 
                 button.btn_add(data-food= `${FOOD.f_seq}`) 음식추가
                 button.btn_delete(data-num= `${FOOD.f_seq}`) 냉장고삭제
-            div.food_box
+            div.food_box.input
                 each item in FOOD.F_음식
-                    div.food(data-food= `${item.p_seq}`)
-                        ul(data-food= `${item.p_seq}`)
-                            li ✓ 음식이름 :   
-                                span= item.p_name
-                            li ✓ 수량 : 
-                                span= item.p_quan
-                            li ✓ 구매일자 :  
-                                span= item.p_date
-                            li ✓ 소비기한 : 
-                                span= item.p_exdate
+                    div.food.input.list(data-food= `${item.p_seq}`)
+                        ul.input(data-food= `${item.p_seq}`)
+                            li.input ✓ 음식이름 :   
+                                span.input.item= item.p_name
+                            li.input ✓ 수량 : 
+                                span.input.item= item.p_quan
+                            li.input ✓ 구매일자 :  
+                                span.input.item= item.p_date
+                            li.input ✓ 소비기한 : 
+                                span.input.item= item.p_exdate
+                             
+                                
+                
+                    

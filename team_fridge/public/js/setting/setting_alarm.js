@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const res = await fetch("/setting/count");
   const json = await res.json();
-
+  console.log(json);
   // 스위치 상태에 따라 초기 색상 설정
   if (switchState === "on") {
     updateBellIconColor(true);
