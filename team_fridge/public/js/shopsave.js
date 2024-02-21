@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const newf = document.querySelector("button.add");
 
   newf.addEventListener("click", () => {
-    document.location.href = "/fridge/add_fridge";
+    document.location.href = "/fridge/shop_add_fridge";
   });
   back.addEventListener("click", () => {
     location.replace("/fridge/shopmemo");
