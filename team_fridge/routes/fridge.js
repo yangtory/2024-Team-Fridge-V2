@@ -120,7 +120,12 @@ router.get("/:f_seq/fridge_delete", async (req, res) => {
     await FRIDGE.destroy({
       where: { f_seq },
     });
-    return res.redirect("/fridge/list_fridge");
+    const rows = await FRIDGE.findAll();
+    if (rows.length === 0) {
+      return res.redirect("/");
+    } else {
+      return res.redirect("/fridge/list_fridge");
+    }
   } catch (error) {
     return res.json(error);
   }
